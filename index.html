@@ -87,5 +87,32 @@
     <div id="p">(c)</div>
     <div id="credits"><a href="https://github.com" target="_blank">Credits</a></div>
   </div>
+
+  
+<!--DETECT OS-->
+<!--DETECT OS-->
+<!--DETECT OS-->
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var os = '';
+  
+      if (navigator.userAgent.indexOf('Win') !== -1) os = 'windows';
+      else if (navigator.userAgent.indexOf('Mac') !== -1) os = 'mac';
+      else if (navigator.userAgent.indexOf('Linux') !== -1) os = 'linux';
+      else if (/Android/i.test(navigator.userAgent)) os = 'android';
+      else if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) os = 'ios';
+  
+      if (os) {
+        document.body.classList.add(os);
+      }
+    });
+  </script>
+  
+
+
+
+
+
 </body>
 </html>
