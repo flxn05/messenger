@@ -271,3 +271,8 @@ msg has inline*/
   50% {transform: scale(0.975);}
   100% {transform: scale(1);}
 }
+
+body.android,
+body.ios .text-input {
+  background-color: black;
+}
