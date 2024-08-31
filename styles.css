@@ -10,7 +10,7 @@
 }
 
 body {
-  background-image: linear-gradient(20deg, rgb(0, 10, 20), rgb(14, 15, 20), rgb(0, 61, 85));
+  background-image: linear-gradient(45deg, #62107e, #251e3e);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -21,13 +21,18 @@ main {
   width: 80vw;
   height: 80vh;
   border-radius: 18px;
-  /*BG COLOR NORMAL*/
-  background-color: #181818;
-  box-shadow: black 0 0 44px;
-  cursor: pointer;
-  transform: scale(0.995);
+  background-image: linear-gradient(45deg, rgba(0, 0, 0, 0.726), rgba(108, 0, 129, 0.5));
+  background-color: #00000067;
+  box-shadow: rgba(0, 0, 0, 0.5) 24px 24px 44px;
+  transform: scale(1);
   transition: transform 0.33s cubic-bezier(.2,1.07,.78,.76);
   transition: background-color 0.4s;
+  animation: start-main 1s both ease-in-out;
+  display: grid;
+  grid-template-columns: 29% 70%;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.2rem;
+  color: gray;
 }
 
 /*SCROLLBAR*/
@@ -48,8 +53,6 @@ main {
 /*BG COLOR HOVERED*/
 main:hover {
   transform: scale(1);
-  /*background-color: #191d20;*/
-  background-color: #162029bd;
 }
 nav {
   position: fixed;
@@ -74,7 +77,7 @@ nav {
 #footer div {
   margin-left: 24px;
   margin-right: 24px;
-  color: gray;
+  color: lightgray;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
 }
@@ -93,19 +96,9 @@ nav {
 
 /*MAIN CONTENT GENERAL*/
 
-main {
-  display: grid;
-  grid-template-columns: 29% 3px 70%;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 1.2rem;
-  color: gray;
-}
 .one {
   overflow-y: scroll;
   overflow-x: hidden;
-}
-.two {
-  background-color: grey;
 }
 .three {
   overflow-y: scroll;
@@ -121,42 +114,36 @@ main {
   border-bottom: solid gray 1px;
   border-radius: 12px;
   transition: all 0.15s;
-  transition: translate 1s 1s cubic-bezier(.24,.7,.59,1.36);
+  transition: translate .5s cubic-bezier(.24,.7,.59,1.36);
+  display: flex;
+  align-items: center;
 }
 .chat-box:hover {
   transform: scale(0.95);
   animation: chat-box-hover 2s .5s infinite ease-in-out;
   translate: 2.5% 0;
 }
-.open-chat {
-  opacity: 0;
-  margin-top: 8px;
-  transition: opacity 0.25s;
-  font-size: 1rem;
-}
-.chat-box:hover .open-chat {
-  opacity: 1;
-}
-.chat-name {
-  font-weight: bold;
-}
-
-/*TWO*/
-/*TWO*/
 
 /*CHAT HEADER CLASS*/
 .chat-header {
   position: fixed;
-  top: 2px;
+  top: 0;
   left: 30%;
   right: 0;
+  margin-right: 16px;
+  padding-block: 12px;
   text-align: center;
+  z-index: 5;
 }
 
 /*CHAT-con CLASS*/
-.msg-con {
+.msg_rx,
+.msg_tx {
   display: block;
-  position: relative;
+}
+.msg-tx {
+   display: flex;
+   justify-content: right;
 }
 .chat-con {
   padding-left: 24px;
@@ -165,22 +152,43 @@ main {
 .space {
   height: 3rem;
 }
-.name-time {
-  position: absolute;
-  translate: .5rem -1rem;
-  font-size: .9rem;
-}
-.message {
+
+.msg-content-rx {
   padding-left: 18px;
   padding-right: 18px;
   padding-top: 8px;
   padding-bottom: 8px;
   max-width: 66%;
-  background-image: linear-gradient(45deg, rgb(13, 61, 124), rgba(212, 0, 255, 0.418));
+  background-image: linear-gradient(315deg, rgba(111, 0, 255, 0.5), rgba(212, 0, 255, 0.2));
   color: white;
   display: inline-block;
   border-radius: 16px;
-  margin-bottom: 2.25rem;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  transition: all 0.1s;
+  box-shadow: 0 0 24px rgba(0, 0, 0, 0.1);
+}
+
+.msg-content-tx {
+  padding-left: 18px;
+  padding-right: 18px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  max-width: 66%;
+  background-image: linear-gradient(45deg, rgba(111, 0, 255, 0.5), rgba(212, 0, 255, 0.2));
+  color: white;
+  display: inline-block;
+  border-radius: 16px;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  transition: all 0.1s;
+  box-shadow: 0 0 24px rgba(0, 0, 0, 0.5);
+}
+
+.msg-content-rx:hover,
+.msg-content-tx:hover {
+  transform: scale(1.025);
+  box-shadow: 0 0 24px black;
 }
 
 /*TEXT INPUT FIELD*/
@@ -198,21 +206,29 @@ main {
   width: 66%;
   padding-left: 24px;
   padding-right: 24px;
-  padding-bottom: 8px;
-  padding-top: 8px;
-  border-radius: 12px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  border-radius: 16px;
   margin-bottom: 12px;
   border: none;
+  background-color: rgba(0, 0, 0, 0.459);
+  color: white;
+  font-size: 1.1rem;
+}
+.text-input::placeholder {
+  color: rgb(172, 172, 172);
 }
 .send-msg {
   padding-block: 8px;
+  padding-inline: 18px;
   border-radius: 12px;
   margin-bottom: 12px;
   border: none;
   font-weight: bold;
-  background-image: linear-gradient(45deg, rgb(16, 41, 182), rgb(212, 0, 255));
+  background-image: linear-gradient(45deg, rgb(111, 0, 255), rgb(212, 0, 255));
   color: white;
   cursor: pointer;
+  box-shadow: 0 0 24px rgba(0, 0, 0, 0.5);
 }
 
 /*TEXT INPUT FIELD EFFECTS*/
@@ -220,17 +236,12 @@ main {
   outline: none;
   animation: text-input-focus 5s ease-in-out infinite;
 }
-
-
-
-
-
-
-
-
-
-
-
+.send-msg:focus {
+  animation: send-msg-focus .5s ease-in-out;
+}
+.send-msg:hover {
+  box-shadow: 0 0 24px black;
+}
 
 
 
@@ -250,13 +261,8 @@ msg has inline*/
 
 
 
-
-
 /*@ MEDIA QUERY: GREY LINE IN MAIN*/
 /*@ANIMATION KEYFRAMES IN INTRO*/
-
-
-
 
 
 @keyframes chat-box-hover {
@@ -272,7 +278,8 @@ msg has inline*/
   100% {transform: scale(1);}
 }
 
-body.android,
-body.ios .text-input {
-  background-color: black;
+
+@keyframes start-main {
+  0% {box-shadow: none; translate: 48px 48px; width: 888px; height: 555px; max-height: 80vh; max-width: 80vw;}
 }
+
