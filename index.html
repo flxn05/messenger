@@ -3,77 +3,53 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Private Messenger | SecureMSG</title>
+  <title>Messages | gigaCHAT</title>
   <link rel="stylesheet" href="styles.css">
-  <link rel="icon" type="image/x-icon" href="secure-logo.ico">
+  <link rel="icon" type="image/x-icon" href="thumbnail.png">
+  <link rel="script" href="website2.js"><!--INJECT CODE-->
 </head>
 <body>
   <nav>
-    <img src="secure-logo.ico" id="logo-big">
-    <p id="headline">SecureMSG</p>
+    <img src="thumbnail.png" id="logo-big">
+    <div class="space" style="width: 12px;"></div>
+    <p id="headline">gigaCHAT</p>
   </nav>
   <main>
-    <div class="one">
+    <div class="one" id="one">
 
 
-      <div class="chat-box">
-        <div class="chat-name">David Ott</div>
-        <div class="open-chat">Direct Chat</div>
-      </div>
-
-      <div class="chat-box">
-        <div class="chat-name">Jonathan Wallasch</div>
-        <div class="open-chat">Direct Chat</div>
-      </div>
-
-      <div class="chat-box">
-        <div class="chat-name">Felix Nowak</div>
-        <div class="open-chat">Direct Chat</div>
-      </div>
-      
-      <div class="chat-box">
-        <div class="chat-name">Felix sein Ding</div>
-        <div class="open-chat">Group</div>
-      </div>
+      <div class="chat-box">David Ott</div>
+      <div class="chat-box">David Ott</div>
+      <div class="chat-box">David Ott</div>
 
 
     </div>
 
-    <div class="two"></div>
+    <form class="text-input-con" id="form">
+      <input type="text" class="text-input" placeholder="Message ....">
+      <button type="submit" class="send-msg" id="send-msg">SEND</button>
+      </form>
 
-    <div class="three">
+    <div class="three" id="three">
 
       <div class="chat-header">
-        Group Chat - Felix sein Ding
+        "Felix sein Ding"
       </div>
-
-      <form class="text-input-con">
-        <input type="text" class="text-input" placeholder="Message ....">
-        <button type="submit" class="send-msg">SEND</button>
-        </form>
 
       <div class="chat-con">
         <div class="space"></div>
 
         <!--message-->
-        <div class="msg-con">
-          <div class="name-time">Moritz P., 4:54 a.m.</div>
-          <div class="message">Hallo ich bin dumm</div>
-        </div>
-        <!--message-->
-        <div class="msg-con">
-          <div class="name-time">Moritz L., 4:55 a.m.</div>
-          <div class="message">Ich auch!</div>
+        <div class="msg-rx">
+          <div class="msg-content-rx">Jonathan: Maiores minus nostrum nihil</div>
         </div>
 
         <!--message-->
-        <div class="msg-con">
-          <div class="name-time">Michael., 4:58 a.m.</div>
-          <div class="message">Lorem ipsum dolor sit amet consectetur adipisicing elit. <br><br>Maiores minus nostrum nihil veniam consequuntur blanditiis aliquam, atque laudantium rerum deserunt culpa sed dolor in ullam sapiente doloribus. Est, qui minima.</div>
+        <div class="msg-tx">
+          <div class="msg-content-tx">Felix: Maiores minus nostrum nihil</div>
         </div>
 
-
-        <div class="spacee" style="height: 100vh;"></div>
+      
 
 
       </div>
@@ -83,36 +59,10 @@
 
 
   <div id="footer">
-    <div id="github"><a href="https://github.com/flxn05?tab=repositories" target="_blank">Github</a></div>
-    <div id="p">(c)</div>
-    <div id="credits"><a href="https://github.com" target="_blank">Credits</a></div>
+    <div>Server Networking: David Ott</div>
+      <div>Website Client: Jonathan Wallasch</div>
+      <div>UI Design: Felix Nowak</div>
   </div>
-
-  
-<!--DETECT OS-->
-<!--DETECT OS-->
-<!--DETECT OS-->
-
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      var os = '';
-  
-      if (navigator.userAgent.indexOf('Win') !== -1) os = 'windows';
-      else if (navigator.userAgent.indexOf('Mac') !== -1) os = 'mac';
-      else if (navigator.userAgent.indexOf('Linux') !== -1) os = 'linux';
-      else if (/Android/i.test(navigator.userAgent)) os = 'android';
-      else if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) os = 'ios';
-  
-      if (os) {
-        document.body.classList.add(os);
-      }
-    });
-  </script>
-  
-
-
-
-
 
 </body>
 </html>
