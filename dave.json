@@ -1,0 +1,38 @@
+{
+  "user_data": {
+    "id": "dave",
+    "login_password": "i_like_linux",
+    "added_date": "26-08-2024"
+  },
+
+  "john": [
+    {"dir":  "rx", "text":  "thats  my message"},
+    {"dir":  "tx", "text":  "hey, i got ur mesage"},
+    {"dir":  "rx", "text":  "how are you?"},
+    {"dir":  "tx", "text":  "im fine"}
+  ],
+  "jane": [
+    {"dir":  "rx", "text":  "message1"},
+    {"dir":  "tx", "text":  "hey, i got ur mesage"},
+
+    {"dir":  "rx", "text":  "how are you?"},
+
+    {"dir":  "rx", "text":  "message2"},
+    {"dir":  "tx", "text":  "hey, i got ur mesage"},
+    {"dir":  "rx", "text":  "how are you?"},
+
+
+    {"dir":  "rx", "text":  "message3"},
+    {"dir":  "tx", "text":  "hey, i got ur mesage"},
+    {"dir":  "rx", "text":  "how are you?"},
+
+    {"dir":  "rx", "text":  "message4"},
+    {"dir":  "tx", "text":  "hey, i got ur mesage"},
+    {"dir":  "rx", "text":  "how are you?"},
+    {"dir":  "rx", "text":  "message5"},
+    {"dir":  "tx", "text":  "hey, i got ur mesage"},
+    {"dir":  "rx", "text":  "how are you?"}
+
+
+  ]
+}
