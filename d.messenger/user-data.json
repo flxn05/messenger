@@ -1,0 +1,42 @@
+{
+        "dave": {
+            "password": "i_like_linux"
+        },
+    
+        "john": {
+            "password": "john123"
+        },
+        "jane": {
+            "password": "jane456"
+        },
+        "joe": {
+            "password": "joe789"
+        },
+        "thomas": {
+            "password": "thomasabc"
+        },
+        "susan": {
+            "password": "susanxyz"
+        },
+        "mary": {
+            "password": "mary123"
+        },
+        "jim": {
+            "password": "jim456"
+        },
+        "jerry": {
+            "password": "jerry789"
+        },
+        "larry": {
+            "password": "larryabc"
+        },
+        "moe": {
+            "password": "moexyz"
+        },
+        "curly": {
+            "password": "curly123"
+        },
+        "shemp": {
+            "password": "shemp456"
+        }
+}
