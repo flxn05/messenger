@@ -16,19 +16,13 @@
   </nav>
   <main>
     <div class="one" id="one">
+      <div class="search-con"><input type="text" id="search-box" class="text-input" placeholder="Search groups and contacts ...." style="font-size: 1rem;"></div>
 
-
       <div class="chat-box">David Ott</div>
-      <div class="chat-box">David Ott</div>
-      <div class="chat-box">David Ott</div>
-      <div class="chat-box">David Ott</div>
-      <div class="chat-box">David Ott</div>
-      <div class="chat-box">David Ott</div>
-      <div class="chat-box">David Ott</div>
-      <div class="chat-box">David Ott</div>
-      <div class="chat-box">David Ott</div>
-      <div class="chat-box">David Ott</div>
-      <div class="chat-box">David Ott</div>
+      <div class="chat-box">fabi</div>
+      <div class="chat-box">nowak</div>
+      <div class="chat-box">felix</div>
+      <div class="chat-box">josé</div>
     </div>
 
     <form class="text-input-con" id="form">
@@ -39,7 +33,7 @@
     <div class="three" id="three">
 
       <div class="chat-header">
-        "Felix sein Ding"
+        "insert chat name (onclick?)"
       </div>
 
       <div class="chat-con">
@@ -102,13 +96,25 @@
 
 
 <script>const scrollContainer = document.getElementById('three');
-
-  // Setzt die Scroll-Position auf 400px
-  scrollContainer.scrollTop = 99999999999999999999999;
+  scrollContainer.scrollTop = 9999999;
   </script>
 
+<script>
+  document.getElementById('search-box').addEventListener('input', function() {
+      let searchQuery = this.value.toLowerCase();
+      let contacts = document.querySelectorAll('.chat-box');
 
-<
+      contacts.forEach(function(contact) {
+          let contactName = contact.textContent.toLowerCase();
+          if (contactName.includes(searchQuery)) {
+              contact.classList.remove('hidden');
+          } else {
+              contact.classList.add('hidden');
+          }
+      });
+  });
+</script>
+
 
   <div id="footer">
     <button onclick="update_users()">users</button>
