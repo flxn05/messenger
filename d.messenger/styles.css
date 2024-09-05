@@ -26,6 +26,7 @@ main {
   border-radius: 18px;
   border: solid #5c0091a8 2px;
   padding: 45px;
+  padding-right: 0;
   transition: transform 0.33s cubic-bezier(.2,1.07,.78,.76);
   transition: background-color 0.4s;
   display: grid;
@@ -34,7 +35,6 @@ main {
   font-size: 1.2rem;
   color: gray;
 }
-
 /*SCROLLBAR*/
  ::-webkit-scrollbar {
    width: 12px;
@@ -109,22 +109,32 @@ nav {
 /*ONE*/
 /*ONE*/
 
+.search-con {
+  display: flex;
+  justify-content: center;
+}
+
 /*CHAT BOX*/
 .chat-box {
   padding: 36px;
   height: 44px;
-  border-bottom: solid gray 1px;
-  border-radius: 12px;
+  border: solid #430069 3px;
+  border-radius: 18px;
   transition: all 0.15s;
-  transition: translate .5s cubic-bezier(.24,.7,.59,1.36);
+  transition: transform .15s ease-in-out;
   display: flex;
   align-items: center;
+  margin-bottom: 12px;
+  margin-right: 12px;
+  cursor: pointer;
 }
 .chat-box:hover {
-  transform: scale(0.95);
-  animation: chat-box-hover 2s .5s infinite ease-in-out;
-  translate: 2.5% 0;
+  transform: scale(0.975);
 }
+.chat-box.hidden {
+  display: none;
+}
+
 /*DO NOT EDIT !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
 /*DO NOT EDIT !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
 /*CHAT HEADER CLASS*/
@@ -138,6 +148,7 @@ nav {
   text-align: center;
   z-index: 5;
   background-color: #11001b;
+  margin-inline: 10%;
 }
 
 /*CHAT-con CLASS*/
@@ -148,10 +159,6 @@ nav {
 .msg-tx {
    display: flex;
    justify-content: right;
-}
-.chat-con {
-  padding-left: 24px;
-  padding-right: 24px;
 }
 .space {
   height: 3rem;
@@ -171,6 +178,7 @@ nav {
   cursor: pointer;
   transition: all 0.1s;
   box-shadow: 0 0 24px rgba(0, 0, 0, 0.1);
+  margin-left: 12px;
 }
 
 .msg-content-tx {
@@ -187,6 +195,7 @@ nav {
   cursor: pointer;
   transition: all 0.1s;
   box-shadow: 0 0 24px rgba(0, 0, 0, 0.5);
+  margin-right: 12px;
 }
 
 .msg-content-rx:hover,
@@ -206,6 +215,7 @@ nav {
   background-color: #11001b;
   padding-top: 18px;
   z-index: 10;
+  margin-inline: 5%;
 }
 /*DO NOT EDIT !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
 /*DO NOT EDIT !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
@@ -241,19 +251,12 @@ nav {
 }
 
 /*TEXT INPUT FIELD EFFECTS*/
-.text-input:focus {
+.text-input:focus-visible        {
   outline: none;
 }
 .send-msg:hover {
   box-shadow: 0 0 24px black;
 }
-
-@keyframes chat-box-hover {
-  0% {transform: scale(0.95);}
-  50% {transform: scale(0.925);}
-  100% {transform: scale(0.95);}
-}
-
 
 .loading-con {
   position: fixed;
@@ -270,6 +273,8 @@ nav {
 .loading {
   display: flex;
   flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
 #loading-headline {
   margin: 0;
@@ -278,4 +283,9 @@ nav {
 @keyframes start-mobile {
   0% {display: normal;}
   100% {display: none;}
+}
+
+@keyframes search {
+  0% {transform: scale(1); opacity: 1; filter: saturate(1);}
+  100% {transform: scale(.75); opacity: 0; filter: saturate(0);}
 }
