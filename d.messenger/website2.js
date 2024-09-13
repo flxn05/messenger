@@ -18,12 +18,21 @@ async function load_users(){
     for (let i = 0; i < user_good.length; i++) {
         add_user(user_good[i]);
     }
+
+    const para = document.createElement("div");
+    para.setAttribute("class", "chat-box");
+    para.setAttribute("id", "chat-box");
+    para.setAttribute("onclick", "load_grp()");
+    para.innerHTML = "group_chat";
+    const parent = document.getElementById("one");
+    parent.appendChild(para);
 }
 function clear_users() {
     const element = document.getElementById("one");
     while (element.firstChild) {
         element.removeChild(element.lastChild);
     }
+    element.innerHTML = "<div class='search-con'><input type='text' id='search-box' class='text-input' placeholder='Search groups and contacts ....' style='font-size: 1rem;'></div>";
 }
 
 function update_users() {
@@ -81,6 +90,23 @@ async function load_chats(user_id){
     }
 }
 
+async function load_grp() {
+    clear_chats();
+    var d = await fetch("grp.json");
+    var data = await d.json();
+   
+    for(let i=0; i < data.length; i++){
+        var msg = data[i].sender + ": " + data[i].msg;
+        console.log(msg);
+
+        var dir = "rx";
+        if (data[i].sender == "logged_in_user"){
+            dir = "tx";
+        }
+        add_msg(msg, dir);
+    }
+}
+
 
 function send_msg(){
 
@@ -90,3 +116,7 @@ function send_msg(){
     form[0].placeholder = "";
     console.log(sending_msg)
 }
+
+
+
+//update_users();
