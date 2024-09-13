@@ -120,3 +120,20 @@ function send_msg(){
 
 
 update_users();
+
+
+
+
+document.getElementById('search-box').addEventListener('input', function() {
+    let searchQuery = this.value.toLowerCase();
+    let contacts = document.querySelectorAll('.chat-box');
+
+    contacts.forEach(function(contact) {
+        let contactName = contact.textContent.toLowerCase();
+        if (contactName.includes(searchQuery)) {
+            contact.classList.remove('hidden');
+        } else {
+            contact.classList.add('hidden');
+        }
+    });
+});
