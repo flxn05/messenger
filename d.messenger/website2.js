@@ -119,4 +119,4 @@ function send_msg(){
 
 
 
-//update_users();
+update_users();
