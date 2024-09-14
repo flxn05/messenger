@@ -140,13 +140,13 @@ nav {
 .chat-header {
   position: fixed;
   top: 44px;
-  left: 30%;
-  right: 0;
+  left: 22.5%;
+  right: -7.5%;
   margin-right: 16px;
   padding-block: 12px;
   text-align: center;
   z-index: 5;
-  background-color: #11001b;
+  background-image: radial-gradient(#11001b, transparent);
   margin-inline: 10%;
 }
 
@@ -211,7 +211,7 @@ nav {
   right: 0;
   display: flex;
   justify-content: center;
-  background-color: #11001b;
+  background-image: radial-gradient(#11001b, transparent);
   padding-top: 18px;
   z-index: 10;
   margin-inline: 5%;
@@ -267,7 +267,7 @@ nav {
   justify-content: center;
   align-items: center;
   background-color: rgb(17, 0, 27);
-  animation: start-mobile 1s both;
+  animation: start-mobile .75s both;
 }
 .loading {
   display: flex;
@@ -280,11 +280,6 @@ nav {
 }
 
 @keyframes start-mobile {
-  0% {display: normal;}
+  0% {display: normal; filter: brightness(0);}
   100% {display: none;}
-}
-
-@keyframes search {
-  0% {transform: scale(1); opacity: 1; filter: saturate(1);}
-  100% {transform: scale(.75); opacity: 0; filter: saturate(0);}
 }
