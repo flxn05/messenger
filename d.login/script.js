@@ -65,6 +65,7 @@ async function login() {
         if (data[user].password == pswd) {
            succes();
            window.location.replace("login_succesful.html");
+           document.cookie = "username=" + user;
         }
         else {
             fail();
