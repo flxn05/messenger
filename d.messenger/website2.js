@@ -82,6 +82,8 @@ async function load_chats(user_id){
     var r = await x.json();
 
 
+    var x = document.getElementById("chat-header");
+    x.innerHTML = user_id;
 
     for (let i= 0; i < r[user_id].length; i++){
         var msg = r[user_id][i].text;
