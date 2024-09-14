@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!--<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -146,7 +146,7 @@ header {
             <input type="text" name="username" id="username" placeholder="username ....">
             <input type="password" name="password" id="password" placeholder="password ....">
             <button type="button" id ="login_button" onclick="login()">Login</button>
-        </form>
+        </
     </main>
 
     <div id="footer">
@@ -154,5 +154,292 @@ header {
       <div>Website Client: Jonathan Wallasch</div>
       <div>UI Design: Felix Nowak</div>
       </div>
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login | gigaCHAT</title>
+  <link rel="icon" type="image/x-icon" href="thumbnail.png">
+  <script type="text/javascript" src="script.js"></script>
+
+<style>
+
+  /*GENEREAL STYLES*/
+  /*GENEREAL STYLES*/
+  /*GENEREAL STYLES*/
+  
+  ::selection {
+    background-color: white;
+    color: black;
+    color: #141c23;
+  }
+  
+  body {
+    background-color: rgb(17, 0, 27);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow-y: hidden;
+    color: white;
+  }
+  main {
+    width: 80vw;
+    max-width: 1920px;
+    height: 60vh;
+    translate: 0 -5vh;
+    border-radius: 18px;
+    border: solid #5c0091a8 2px;
+    padding: 45px;
+    padding-right: 0;
+    transition: transform 0.33s cubic-bezier(.2,1.07,.78,.76);
+    transition: background-color 0.4s;
+    display: grid;
+    grid-template-columns: 29% 70%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.2rem;
+    color: gray;
+  }
+  /*SCROLLBAR*/
+   ::-webkit-scrollbar {
+     width: 12px;
+   }
+  ::-webkit-scrollbar-track {
+   background-color: transparent;
+   border-radius: 6px;
+   cursor: context-menu;
+  }
+  ::-webkit-scrollbar-thumb {
+   background-color: #430069;
+   border-radius: 6px;
+   cursor: context-menu;
+  }
+  
+  /*BG COLOR HOVERED*/
+  main:hover {
+    transform: scale(1);
+  }
+  nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    max-height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  /*DO NOT EDIT !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+  /*DO NOT EDIT !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+  #logo-big {
+    max-height: 5vh;
+  }
+  .headline {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 3.5rem;
+  }
+  
+  /*MAIN CONTENT*/
+  /*MAIN CONTENT*/
+  /*MAIN CONTENT*/
+  
+  /*MAIN CONTENT GENERAL*/
+  
+  .one {
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+  .three {
+    overflow-y: scroll;
+  }
+  
+  /*ONE*/
+  /*ONE*/
+  
+  /*CHAT BOX*/
+  .chat-box {
+    padding: 36px;
+    height: 44px;
+    border: solid #430069 3px;
+    border-radius: 18px;
+    transition: all 0.15s;
+    transition: transform .15s ease-in-out;
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    margin-right: 12px;
+    cursor: pointer;
+  }
+  .chat-box:hover {
+    transform: scale(0.975);
+  }
+  #credits {
+    color: lightgrey !important;
+    padding: 36px;
+    height: 44px;
+    border: solid #430069 3px;
+    border-radius: 18px;
+    transition: all 0.15s;
+    transition: transform .15s ease-in-out;
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    margin-right: 12px;
+    cursor: pointer;
+  }
+  
+  #credits:hover {
+    transform: scale(0.975);
+  }
+
+  /*DO NOT EDIT !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+  /*DO NOT EDIT !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+  /*CHAT HEADER CLASS*/
+  .chat-header {
+    position: fixed;
+    top: 44px;
+    left: 30%;
+    right: 0;
+    margin-right: 16px;
+    padding-block: 12px;
+    text-align: center;
+    z-index: 5;
+    background-color: #11001b;
+    margin-inline: 10%;
+  }
+  
+  /*CHAT-con CLASS*/
+  .msg_rx,
+  .msg_tx {
+    display: block;
+  }
+  .msg-tx {
+     display: flex;
+     justify-content: right;
+  }
+  .space {
+    height: 3rem;
+  }
+  
+  .msg-content-rx {
+    padding-left: 18px;
+    padding-right: 18px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    max-width: 66%;
+    background-image: linear-gradient(315deg, rgb(111, 0, 255), rgb(159, 0, 190));
+    color: white;
+    display: inline-block;
+    border-radius: 16px;
+    margin-bottom: 1rem;
+    cursor: pointer;
+    transition: all 0.1s;
+    box-shadow: 0 0 24px rgba(0, 0, 0, 0.1);
+    margin-left: 12px;
+  }
+  
+  .msg-content-tx {
+    padding-left: 18px;
+    padding-right: 18px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    max-width: 66%;
+    background-image: linear-gradient(45deg, rgb(111, 0, 255), rgb(159, 0, 190));
+    color: white;
+    display: inline-block;
+    border-radius: 16px;
+    margin-bottom: 1rem;
+    cursor: pointer;
+    transition: all 0.1s;
+    box-shadow: 0 0 24px rgba(0, 0, 0, 0.5);
+    margin-right: 12px;
+  }
+  #un,
+  #pw {
+  background-color: transparent;
+  border: none;
+  color: lightgrey;
+}
+  #un::placeholder,
+  #pw::placeholder {
+    color: lightgrey;
+  }
+  #login_button {
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  color: white;
+  }
+</style>
+
+
+</head>
+<body>
+  <nav>
+    <img src="thumbnail.png" id="logo-big">
+    <div class="space" style="width: 12px;"></div>
+    <p class="headline">Login</p>
+  </nav>
+  <main>
+    <div class="one" id="one">
+      <div id="credits">Credits:</div>
+      <div class="chat-box">David Ott</div>
+      <div class="chat-box">Felix Nowak</div>
+      <div class="chat-box">Jonathan Wallasch</div>
+
+      <a href="https://github.com/flxn05/messenger" target="_blank"><div class="chat-box" style="color: lightgray; text-decoration: none;">Our Github &#8599;</div></a>
+    </div>
+    <div class="three" id="three">
+
+      <div class="chat-header"></div>
+
+      <div class="chat-con">
+        <div class="space"></div>
+
+        <div style="margin-top: 44px;"></div>
+        <!--message-->
+        <div class="msg-rx">
+          <div class="msg-content-rx">(gigaCHAT) Hi! Please enter your usernname!</div>
+        </div>
+        <div style="margin-top: 12px;"></div>
+        <!--message-->
+        <div class="msg-tx">
+          <div class="msg-content-tx">you: <input type="text" placeholder="username ...." id="un"></div>
+        </div>
+        <!--message-->
+        <div class="msg-rx">
+          <div class="msg-content-rx">(gigaCHAT) ... and your password!</div>
+        </div>
+        <div style="margin-top: 12px;"></div>
+        <form id="login_form">
+        <div style="margin-top: 12px;"></div>
+        <!--message-->
+        <div class="msg-tx">
+          <div class="msg-content-tx">you: <input type="password" placeholder="password ...." id="pw"></div>
+        </div>
+       
+        </form>
+
+        <div style="margin-top: 12px;"></div>
+        <!--message-->
+        <div class="msg-rx">
+          <div class="msg-content-rx" id="error">Thanks for using gigaCHAT!</div>
+        </div>
+         <!--message-->
+         <div class="msg-tx">
+          <div class="msg-content-tx"><button type="button" id ="login_button" onclick="login()">Login</button>
+          </div>
+        
+
+      <!--DO NOT EDIT!!!!!!!!!!!!!!!!-->
+      </div>
+    </div>
+  </main>
 </body>
 </html>
