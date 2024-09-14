@@ -365,16 +365,19 @@ header {
   background-color: transparent;
   border: none;
   color: lightgrey;
+  font-size: 1.25rem;
 }
   #un::placeholder,
   #pw::placeholder {
     color: lightgrey;
+    font-size: 1.25rem;
   }
   #login_button {
   cursor: pointer;
   background-color: transparent;
   border: none;
   color: white;
+  font-size: 1.25rem;
   }
 </style>
 
@@ -405,23 +408,24 @@ header {
         <div style="margin-top: 44px;"></div>
         <!--message-->
         <div class="msg-rx">
-          <div class="msg-content-rx">(gigaCHAT) Hi! Please enter your usernname!</div>
+          <div class="msg-content-rx">Hi! Please enter your username!</div>
         </div>
         <div style="margin-top: 12px;"></div>
         <!--message-->
+        <form id="login_form">
         <div class="msg-tx">
-          <div class="msg-content-tx">you: <input type="text" placeholder="username ...." id="un"></div>
+          <div class="msg-content-tx"><input type="text" placeholder="username ...." id="un"></div>
         </div>
+        <div style="margin-top: 12px;"></div>
         <!--message-->
         <div class="msg-rx">
-          <div class="msg-content-rx">(gigaCHAT) ... and your password!</div>
+          <div class="msg-content-rx">... and your password!</div>
         </div>
         <div style="margin-top: 12px;"></div>
-        <form id="login_form">
         <div style="margin-top: 12px;"></div>
         <!--message-->
         <div class="msg-tx">
-          <div class="msg-content-tx">you: <input type="password" placeholder="password ...." id="pw"></div>
+          <div class="msg-content-tx"><input type="password" placeholder="password ...." id="pw"></div>
         </div>
        
         </form>
