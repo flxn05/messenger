@@ -44,14 +44,14 @@ main {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-form {
+#login_form {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
 
-header {
+.lheader {
   position: fixed;
   top: 64px;
   left: 0;
@@ -61,22 +61,23 @@ header {
   justify-content: center;
   align-items: center;
 }
-#logo-big {
+#llogo-big {
   max-height: 5vh;
 }
-#headline {
+#lheadline {
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
   font-size: 3rem;
 }
-#error {
+#lerror {
   color: #a200ff;
   letter-spacing: 1px;
   font-style: italic;
   font-weight: bold;
   margin-bottom: 24px;
+  text-align: center;
 }
-#footer {
+#lfooter {
   position: fixed;
   bottom: 0;
   left: 0;
@@ -87,14 +88,14 @@ header {
   background-color: #181818;
   font-family: Arial, Helvetica, sans-serif;
 }
-#footer div {
+#lfooter div {
   margin-left: 24px;
   margin-right: 24px;
   color: lightgray;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
 }
-.login {
+.llogin {
   font-weight: bold;
   margin-bottom: 3vh;
   font-size: 3rem;
@@ -133,27 +134,26 @@ header {
 </head>
 <body>
 
-<header>
-  <img src="thumbnail.png" id="logo-big">
+<div class="lheader">
+  <img src="thumbnail.png" id="llogo-big">
   <div class="space" style="width: 12px;"></div>
-  <div id="headline">gigaCHAT</div>
-</header>
-   
+  <div id="lheadline">gigaCHAT</div>
+</div>
+  
     <main>
-      <div class="login">Login</div>
-        <div id="error"></div>
+      <div class="llogin">Login</div>
+        <div id="lerror"></div>
         <form id="login_form">
             <input type="text" name="username" id="username" placeholder="username ....">
             <input type="password" name="password" id="password" placeholder="password ....">
             <button type="button" id ="login_button" onclick="login()">Login</button>
     </main>
 
-    <div id="footer">
+    <div id="lfooter">
       <div>Server Networking: David Ott</div>
       <div>Website Client: Jonathan Wallasch</div>
       <div>UI Design: Felix Nowak</div>
       </div>
-
 </body>
 </html>
 
