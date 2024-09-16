@@ -1,3 +1,6 @@
+html {
+  scroll-behavior: smooth;
+}
 
 /*GENEREAL STYLES*/
 /*GENEREAL STYLES*/
@@ -17,6 +20,7 @@ body {
   height: 100vh;
   overflow-y: hidden;
   color: white;
+  padding-inline: 2.5vw;
 }
 main {
   width: 100vw;
@@ -24,7 +28,7 @@ main {
   height: 80vh;
   translate: 0 -5vh;
   border-radius: 18px;
-  border: solid #5c0091a8 2px;
+  border: solid #003a91a8 2px;
   padding: 45px;
   padding-right: 0;
   transition: transform 0.33s cubic-bezier(.2,1.07,.78,.76);
