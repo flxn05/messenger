@@ -159,6 +159,12 @@ nav {
 .msg_tx {
   display: block;
 }
+.msg_rx::before {
+  font-size: 0.8rem;
+  color: lightgrey;
+  background-color: transparent;
+  content: "sender/date/time"
+}
 .msg-tx {
    display: flex;
    justify-content: right;
