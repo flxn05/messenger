@@ -160,11 +160,18 @@ nav {
   display: block;
 }
 
-.msg-content-rx::before,
-.msg-content-tx::before {
+.msg-content-rx::before {
   content: "Jonathan at 1.03 pm";
   color: rgb(177, 177, 177);
-  font-size: .8rem;
+  font-size: .9rem;
+  position: fixed;
+  translate: 0 -1rem;
+}
+.msg-content-tx::before {
+  content: "Jonathan at 1.03 pm";
+  color: rgb(207, 207, 207);
+  font-size: .9rem;
+  font-weight: bold;
   position: fixed;
   translate: 0 -1rem;
 }
