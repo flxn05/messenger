@@ -1,0 +1,344 @@
+html {
+  scroll-behavior: smooth;
+}
+
+/*GENEREAL STYLES*/
+/*GENEREAL STYLES*/
+/*GENEREAL STYLES*/
+
+::selection {
+  background-color: #005c4b;
+  color: black;
+}
+
+.msg-content-tx::selection {
+  background-color: black;
+  color: #005c4b;
+}
+
+body {
+  background-color: #121212;
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  color: rgb(226, 226, 226);
+  padding-inline: 2.5vw;
+  overflow: hidden;
+}
+main {
+  width: 100vw;
+  height: 95vh;
+  translate: 0 2.5rem;
+  border-radius: 18px;
+  padding-right: 0;
+  transition: transform 0.33s cubic-bezier(.2,1.07,.78,.76);
+  transition: background-color 0.4s;
+  display: grid;
+  grid-template-columns: 29% 70%;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.2rem;
+  color: gray;
+}
+/*SCROLLBAR*/
+ ::-webkit-scrollbar {
+   width: 6px;
+ }
+::-webkit-scrollbar-track {
+ background-color: transparent;
+ border-radius: 6px;
+ cursor: context-menu;
+}
+::-webkit-scrollbar-thumb {
+ background-color: #b9b9b9;
+ border-radius: 6px;
+ cursor: context-menu;
+}
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3rem;
+  display: flex;
+  justify-content: left;
+  padding-left: 5vw;
+  align-items: center;
+  z-index: 5;
+  background-color: #202020;
+}
+.nav-btns {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 44px;
+}
+.nav-btns button {
+  padding-block: 8px;
+  padding-inline: 18px;
+  border-radius: 12px;
+  border: none;
+  font-weight: bold;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 0 24px rgba(0, 0, 0, 0.75);
+  width: 148px;
+}
+#button-logout {
+  background-color: darkred;
+  transition: all .15s;
+}
+#button-whatsapp {
+  background-color: green;
+  transition: all .15s;
+}
+#button-signal {
+  background-color: blue;
+  transition: all .25s;
+}
+#button-logout:hover {
+  box-shadow: 2px 2px 8px rgba(139, 0, 0, 0.5);
+}
+#button-whatsapp:hover {
+  box-shadow: 2px 2px 8px rgba(0, 128, 0, 0.5);
+}
+#button-signal:hover {
+  box-shadow: 2px 2px 8px rgba(0, 0, 255, 0.5);
+}
+#footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 18px;
+  display: flex;
+  justify-content: center;
+}
+/*DO NOT EDIT !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+/*DO NOT EDIT !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+#footer div {
+  margin-left: 24px;
+  margin-right: 24px;
+  color: lightgray;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+}
+#logo-big {
+  max-height: 2rem;
+}
+.headline {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  font-size: 1.25rem;
+}
+
+/*MAIN CONTENT*/
+/*MAIN CONTENT*/
+/*MAIN CONTENT*/
+
+/*MAIN CONTENT GENERAL*/
+
+.one {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  background-color: #2e2e2e;
+  max-width: 640px;
+}
+.three {
+  overflow-y: scroll;
+}
+/*ONE*/
+/*ONE*/
+
+.search-con {
+  display: flex;
+  justify-content: center;
+}
+
+#search-box {
+  background-color: #3d3d3d;
+}
+
+/*CHAT BOX*/
+.chat-box {
+  padding: 36px;
+  height: 44px;
+  border: 1px solid #515151;
+  border-radius: 18px;
+  transition: all 0.15s;
+  transition: transform .15s ease-in-out;
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+  margin-right: 12px;
+  cursor: pointer;
+}
+.chat-box:hover {
+  transform: scale(0.975);
+}
+.chat-box.hidden {
+  display: none;
+}
+
+/*DO NOT EDIT !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+/*DO NOT EDIT !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+/*CHAT HEADER CLASS*/
+.chat-header {
+  display: none;
+}
+
+/*CHAT-con CLASS*/
+.msg_rx,
+.msg_tx {
+  display: block;
+  min-width: 2400px;
+}
+
+.msg-content-rx::before {
+  content: "Jonathan at 1.03 pm";
+  color: rgb(177, 177, 177);
+  font-size: .9rem;
+  position: fixed;
+  translate: 0 -1rem;
+}
+.msg-content-tx::before {
+  content: "Jonathan at 1.03 pm";
+  color: rgb(207, 207, 207);
+  font-size: .9rem;
+  font-weight: bold;
+  position: fixed;
+  translate: 0 -1rem;
+}
+
+.msg-tx {
+   display: flex;
+   justify-content: right;
+}
+.space {
+  height: 3rem;
+}
+
+.msg-content-rx {
+  padding-left: 18px;
+  padding-right: 18px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  max-width: 66%;
+  background-color: #3b3b3b;
+  color: white;
+  display: inline-block;
+  border-radius: 16px;
+  border-top-left-radius: 8px;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  transition: all 0.1s;
+  box-shadow: 0 0 24px rgba(0, 0, 0, 0.2);
+  margin-left: 12px;
+}
+
+.msg-content-tx {
+  padding-left: 18px;
+  padding-right: 18px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  max-width: 66%;
+  background-color: #2265ee;
+  color: white;
+  display: inline-block;
+  border-radius: 16px;
+  border-top-right-radius: 8px;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  transition: all 0.1s;
+  box-shadow: 0 0 24px rgba(0, 0, 0, 0.3);
+  margin-right: 12px;
+}
+/*
+.msg-content-rx:hover,
+.msg-content-tx:hover {
+  transform: scale(1.025);
+  box-shadow: 0 0 24px black;
+}*/
+
+/*TEXT INPUT FIELD*/
+.text-input-con {
+  position: fixed;
+  bottom: 44px;
+  left: 29%;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  padding-top: 18px;
+  z-index: 10;
+  margin-inline: 5%;
+}
+/*DO NOT EDIT !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+/*DO NOT EDIT !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+.text-input {
+  margin-left: 12px;
+  margin-right: 12px;
+  width: 66%;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  border-radius: 16px;
+  margin-bottom: 12px;
+  border: none;
+  background-color: #3b3b3b;
+  color: white;
+  font-size: 1.1rem;
+}
+.text-input::placeholder {
+  color: #b5b9b1;
+  font-size: 1rem;
+}
+.send-msg {
+  padding-block: 8px;
+  padding-inline: 18px;
+  border-radius: 12px;
+  margin-bottom: 12px;
+  border: none;
+  font-weight: bold;
+  background-color: #2265ee;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 0 24px rgba(0, 0, 0, 0.75);
+}
+
+/*TEXT INPUT FIELD EFFECTS*/
+.text-input:focus-visible        {
+  outline: none;
+}
+.send-msg:hover {
+  box-shadow: 0 0 24px black;
+}
+
+.loading-con {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #121212;
+  animation: start-mobile .75s both;
+  z-index: 10;
+}
+.loading {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+#loading-headline {
+  margin: 0;
+  font-size: 2rem;
+}
+
+@keyframes start-mobile {
+  0% {display: normal;}
+  100% {display: none;}
+}
