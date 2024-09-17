@@ -173,9 +173,10 @@ nav {
 }
 
 .msg-content-rx::before {
-  content: 'Content:';
+  content: 'Contentbefore:';
   color: green;
   font-style: italic;
+  translate: 0 -1rem;÷
 }
 
 .msg-tx {
