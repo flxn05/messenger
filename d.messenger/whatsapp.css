@@ -7,9 +7,13 @@ html {
 /*GENEREAL STYLES*/
 
 ::selection {
-  background-color: white;
+  background-color: #005c4b;
   color: black;
-  color: #141c23;
+}
+
+.msg-content-tx::selection {
+  background-color: black;
+  color: #005c4b;
 }
 
 body {
@@ -18,9 +22,9 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  overflow-y: hidden;
   color: rgb(226, 226, 226);
   padding-inline: 2.5vw;
+  overflow: hidden;
 }
 main {
   width: 100vw;
@@ -39,7 +43,7 @@ main {
 }
 /*SCROLLBAR*/
  ::-webkit-scrollbar {
-   width: 12px;
+   width: 8px;
  }
 ::-webkit-scrollbar-track {
  background-color: transparent;
@@ -63,6 +67,45 @@ nav {
   align-items: center;
   z-index: 5;
   background-color: #202020;
+}
+.nav-btns {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 44px;
+}
+.nav-btns button {
+  padding-block: 8px;
+  padding-inline: 18px;
+  border-radius: 12px;
+  border: none;
+  font-weight: bold;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 0 24px rgba(0, 0, 0, 0.75);
+  width: 148px;
+}
+#button-logout {
+  background-color: darkred;
+  transition: all .15s;
+}
+#button-whatsapp {
+  background-color: green;
+  transition: all .15s;
+}
+#button-signal {
+  background-color: blue;
+  transition: all .25s;
+}
+#button-logout:hover {
+  box-shadow: 2px 2px 8px rgba(139, 0, 0, 0.5);
+}
+#button-whatsapp:hover {
+  box-shadow: 2px 2px 8px rgba(0, 128, 0, 0.5);
+}
+#button-signal:hover {
+  box-shadow: 2px 2px 8px rgba(0, 0, 255, 0.5);
 }
 #footer {
   position: fixed;
@@ -121,7 +164,7 @@ nav {
 .chat-box {
   padding: 36px;
   height: 44px;
-  border: solid #430069 3px;
+  border: 1px solid #515151;
   border-radius: 18px;
   transition: all 0.15s;
   transition: transform .15s ease-in-out;
@@ -149,6 +192,7 @@ nav {
 .msg_rx,
 .msg_tx {
   display: block;
+  min-width: 2400px;
 }
 
 .msg-content-rx::before {
@@ -210,12 +254,12 @@ nav {
   box-shadow: 0 0 24px rgba(0, 0, 0, 0.3);
   margin-right: 12px;
 }
-
+/*
 .msg-content-rx:hover,
 .msg-content-tx:hover {
   transform: scale(1.025);
   box-shadow: 0 0 24px black;
-}
+}*/
 
 /*TEXT INPUT FIELD*/
 .text-input-con {
@@ -243,7 +287,7 @@ nav {
   margin-bottom: 12px;
   border: none;
   background-color: #3d3d3d;
-  color: black;
+  color: white;
   font-size: 1.1rem;
 }
 .text-input::placeholder {
