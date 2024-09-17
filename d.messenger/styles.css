@@ -173,10 +173,10 @@ nav {
 }
 
 .msg-content-rx::before {
-  content: 'Contentbefosigmasigmare:';
+  content: 'Consigmanoggurre:';
   color: green;
-  font-style: italic;
-  translate: 24px 24px;
+  position: fixed;
+  top: -12px;
 }
 
 .msg-tx {
