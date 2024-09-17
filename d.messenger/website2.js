@@ -134,30 +134,6 @@ async function send_msg(){
 
 }
 
-
-
-
-
-
-
-
-
-document.getElementById('search-box').addEventListener('input', function() {
-    let searchQuery = this.value.toLowerCase();
-    let contacts = document.querySelectorAll('.chat-box');
-
-    contacts.forEach(function(contact) {
-        let contactName = contact.textContent.toLowerCase();
-        if (contactName.includes(searchQuery)) {
-            contact.classList.remove('hidden');
-        } else {
-            contact.classList.add('hidden');
-        }
-    });
-});
-
-
-
 async function ws_test(){
     console.log("test");
     const x = await get_json();
@@ -179,3 +155,27 @@ sleep(100);
 update_users();
 //window.addEventListener('load', update_users);
 //window.addEventListener('load', () => {update_users()});
+
+
+
+
+//injected for html appearance
+
+//search-function
+document.getElementById('search-box').addEventListener('input', function() {
+    let searchQuery = this.value.toLowerCase();
+    let contacts = document.querySelectorAll('.chat-box');
+
+    contacts.forEach(function(contact) {
+        let contactName = contact.textContent.toLowerCase();
+        if (contactName.includes(searchQuery)) {
+            contact.classList.remove('hidden');
+        } else {
+            contact.classList.add('hidden');
+        }
+    });
+});
+
+//scroll-function
+const scrollContainer = document.getElementById('three');
+scrollContainer.scrollTop = 9999999;
