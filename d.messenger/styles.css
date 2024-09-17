@@ -165,6 +165,19 @@ nav {
   background-color: transparent;
   content: "sender/date/time";
 }
+
+.msg_rx::before {
+  content: 'Message Received:';
+  color: blue;
+  font-weight: bold;
+}
+
+.msg-content-rx::before {
+  content: 'Content:';
+  color: green;
+  font-style: italic;
+}
+
 .msg-tx {
    display: flex;
    justify-content: right;
