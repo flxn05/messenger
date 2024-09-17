@@ -173,7 +173,7 @@ nav {
 }
 
 .msg-content-rx::before {
-  content: 'Contentbefore:';
+  content: 'Contentbefosigmasigmare:';
   color: green;
   font-style: italic;
   translate: 24px 24px;
