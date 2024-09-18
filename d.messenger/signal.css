@@ -131,7 +131,9 @@ nav {
   font-weight: bold;
   font-size: 1.25rem;
 }
-
+.headline::after {
+  content: "Signal";
+}
 /*MAIN CONTENT*/
 /*MAIN CONTENT*/
 /*MAIN CONTENT*/
