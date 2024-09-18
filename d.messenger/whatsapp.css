@@ -133,7 +133,6 @@ nav {
   font-weight: bold;
   font-size: 1.25rem;
 }
-
 /*MAIN CONTENT*/
 /*MAIN CONTENT*/
 /*MAIN CONTENT*/
@@ -143,7 +142,6 @@ nav {
 .one {
   overflow-y: scroll;
   overflow-x: hidden;
-  background-color: 383838;
 }
 .three {
   overflow-y: scroll;
@@ -192,7 +190,7 @@ nav {
 .msg_rx,
 .msg_tx {
   display: block;
-  min-width: 2400px;
+  min-width: 240px;
 }
 
 .msg-content-rx::before {
@@ -254,12 +252,6 @@ nav {
   box-shadow: 0 0 24px rgba(0, 0, 0, 0.3);
   margin-right: 12px;
 }
-/*
-.msg-content-rx:hover,
-.msg-content-tx:hover {
-  transform: scale(1.025);
-  box-shadow: 0 0 24px black;
-}*/
 
 /*TEXT INPUT FIELD*/
 .text-input-con {
@@ -307,7 +299,7 @@ nav {
 }
 
 /*TEXT INPUT FIELD EFFECTS*/
-.text-input:focus-visible        {
+.text-input:focus-visible {
   outline: none;
 }
 .send-msg:hover {
