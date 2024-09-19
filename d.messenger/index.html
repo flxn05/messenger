@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Messages | gigaCHAT</title>
   <link rel="stylesheet" href="whatsapp.css">
-  <link rel="icon" type="image/x-icon" href="/images/thumbnail.png">
+  <link rel="icon" type="image/x-icon" href="thumbnail.png">
   <scr ipt type="text/javascript" src="client.js"></script>
   <script type="text/javascript" src="website2.js" defer></script>
   <lin k rel="manifest" href="manifest.json">
@@ -13,15 +13,20 @@
 </head>
 <body>
   <nav>
-    <img src="/images/thumbnail.png" id="logo-big">
+    <img src="thumbnail.png" id="logo-big">
     <div class="space" style="width: 12px;"></div>
     <p class="headline">gigaCHAT</p>
-    <div class="space" style="width: 36px;"></div>
-    <div class="nav-btns">
+    <img src="menu-icon.png" alt="menu button" class="hamburger" id="menu">
+
+
+    <div id="expanded">
+      <div class="ex-head">Choose your theme!</div>
       <button id="button-whatsapp">WhatsApp theme</button>
       <button id="button-signal">Signal theme</button>
+      <div class="ex-head" style="margin-top: 15%;">Logout ....</div>
       <button id="button-logout">Logout</button>
     </div>
+<!--ct==content-->
   </nav>
   <main>
     <div class="one" id="one">
@@ -64,14 +69,15 @@
         </div>
 
         <!--message-->
+        <div class="msg-rx">
+          <div class="msg-content-rx">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis voluptatem rerum amet, doloremque porro quam quod, itaque iusto impedit veniam ad aut natus, in illum molestiae qui dolor dolorum eveniet. Maiores minus nostrum nihil</div>
+        </div>
+        
+        <!--message-->
         <div class="msg-tx">
           <div class="msg-content-tx">Maiores minus nostrum nihil</div>
         </div>
 
-        <!--message-->
-        <div class="msg-rx">
-          <div class="msg-content-rx">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis voluptatem rerum amet, doloremque porro quam quod, itaque iusto impedit veniam ad aut natus, in illum molestiae qui dolor dolorum eveniet. Maiores minus nostrum nihil</div>
-        </div>
       </div>
     </div>
   </main>
