@@ -56,8 +56,6 @@ async function add_msg(msg, dir){
 
     const para3 = document.createElement("div");
     para3.innerHTML = act_msg;
-
-    
     if (act_dir == "rx"){
         para3.setAttribute("class", "msg-content-rx");
         para2.setAttribute("class", "msg-rx");
@@ -71,49 +69,6 @@ async function add_msg(msg, dir){
     const el3 = document.getElementById("three");
     el3.appendChild(para2);
     para2.appendChild(para3);
-}
-function clear_chats() {
-    const element = document.getElementById("three");
-    while (element.firstChild) {
-
-        element.removeChild(element.lastChild);
-
-    }
-}
-
-
-async function add_msg_grp(msg, dir, send){
-    var act_msg = msg
-    var act_dir = dir
-    const para2 = document.createElement("div");
-    
-    para2.setAttribute("id", "msg-con");
-    const el2 = document.getElementById("three");
-    el2.appendChild(para2);
-
-    const para3 = document.createElement("div");
-    para3.innerHTML = act_msg;
-
-    const para4 = document.createElement("div");
-    para4.innerHTML = send;
-
-    
-    if (act_dir == "rx"){
-        para3.setAttribute("class", "msg-content-rx");
-        para2.setAttribute("class", "msg-rx");
-        para4.setAttribute("class", "msg-header-rx");
-    }
-    else if (act_dir == "tx"){
-        para3.setAttribute("class", "msg-content-tx");
-        para2.setAttribute("class", "msg-tx");
-        para4.setAttribute("class", "msg-header-tx");
-    }
-
-
-    const el3 = document.getElementById("three");
-    el3.appendChild(para2);
-    para2.appendChild(para3);
-    para2.appendChild(para4);
 }
 function clear_chats() {
     const element = document.getElementById("three");
@@ -137,7 +92,7 @@ async function load_chats(user_id){
     for (let i= 0; i < r[user_id].length; i++){
         var msg = r[user_id][i].text;
         var dir = r[user_id][i].dir;
-        add_msg_grp(msg, dir);
+        add_msg(msg, dir);
     }
 }
 
@@ -151,14 +106,14 @@ async function load_grp() {
     const data = JSON.parse(d);
    
     for(let i=0; i < data.length; i++){
-        var msg = data[i].msg;
+        var msg = data[i].sender + ": " + data[i].msg;
         console.log(msg);
 
         var dir = "rx";
         if (data[i].sender == "logged_in_user"){
             dir = "tx";
         }
-        add_msg_grp(msg, dir, data[i].sender);
+        add_msg(msg, dir);
     }
 }
 
@@ -195,11 +150,6 @@ async function ws_test2(){
 
 }
 
-function set_pseudo(){
-    var x = document.getElementById("msg-content-rx");
-    x.setAttribute("data-before", "pseudo");
-}
-
 sleep(100);
 //window.onload = update_users();
 update_users();
@@ -229,3 +179,24 @@ document.getElementById('search-box').addEventListener('input', function() {
 //scroll-function
 const scrollContainer = document.getElementById('three');
 scrollContainer.scrollTop = 9999999;
+
+
+//input detector
+const inputField = document.getElementById('text-input');
+const warning = document.getElementById('warning');
+const triggerWords = ['nigga','nugga','neger','nogger','nugger','nigger', 'suck', 'sugg','dildo','sperma','ganz groß','anus','cock','penis','rektal','samenleiter','spritz','stange','lange stange'];
+
+inputField.addEventListener('input', function() {
+  const inputValue = inputField.value.toLowerCase();
+  
+  // Überprüfen, ob eines der trigger words im Eingabewert enthalten ist
+  const containsTriggerWord = triggerWords.some(word => inputValue.includes(word));
+
+  // Wenn ein Triggerwort enthalten ist, wird das "!" angezeigt, sonst ausgeblendet
+  if (containsTriggerWord) {
+document.getElementById('text-input').style.border = '1px solid darkred';
+} else {
+document.getElementById('text-input').style.border = '1px solid transparent';
+}
+
+});
