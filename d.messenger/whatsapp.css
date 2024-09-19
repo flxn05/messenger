@@ -15,6 +15,9 @@ html {
   background-color: black;
   color: #005c4b;
 }
+.hidden {
+  display: none;
+}
 
 body {
   background-color: #2c2c2c;
@@ -68,13 +71,37 @@ nav {
   z-index: 5;
   background-color: #202020;
 }
+.hamburger {
+  max-height: 1.25rem;
+  position: fixed;
+  right: 2.5vw;
+  cursor: pointer;
+}
+#expanded {
+  background-color: #202020e5;
+  border: #000000 2px solid;
+  border-radius: 18px;
+  border-top-right-radius: 0;
+  position: fixed;
+  top: 7.5vh;
+  right: 5vw;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 44px;
+  padding-right: 120px;
+  box-shadow: 44px 44px 64px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: all .15s;
+}
+#expanded:hover {
+  box-shadow: 44px 44px 36px rgba(0, 0, 0, 0.3);
+}
 .nav-btns {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 44px;
 }
-.nav-btns button {
+#expanded button {
   padding-block: 8px;
   padding-inline: 18px;
   border-radius: 12px;
@@ -85,6 +112,13 @@ nav {
   cursor: pointer;
   box-shadow: 0 0 24px rgba(0, 0, 0, 0.75);
   width: 148px;
+  display: block;
+  margin-bottom: 7.5%;
+  margin-left: 24px;
+}
+.ex-head {
+  margin-bottom: 10%;
+  font-size: 2rem;
 }
 #button-logout {
   background-color: darkred;
