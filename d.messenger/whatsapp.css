@@ -145,6 +145,7 @@ nav {
 }
 .three {
   overflow-y: scroll;
+  overflow-x: hidden;
 }
 /*ONE*/
 /*ONE*/
@@ -193,22 +194,19 @@ nav {
   min-width: 240px;
 }
 
-.msg-content-rx::before {
-  content: "Jonathan at 1.03 pm";
+.info {
   color: rgb(177, 177, 177);
   font-size: .9rem;
   position: fixed;
   translate: 0 -1rem;
 }
-.msg-content-tx::before {
-  content: "Jonathan at 1.03 pm";
+.info {
   color: rgb(207, 207, 207);
   font-size: .9rem;
   font-weight: bold;
   position: fixed;
   translate: 0 -1rem;
 }
-
 .msg-tx {
    display: flex;
    justify-content: right;
@@ -277,10 +275,11 @@ nav {
   padding-top: 10px;
   border-radius: 16px;
   margin-bottom: 12px;
-  border: none;
+  border: 1px solid transparent;
   background-color: #3d3d3d;
   color: white;
   font-size: 1.1rem;
+  transition: all 0.1s ease-in-out;
 }
 .text-input::placeholder {
   color: rgb(172, 172, 172);
@@ -296,8 +295,8 @@ nav {
   color: white;
   cursor: pointer;
   box-shadow: 0 0 24px rgba(0, 0, 0, 0.75);
+  transition: all 0.15s;
 }
-
 /*TEXT INPUT FIELD EFFECTS*/
 .text-input:focus-visible {
   outline: none;
