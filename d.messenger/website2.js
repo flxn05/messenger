@@ -183,7 +183,7 @@ scrollContainer.scrollTop = 9999999;
 
 //input detector
 const inputField = document.getElementById('text-input');
-const warning = document.getElementById('warning');
+const warning = document.getElementById('text-input');
 const triggerWords = ['nigga','nugga','neger','nogger','nugger','nigger', 'suck', 'sugg','dildo','sperma','ganz groß','anus','cock','penis','rektal','samenleiter','spritz','stange','lange stange'];
 
 inputField.addEventListener('input', function() {
@@ -199,4 +199,21 @@ document.getElementById('text-input').style.border = '1px solid darkred';
 document.getElementById('text-input').style.border = '1px solid transparent';
 }
 
+});
+
+//menu ??
+document.addEventListener('DOMContentLoaded', () => {
+    const menuButton = document.getElementById('menu');
+    const popupMenu = document.getElementById('expanded');
+
+    menuButton.addEventListener('click', () => {
+        popupMenu.classList.toggle('hidden');
+    });
+
+    // Close the menu if the user clicks outside of it
+    document.addEventListener('click', (event) => {
+        if (!menuButton.contains(event.target) && !popupMenu.contains(event.target)) {
+            popupMenu.classList.add('hidden');
+        }
+    });
 });
