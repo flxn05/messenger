@@ -182,7 +182,7 @@ scrollContainer.scrollTop = 9999999;
 
 
 //input detector
-/*const inputField = document.getElementById('text-input');
+const inputField = document.getElementById('text-input');
 const warning = document.getElementById('text-input');
 const triggerWords = ['nigga','nugga','neger','nogger','nugger','nigger', 'suck', 'sugg','dildo','sperma','ganz groß','anus','cock','penis','rektal','samenleiter','spritz','stange','lange stange'];
 
@@ -201,7 +201,7 @@ document.getElementById('text-input').style.border = '1px solid transparent';
 
 });
 
-//menu ??
+//menu
 document.addEventListener('DOMContentLoaded', () => {
     const menuButton = document.getElementById('menu');
     const popupMenu = document.getElementById('expanded');
@@ -216,4 +216,4 @@ document.addEventListener('DOMContentLoaded', () => {
             popupMenu.classList.add('hidden');
         }
     });
-});*/
+});
