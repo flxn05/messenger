@@ -4,7 +4,7 @@ self.addEventListener('install', (event) => {
       return cache.addAll([
         '/',
         '/index.html',
-        '/w.whatsapp.css',
+        '/m.whatsapp.css',
         '/client.js',
         '/website2.js',
         '/thumbnail.png',
