@@ -249,3 +249,31 @@ nav {
   0% {display: normal;}
   100% {display: none;}
 }
+@keyframes expand {
+  0% {opacity: .25; translate: 0 15vh; transform: scale(.95);}
+}
+
+#expanded {
+  background-color: rgb(10, 10, 10);
+  position: fixed;
+  top: 60vh;
+  bottom: 2px;
+  left: 2px;
+  right: 2px;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding-block: 4rem;
+  animation: expand .25s ease-in-out;
+
+}
+#expanded button {
+  background-color: #3d3d3d;
+  border: none;
+  height: 44px;
+  width: 60vw;
+  font-size: 1.1rem;
+  border-radius: 44px;
+}
