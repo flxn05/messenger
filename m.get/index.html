@@ -24,7 +24,6 @@
           align-items: center;
           height: 100vh;
           overflow-y: hidden;
-
         }
         main {
           height: 80vh;
@@ -147,6 +146,12 @@ border-radius: 8px;}
 
       window.location.href = "mailto:get.giga.chat@gmail.com?subject=" + encodeURIComponent(subject) + 
                              "&body=" + encodeURIComponent(body);
+
+      // After sending the email, display empty body for 5 seconds, then show the message
+      document.body.innerHTML = '';  // Clear the body content
+      setTimeout(function() {
+          document.body.innerHTML = '<div style="color: white; text-align: center; font-size: 12px; font-family: arial;">Great! Once we got your Email, we will contact you and provide more details! Thank you for your interest! - The gigaCHAT Team<br><br>get.giga.chat@gmail.com</div>';
+      }, 5000); // Wait for 5 seconds
   }
 </script>
 </head>
@@ -176,10 +181,5 @@ border-radius: 8px;}
       <div class="msg_rx"><div class="msg-content-rx"><input type="submit" value="Submit" id="submit"></div><div>
   </form>
   </main>
-  <!--<div id="lfooter">
-  <p class="how">How do I access my new account?</p>
-  <div class="spaceee" style="margin-right: 6px;"></div>
-  <p class="answer">We'll send you an email with your log in data. Once logged in, you can use the service normally. Feel free to contact us: get.giga.chat@gmail.com <a href="https://get-gc.github.io/help-and-legal-info"></p>-->
-  </div>
 </body>
 </html>
