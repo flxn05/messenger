@@ -102,7 +102,7 @@ async function load_grp() {
     //local-fetching
     //var d = await fetch("grp.json");
     //var data = await d.json();
-    const d = await get_json("group");
+    const d = await get_json("grp");
     const data = JSON.parse(d);
    
     for(let i=0; i < data.length; i++){
@@ -130,7 +130,7 @@ async function send_msg(){
     var grp = await get_json("grp");
     var grp_data = JSON.parse(grp);
     grp_data[grp_data.length] = {"sender": "logged_in_user", "msg": sending_msg};
-    send_json(JSON.stringify(grp_data));
+    send_json(JSON.stringify(grp_data), "grp");
 
 }
 
@@ -170,7 +170,7 @@ async function ws_test(){
 async function ws_test2(){
 
     //const x = await fetch("user.json");
-    send_json("windows_for_life");
+    send_json("deine_mutter");
 
 }
 

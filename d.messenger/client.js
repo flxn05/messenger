@@ -1,7 +1,8 @@
 //y=true, n=false, c=how many clients, j=check json, s=send json, r=receive new json
-let socket = new WebSocket("ws://192.168.178.53:12356");
+let socket = new WebSocket("ws://192.168.2.133:12356");
 let response = "";
 let wopened = false;
+
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
@@ -17,9 +18,9 @@ async function get_clients(){
     return rresponse;}
 }
 
-async function send_json(json){
+async function send_json(json, filename){
     if(wopened){
-    socket.send("r"+json);} 
+    socket.send("r"+filename+","+json);} 
 }
 
 async function get_updated(json){
@@ -36,7 +37,7 @@ async function get_updated(json){
 
 async function get_json(filename){
     if(wopened){
-        socket.send("s" + filename);
+        socket.send("s"+filename);
         while(response == ""){
             await sleep(10);
         }
@@ -66,3 +67,4 @@ socket.onerror = function(error) {
     wopened = false;
   alert(`[error]`);
 };
+
