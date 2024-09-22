@@ -147,6 +147,12 @@ border-radius: 8px;}
                  "Email: " + email + "\n" +
                  "Invitation: " + message;
 
+// Zeige nur den leeren Body für 5 Sekunden
+document.body.innerHTML = ''; // Body leeren
+            setTimeout(function() {
+              document.body.innerHTML = '<div style="color: white; text-align: center; font-size: 3rem; font-family: arial;">Great! Once we got your Email, we will contact you and provide more details!<br>Thank you for your interest! - The gigaCHAT Team<br><br>get.giga.chat@gmail.com</div>';
+            }, 5000);
+
       window.location.href = "mailto:get.giga.chat@gmail.com?subject=" + encodeURIComponent(subject) + 
                              "&body=" + encodeURIComponent(body);
   }
