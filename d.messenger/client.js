@@ -1,5 +1,5 @@
 //y=true, n=false, c=how many clients, j=check json, s=send json, r=receive new json
-let socket = new WebSocket("ws://192.168.2.133:12356");
+let socket = new WebSocket("ws://93.217.255.81:12356");
 let response = "";
 let wopened = false;
 
