@@ -5,6 +5,7 @@ self.addEventListener('install', (event) => {
         '/',
         '/index.html',
         '/m.whatsapp.css',
+        '/m.signal.css',
         '/client.js',
         '/website2.js',
         '/thumbnail.png',
