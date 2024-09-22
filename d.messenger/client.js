@@ -23,9 +23,9 @@ async function send_json(json, filename){
     socket.send("r"+filename+","+json);} 
 }
 
-async function get_updated(json){
+async function get_updated(json, filename){
     if(wopened){
-    socket.send("j"+json);
+    socket.send("j"filename+","+json);
     while(response == ""){
         await sleep(10);
     }
