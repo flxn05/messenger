@@ -1,5 +1,4 @@
 
-
 async function add_user(user_id){
 
     const para = document.createElement("div");
@@ -13,22 +12,36 @@ async function add_user(user_id){
 
 async function load_users(){
 
-    const user_bad = await fetch("user.json")
-    const user_good = await user_bad.json();
-    for (let i = 0; i < user_good.length; i++) {
-        add_user(user_good[i]);
-    }
+    //const user_bad = await fetch("user.json")
+    //const user_good = await user_bad.json();
+    const user_bad = await get_json("user");
+    console.log(user_bad);
+    const user_good = JSON.parse(user_bad);
+
+    const para = document.createElement("div");
+    para.setAttribute("class", "chat-box");
+    para.setAttribute("id", "chat-box");
+    para.setAttribute("onclick", "load_grp()");
+    para.innerHTML = "group_chat";
+    const parent = document.getElementById("one");
+    parent.appendChild(para);
+
+    //for (let i = 0; i < user_good.length; i++) {
+    //    add_user(user_good[i]);
+    //}    
 }
+
 function clear_users() {
     const element = document.getElementById("one");
     while (element.firstChild) {
         element.removeChild(element.lastChild);
     }
+    element.innerHTML = "<div class='search-con'><input type='text' id='search-box' class='text-input' placeholder='Search groups and contacts ....' style='font-size: 1rem;'></div>";
 }
 
-function update_users() {
+async function update_users() {
     clear_users();
-    load_users();
+    await load_users();
 }
 
 
@@ -71,8 +84,10 @@ async function load_chats(user_id){
     clear_chats();
     var x = await fetch("dave.json");
     var r = await x.json();
+    
 
 
+    
 
     for (let i= 0; i < r[user_id].length; i++){
         var msg = r[user_id][i].text;
@@ -81,12 +96,159 @@ async function load_chats(user_id){
     }
 }
 
+async function load_grp() {
+    clear_chats();
 
-function send_msg(){
+    //local-fetching
+    //var d = await fetch("grp.json");
+    //var data = await d.json();
+    const d = await get_json("group");
+    const data = JSON.parse(d);
+   
+    for(let i=0; i < data.length; i++){
+        var msg = data[i].sender + ": " + data[i].msg;
+        console.log(msg);
+
+        var dir = "rx";
+        if (data[i].sender == "logged_in_user"){
+            dir = "tx";
+        }
+        add_msg(msg, dir);
+    }
+}
+
+
+async function send_msg(){
 
     var form = document.getElementById("form");
     var sending_msg = form[0].value;
     form[0].value = " ";
     form[0].placeholder = "";
     console.log(sending_msg)
+
+    add_msg(sending_msg, "tx");
+    var grp = await get_json("grp");
+    var grp_data = JSON.parse(grp);
+    grp_data[grp_data.length] = {"sender": "logged_in_user", "msg": sending_msg};
+    send_json(JSON.stringify(grp_data));
+
 }
+
+async function ws_test(){
+    console.log("test");
+    const x = await get_json();
+    const y = JSON.parse(x);
+    console.log(y);
+    console.log(x);
+    
+}
+
+async function ws_test2(){
+
+    //const x = await fetch("user.json");
+    send_json("windows_for_life");
+
+}
+
+sleep(100);
+//window.onload = update_users();
+update_users();
+//window.addEventListener('load', update_users);
+//window.addEventListener('load', () => {update_users()});
+
+
+
+
+//injected for html appearance
+
+//search-function
+document.getElementById('search-box').addEventListener('input', function() {
+    let searchQuery = this.value.toLowerCase();
+    let contacts = document.querySelectorAll('.chat-box');
+
+    contacts.forEach(function(contact) {
+        let contactName = contact.textContent.toLowerCase();
+        if (contactName.includes(searchQuery)) {
+            contact.classList.remove('hidden');
+        } else {
+            contact.classList.add('hidden');
+        }
+    });
+});
+
+//scroll-function
+const scrollContainer = document.getElementById('three');
+scrollContainer.scrollTop = 9999999;
+
+
+//input detector
+const inputField = document.getElementById('text-input');
+const warning = document.getElementById('text-input');
+const triggerWords = ['nigga','nugga','neger','nogger','nugger','nigger', 'suck', 'sugg','dildo','sperma','ganz groß','anus','cock','penis','rektal','samenleiter','spritz','stange','lange stange'];
+
+inputField.addEventListener('input', function() {
+  const inputValue = inputField.value.toLowerCase();
+  
+  // Überprüfen, ob eines der trigger words im Eingabewert enthalten ist
+  const containsTriggerWord = triggerWords.some(word => inputValue.includes(word));
+
+  // Wenn ein Triggerwort enthalten ist, wird das "!" angezeigt, sonst ausgeblendet
+  if (containsTriggerWord) {
+document.getElementById('text-input').style.border = '1px solid darkred';
+} else {
+document.getElementById('text-input').style.border = '1px solid transparent';
+}
+
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    const menuButton = document.getElementById('menu');
+    const popupMenu = document.getElementById('expanded');
+    const form = document.getElementById('form'); // Formular-Element hinzufügen
+
+    menuButton.addEventListener('click', () => {
+        popupMenu.classList.toggle('hidden');
+        
+        // Formular ausblenden, wenn das Popup-Menü angezeigt wird
+        if (!popupMenu.classList.contains('hidden')) {
+            form.classList.add('hidden'); // Formular ausblenden
+        } else {
+            form.classList.remove('hidden'); // Formular wieder anzeigen, wenn Menü ausgeblendet ist
+        }
+    });
+
+    // Menü schließen, wenn der Benutzer außerhalb davon klickt
+    document.addEventListener('click', (event) => {
+        if (!menuButton.contains(event.target) && !popupMenu.contains(event.target)) {
+            popupMenu.classList.add('hidden');
+            form.classList.remove('hidden'); // Formular wieder anzeigen, wenn Menü geschlossen wird
+        }
+    });
+});
+
+
+//for the web app:
+self.addEventListener('install', (event) => {
+    event.waitUntil(
+      caches.open('gigaCHAT-cache').then((cache) => {
+        return cache.addAll([
+          '/',
+          '/index.html',
+          '/whatsapp.css',
+          '/client.js',
+          '/website2.js',
+          '/thumbnail.png',
+          '/manifest.json'
+        ]);
+      })
+    );
+  });
+  
+  self.addEventListener('fetch', (event) => {
+    event.respondWith(
+      caches.match(event.request).then((response) => {
+        return response || fetch(event.request);
+      })
+    );
+  });
+  

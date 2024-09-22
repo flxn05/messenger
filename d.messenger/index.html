@@ -4,10 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Messages | gigaCHAT</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="whatsapp.css">
   <link rel="icon" type="image/x-icon" href="thumbnail.png">
   <script type="text/javascript" src="client.js"></script>
   <script type="text/javascript" src="website2.js" defer></script>
+  <link rel="manifest" href="manifest.json">
   
 </head>
 <body>
@@ -15,27 +16,40 @@
     <img src="thumbnail.png" id="logo-big">
     <div class="space" style="width: 12px;"></div>
     <p class="headline">gigaCHAT</p>
+    <img src="menu-icon.png" alt="menu button" class="hamburger" id="menu">
+
+
+    <div id="expanded">
+      <button id="button-whatsapp" style="color: rgb(181, 224, 181);">WhatsApp theme</button>
+      <button id="button-signal" style="color: rgb(199, 222, 230);">Signal theme</button>
+      <button id="button-logout" style="color: rgb(235, 191, 191);">Logout</button>
+    </div>
   </nav>
   <main>
     <div class="one" id="one">
       <div class="search-con"><input type="text" id="search-box" class="text-input" placeholder="Search groups and contacts ...." style="font-size: 1rem;"></div>
 
-      <div class="chat-box">David Ott</div>
-      <div class="chat-box">fabi</div>
-      <div class="chat-box">nowak</div>
-      <div class="chat-box">felix</div>
-      <div class="chat-box">josé</div>
+      <div class="chat-box">(chat)</div>
+      <div class="chat-box">(chat)</div>
+      <div class="chat-box">(chat)</div>
+      <div class="chat-box">(chat)</div>
+      <div class="chat-box">(chat)</div>
+      <div class="chat-box">(chat)</div>
+      <div class="chat-box">(chat)</div>
+      <div class="chat-box">(chat)</div>
+      <div class="chat-box">(chat)</div>
+      <div class="chat-box">(chat)</div>
+      <div class="chat-box">(chat)</div>
     </div>
 
     <form class="text-input-con" id="form">
-      <input type="text" class="text-input" placeholder="Message ....">
+      <input type="text" class="text-input" placeholder="Message ...." id="text-input">
       <button type="button" class="send-msg" id="send-msg" onclick="send_msg()">SEND</button>
       </form>
 
     <div class="three" id="three">
-
       <div class="chat-header" id="chat-header">
-        "insert chat name (onclick?)"
+        class/id: "chat-header"
       </div>
 
       <div class="chat-con">
@@ -43,51 +57,37 @@
 
         <!--message-->
         <div class="msg-rx">
-          <div class="msg-content-rx">Jonathan: Maiores minus nostrum nihil</div>
+          <div class="msg-content-rx">Maiores minus nostrum nihil</div>
         </div>
 
         <!--message-->
         <div class="msg-tx">
-          <div class="msg-content-tx">Felix: Maiores minus nostrum nihil</div>
+          <div class="msg-content-tx">Maiores minus nostrum nihil</div>
         </div>
 
         <!--message-->
         <div class="msg-rx">
-          <div class="msg-content-rx">Jonathan: Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis voluptatem rerum amet, doloremque porro quam quod, itaque iusto impedit veniam ad aut natus, in illum molestiae qui dolor dolorum eveniet. Maiores minus nostrum nihil</div>
+          <div class="msg-content-rx">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis voluptatem rerum amet, doloremque porro quam quod, itaque iusto impedit veniam ad aut natus, in illum molestiae qui dolor dolorum eveniet. Maiores minus nostrum nihil</div>
         </div>
-
+        
         <!--message-->
         <div class="msg-tx">
-          <div class="msg-content-tx">Felix: Maiores minus nostrum nihil</div>
+          <div class="msg-content-tx">Maiores minus nostrum nihil</div>
         </div>
-
-        <!--message-->
-        <div class="msg-rx">
-          <div class="msg-content-rx">Jonathan: Maiores minus nostrum nihil</div>
-        </div>
-
-        <!--message-->
-        <div class="msg-tx">
-          <div class="msg-content-tx">Felix: Maiores minus nostrum nihil</div>
-        </div>
-
-        <!--message-->
-        <div class="msg-rx">
-          <div class="msg-content-rx">Jonathan: Maiores minus nostrum nihil</div>
-        </div>
-
-        <!--message-->
-        <div class="msg-tx">
-          <div class="msg-content-tx">Felix: Maiores minus nostrum nihil</div>
-        </div>
-
-      <!--DO NOT EDIT!!!!!!!!!!!!!!!!-->
-
 
       </div>
     </div>
   </main>
+  <footer>
+    <button onclick="ws_test()">ws_test</button>
+    <button onclick="ws_test2()">ws_test2</button>
+    <button onclick="load_users()">ws_test3</button>
+    <button onclick="add_msg_grp('hello', 'rx', 'dave')">add_msg_grp</button>
+  </footer>
+</body>
+</html>
 
+<<<<<<< HEAD
  
 
 
@@ -105,18 +105,14 @@
   document.getElementById('search-box').addEventListener('input', function() {
       let searchQuery = this.value.toLowerCase();
       let contacts = document.querySelectorAll('.chat-box');
+=======
+>>>>>>> c9db52e97305e7f098f294e1e6c2283ff1a75d5c
 
-      contacts.forEach(function(contact) {
-          let contactName = contact.textContent.toLowerCase();
-          if (contactName.includes(searchQuery)) {
-              contact.classList.remove('hidden');
-          } else {
-              contact.classList.add('hidden');
-          }
-      });
-  });
-</script>
+<!--
 
+//menu
+//prevent sb from spamming empty content
+//shift enter for new line
+//enter to send
 
-</body>
-</html>
+-->
