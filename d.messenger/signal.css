@@ -131,9 +131,6 @@ nav {
   font-weight: bold;
   font-size: 1.25rem;
 }
-.headline::after {
-  content: "Signal";
-}
 /*MAIN CONTENT*/
 /*MAIN CONTENT*/
 /*MAIN CONTENT*/
@@ -181,6 +178,9 @@ nav {
 .chat-box.hidden {
   display: none;
 }
+.hidden {
+  display: none;
+}
 
 /*DO NOT EDIT !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
 /*DO NOT EDIT !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
@@ -193,23 +193,6 @@ nav {
 .msg_rx,
 .msg_tx {
   display: block;
-  min-width: 2400px;
-}
-
-.msg-content-rx::before {
-  content: "Jonathan at 1.03 pm";
-  color: rgb(177, 177, 177);
-  font-size: .9rem;
-  position: fixed;
-  translate: 0 -1rem;
-}
-.msg-content-tx::before {
-  content: "Jonathan at 1.03 pm";
-  color: rgb(207, 207, 207);
-  font-size: .9rem;
-  font-weight: bold;
-  position: fixed;
-  translate: 0 -1rem;
 }
 
 .msg-tx {
@@ -343,4 +326,42 @@ nav {
 @keyframes start-mobile {
   0% {display: normal;}
   100% {display: none;}
+}
+
+
+.hamburger {
+  max-height: 1.25rem;
+  position: fixed;
+  right: 2.5vw;
+  cursor: pointer;
+}
+#expanded {
+  position: fixed;
+  top: 0;
+  right: 5vw;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: .75rem;
+  cursor: pointer;
+  transition: all .15s;
+  animation: expand .25s;
+  animation-timing-function: cubic-bezier(.13,1.95,.69,.91);
+  }
+#expanded button {
+  padding-block: 6px;
+  padding-inline: 14px;
+  border-radius: 12px;
+  border: none;
+  font-weight: bold;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 0 24px rgba(0, 0, 0, 0.75);
+  margin-bottom: 12px;
+  background-color: transparent;
+}
+
+
+@keyframes expand {
+  0% {transform: scale(.5); translate: 144px; opacity: .25;}
+  100% {transform: scale(1);}
 }
