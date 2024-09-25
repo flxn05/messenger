@@ -1,4 +1,13 @@
 
+document.cookie = "user=jane";
+
+const x = document.cookie;
+console.log(x); 
+const y = x.substring(5, x.length+1);
+console.log(y);
+
+
+
 async function add_user(user_id){
 
     const para = document.createElement("div");
@@ -110,7 +119,7 @@ async function load_grp() {
         console.log(msg);
 
         var dir = "rx";
-        if (data[i].sender == "logged_in_user"){
+        if (data[i].sender == y){
             dir = "tx";
         }
         add_msg(msg, dir);
@@ -126,40 +135,27 @@ async function send_msg(){
     form[0].placeholder = "";
     console.log(sending_msg)
 
-    add_msg(sending_msg, "tx");
+    add_msg(y + ": " + sending_msg, "tx");
     var grp = await get_json("grp");
     var grp_data = JSON.parse(grp);
-    grp_data[grp_data.length] = {"sender": "logged_in_user", "msg": sending_msg};
+    grp_data[grp_data.length] = {"sender": y, "msg": sending_msg};
     send_json(JSON.stringify(grp_data), "grp");
 
 }
 
-async function ws_test(){
-    console.log("test");
-    const x = await get_json();
-    const y = JSON.parse(x);
-    console.log(y);
-    console.log(x);
-    
-}
 
-async function ws_test2(){
 
-    //const x = await fetch("user.json");
-    send_json("windows_for_life");
-
-}
-
-sleep(100);
+//sleep(100);
 //window.onload = update_users();
-update_users();
+//update_users();
+document.addEventListener("DOMContentLoaded", update_users());
 //window.addEventListener('load', update_users);
 //window.addEventListener('load', () => {update_users()});
 
 
 
 
-//injected for html appearance
+
 
 //search-function
 document.getElementById('search-box').addEventListener('input', function() {
@@ -181,52 +177,6 @@ const scrollContainer = document.getElementById('three');
 scrollContainer.scrollTop = 9999999;
 
 
-//input detector
-const inputField = document.getElementById('text-input');
-const warning = document.getElementById('text-input');
-const triggerWords = ['nigga','nugga','neger','nogger','nugger','nigger', 'suck', 'sugg','dildo','sperma','ganz groß','anus','cock','penis','rektal','samenleiter','spritz','stange','lange stange'];
 
-inputField.addEventListener('input', function() {
-  const inputValue = inputField.value.toLowerCase();
-  
-  // Überprüfen, ob eines der trigger words im Eingabewert enthalten ist
-  const containsTriggerWord = triggerWords.some(word => inputValue.includes(word));
+ 
 
-  // Wenn ein Triggerwort enthalten ist, wird das "!" angezeigt, sonst ausgeblendet
-  if (containsTriggerWord) {
-document.getElementById('text-input').style.border = '1px solid darkred';
-} else {
-document.getElementById('text-input').style.border = '1px solid transparent';
-}
-
-});
-
-<<<<<<< HEAD
-    //const x = await fetch("user.json");
-    send_json("deine_mutter");
-=======
-//menu
-document.addEventListener('DOMContentLoaded', () => {
-    const menuButton = document.getElementById('menu');
-    const popupMenu = document.getElementById('expanded');
->>>>>>> c9db52e97305e7f098f294e1e6c2283ff1a75d5c
-
-    menuButton.addEventListener('click', () => {
-        popupMenu.classList.toggle('hidden');
-    });
-
-<<<<<<< HEAD
-sleep(100);
-//window.onload = update_users();
-update_users();
-//window.addEventListener('load', update_users);
-//window.addEventListener('load', () => {update_users()});
-=======
-    // Close the menu if the user clicks outside of it
-    document.addEventListener('click', (event) => {
-        if (!menuButton.contains(event.target) && !popupMenu.contains(event.target)) {
-            popupMenu.classList.add('hidden');
-        }
-    });
-});
->>>>>>> c9db52e97305e7f098f294e1e6c2283ff1a75d5c
