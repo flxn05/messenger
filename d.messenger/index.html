@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head id="head">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Messages | gigaCHAT</title>
@@ -8,6 +8,7 @@
   <link rel="icon" type="image/x-icon" href="thumbnail.png">
   <script type="text/javascript" src="client.js"></script>
   <script type="text/javascript" src="website2.js" defer></script>
+  
   <link rel="manifest" href="manifest.json">
   
 </head>
@@ -16,13 +17,13 @@
     <img src="thumbnail.png" id="logo-big">
     <div class="space" style="width: 12px;"></div>
     <p class="headline">gigaCHAT</p>
-    <img src="menu-icon.png" alt="menu button" class="hamburger" id="menu">
+    <img src="menu-icon.png" alt="menu button" class="hamburger" id="menu" onclick="toggle_menu()">
 
 
     <div id="expanded">
-      <button id="button-whatsapp" style="color: rgb(181, 224, 181);">WhatsApp theme</button>
-      <button id="button-signal" style="color: rgb(199, 222, 230);">Signal theme</button>
-      <button id="button-logout" style="color: rgb(235, 191, 191);">Logout</button>
+      <button id="button-whatsapp" onclick="styles_whatsapp()" style="color: rgb(181, 224, 181);">WhatsApp theme</button>
+      <button id="button-signal" onclick="styles_signal()" style="color: rgb(199, 222, 230);">Signal theme</button>
+      <button id="button-logout" onclick="logout()" style="color: rgb(235, 191, 191);">Logout</button>
     </div>
   </nav>
   <main>
@@ -47,6 +48,7 @@
       </div>
     </div>
   </main>
+
 
 </body>
 </html>

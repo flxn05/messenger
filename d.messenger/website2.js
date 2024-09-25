@@ -1,10 +1,47 @@
 
-document.cookie = "user=jane";
+document.cookie = "user=dave";
 
 const x = document.cookie;
 console.log(x); 
 const y = x.substring(5, x.length+1);
 console.log(y);
+var qwertz = false;
+
+
+async function check_users() {
+    const c = await get_json("user");
+    const d = await JSON.parse(c);
+    console.log(d);
+    for (let i = 0; i < d.length; i++){
+        console.log(d[i]);
+        if (d[i] == y){
+            console.log("user found");
+            qwertz = true;
+
+        }
+    }
+    console.log(qwertz);
+    if (qwertz == false){
+        window.location.replace("http://192.168.178.64/logged_out");
+    }
+    else{
+        update_users();
+    }
+}
+
+
+check_users();
+
+
+
+
+
+
+
+
+
+popup_menu = document.getElementById("expanded");
+popup_menu.classList.add("hidden");
 
 
 
@@ -21,7 +58,6 @@ async function add_user(user_id){
 
 async function load_users(){
 
-    //const user_bad = await fetch("user.json")
     //const user_good = await user_bad.json();
     const user_bad = await get_json("user");
     console.log(user_bad);
@@ -143,12 +179,33 @@ async function send_msg(){
 
 }
 
+function toggle_menu(){
+    
+    popup_menu.classList.toggle("hidden");
+}
+
+function logout(){
+    document.cookie = "user=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    window.location.href = "http://192.168.178.64";
+}
+
+function styles_whatsapp(){
+
+    document.getElementById("head").innerHTML = '<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Messages | gigaCHAT</title><link rel="stylesheet" href="whatsapp.css"><link rel="icon" type="image/x-icon" href="thumbnail.png"><script type="text/javascript" src="client.js"></script><script type="text/javascript" src="website2.js" defer></script><link rel="manifest" href="manifest.json">'
+
+}
+
+function styles_signal(){
+
+    document.getElementById("head").innerHTML = '<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Messages | gigaCHAT</title><link rel="stylesheet" href="signal.css"><link rel="icon" type="image/x-icon" href="thumbnail.png"><script type="text/javascript" src="client.js"></script><script type="text/javascript" src="website2.js" defer></script><link rel="manifest" href="manifest.json">'
+
+}
 
 
 //sleep(100);
 //window.onload = update_users();
 //update_users();
-document.addEventListener("DOMContentLoaded", update_users());
+//document.addEventListener("DOMContentLoaded", update_users());
 //window.addEventListener('load', update_users);
 //window.addEventListener('load', () => {update_users()});
 
