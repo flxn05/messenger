@@ -1,4 +1,8 @@
+//consts
 
+const login_page = "http://192.168.178.64"
+const logged_out_page = "http://192.168.178.64/logged_out"
+//const maion_page = 
 document.cookie = "user=dave";
 
 const x = document.cookie;
@@ -22,7 +26,7 @@ async function check_users() {
     }
     console.log(qwertz);
     if (qwertz == false){
-        window.location.replace("http://192.168.178.64/logged_out");
+        window.location.replace(logged_out_page);
     }
     else{
         update_users();
@@ -38,12 +42,11 @@ check_users();
 
 
 
-
-
 popup_menu = document.getElementById("expanded");
 popup_menu.classList.add("hidden");
 
-
+const scrollContainer = document.getElementById('three');
+scrollContainer.scrollTop = 9999999;
 
 async function add_user(user_id){
 
@@ -160,23 +163,26 @@ async function load_grp() {
         }
         add_msg(msg, dir);
     }
+    scrollContainer.scrollTop = 9999999;
 }
 
 
 async function send_msg(){
-
+    
     var form = document.getElementById("form");
     var sending_msg = form[0].value;
+    if (sending_msg == " "){
+        return;
+    }
     form[0].value = " ";
-    form[0].placeholder = "";
     console.log(sending_msg)
-
     add_msg(y + ": " + sending_msg, "tx");
     var grp = await get_json("grp");
     var grp_data = JSON.parse(grp);
     grp_data[grp_data.length] = {"sender": y, "msg": sending_msg};
     send_json(JSON.stringify(grp_data), "grp");
-
+    scrollContainer.scrollTop = 9999999;
+        
 }
 
 function toggle_menu(){
@@ -186,7 +192,7 @@ function toggle_menu(){
 
 function logout(){
     document.cookie = "user=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-    window.location.href = "http://192.168.178.64";
+    window.location.href = login_page;
 }
 
 function styles_whatsapp(){
@@ -229,9 +235,8 @@ document.getElementById('search-box').addEventListener('input', function() {
     });
 });
 
-//scroll-function
-const scrollContainer = document.getElementById('three');
-scrollContainer.scrollTop = 9999999;
+
+
 
 
 
