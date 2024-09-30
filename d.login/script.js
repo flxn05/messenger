@@ -51,9 +51,9 @@ async function login() {
     try {
         if (data[user].password == pswd) {
            succes();
-           document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+           document.cookie = "user=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
            document.cookie = "user=" + user;
-           window.location.replace("login_succesful.html");
+           window.location.replace("http://192.168.178.64/chat");
         }
         else {
             fail();
