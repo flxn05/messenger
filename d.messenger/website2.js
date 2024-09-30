@@ -1,7 +1,7 @@
 //consts
 
-const login_page = "http://192.168.178.64"
-const logged_out_page = "http://192.168.178.64/logged_out"
+const login_page = "http://192.168.178.73"
+const logged_out_page = "http://192.168.178.73/logged_out"
 //const maion_page = 
 //document.cookie = "user=dave";
 

@@ -1,3 +1,6 @@
+const gigachat = "http://192.1678.178.73/gigachat";
+
+
 const fail_msgs = [
     "are you sure you remember your password?",
     "did you forget how to type?",
@@ -53,7 +56,7 @@ async function login() {
            succes();
            document.cookie = "user=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
            document.cookie = "user=" + user;
-           window.location.replace("http://192.168.178.64/chat");
+           window.location.replace(gigachat);
         }
         else {
             fail();
