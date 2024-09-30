@@ -169,12 +169,15 @@ async function load_grp() {
 
 async function send_msg(){
     
-    var form = document.getElementById("form");
-    var sending_msg = form[0].value;
+    
+    var input = document.getElementById("text_input");
+    
+    
+    var sending_msg = input.value;
     if (sending_msg == " "){
         return;
     }
-    form[0].value = " ";
+    input.value = " ";
     console.log(sending_msg)
     add_msg(y + ": " + sending_msg, "tx");
     var grp = await get_json("grp");
@@ -218,7 +221,11 @@ function styles_signal(){
 
 
 
-
+document.addEventListener("keydown", function(event){
+    if (event.key === "Enter"){
+        send_msg();
+    }
+});
 
 //search-function
 document.getElementById('search-box').addEventListener('input', function() {
