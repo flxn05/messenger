@@ -8,6 +8,7 @@ async function loogin(username, passwd) {
         while (response == "") {
             await sleep(10);
         }
+        response = "";
     }
 }
 
