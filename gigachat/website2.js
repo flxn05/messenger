@@ -62,9 +62,9 @@ async function add_user(user_id){
 async function load_users(){
 
     //const user_good = await user_bad.json();
-    const user_bad = await get_json("user");
-    console.log(user_bad);
-    const user_good = JSON.parse(user_bad);
+    //const user_bad = await get_json("user");
+    //console.log(user_bad);
+    //const user_good = JSON.parse(user_bad);
 
     const para = document.createElement("div");
     para.setAttribute("class", "chat-box");
