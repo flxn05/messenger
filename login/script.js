@@ -1,4 +1,4 @@
-const gigachat = "http://192.168.178.73/gigachat";
+const gigachat = "https://192.168.178.73/gigachat";
 
 
 const fail_msgs = [
