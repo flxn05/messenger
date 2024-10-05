@@ -48,7 +48,7 @@ async function login() {
     var form = document.getElementById("login_form");
     var user = form[0].value;
     var pswd = form[1].value;
-    var dd = loogin(user, pswd);
+    var dd = await loogin(user, pswd);
     console.log(dd);
     if (dd == "y") {
         succes();
