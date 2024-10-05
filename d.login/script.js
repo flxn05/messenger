@@ -34,7 +34,7 @@ function fail() {
     div.innerHTML = msg;
 }
 
-function succes(){
+function succes() {
     var x = Math.floor(Math.random() * 4)
     var div = document.getElementById("lerror");
     var msg = succes_msgs[x];
@@ -45,30 +45,23 @@ function succes(){
 
 
 async function login() {
-    var data_bad = await fetch("user_data.json");
-    var data = await data_bad.json();
-
-    var form =  document.getElementById("login_form");
+    var form = document.getElementById("login_form");
     var user = form[0].value;
     var pswd = form[1].value;
-    try {
-        if (data[user].password == pswd) {
-           succes();
-           document.cookie = "user=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-           document.cookie = "user=" + user;
-           window.location.replace(gigachat);
-        }
-        else {
-            fail();
-        }     
+    if (loogin(user, pswd) == "j") {
+        succes();
+        document.cookie = "user=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        document.cookie = "user=" + user;
+        window.location.replace(gigachat);
     }
-    catch {
+    else {
         fail();
     }
 }
 
 
-document.addEventListener("keydown", function(event) {
+
+document.addEventListener("keydown", function (event) {
     if (event.key === "Enter") {
         login();
     }

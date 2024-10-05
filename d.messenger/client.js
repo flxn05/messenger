@@ -57,14 +57,14 @@ socket.onmessage = function(event) {
 socket.onclose = function(event) {
     wopened = false;
   if (event.wasClean) {
-    alert(`[close] Connection closed cleanly, code=${event.code} reason=${event.reason}`);
+    alert(`[error] please refresh page or contact developers`);
   } else {
-    alert('[close] Connection died');
+    alert('[error] please refresh page or contact developers');
   }
 };
 
 socket.onerror = function(error) {
     wopened = false;
-  alert(`[error]`);
+  alert(`[error] please refresh page or contact developers`);
 };
 
