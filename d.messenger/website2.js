@@ -214,7 +214,7 @@ function styles_signal(){
 //sleep(100);
 //window.onload = update_users();
 //update_users();
-//document.addEventListener("DOMContentLoaded", update_users());
+document.addEventListener("DOMContentLoaded", update_users());
 //window.addEventListener('load', update_users);
 //window.addEventListener('load', () => {update_users()});
 
