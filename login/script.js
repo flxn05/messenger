@@ -51,6 +51,7 @@ async function login() {
     var dd = await loogin(user, pswd);
     console.log(dd);
     if (dd == "j") {
+        sleep(1000);
         succes();
         document.cookie = "user=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
         document.cookie = "user=" + user;
