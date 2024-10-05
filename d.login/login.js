@@ -2,6 +2,11 @@ let socket = new WebSocket("wss://192.168.178.73:12369");
 let response = "";
 let wopened = false;
 
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+
 async function loogin(username, passwd) {
     if (wopened) {
         socket.send(username + ":" + passwd);
