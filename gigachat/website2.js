@@ -10,7 +10,7 @@ console.log(x);
 const y = x.substring(5, x.length+1);
 console.log(y);
 var qwertz = false;
-var edtgjhFGASSGNJSFGN = False;
+
 
 async function check_users() {
     const c = await get_json("user");
