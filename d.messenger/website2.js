@@ -10,7 +10,7 @@ console.log(x);
 const y = x.substring(5, x.length+1);
 console.log(y);
 var qwertz = false;
-
+var edtgjhFGASSGNJSFGN = False;
 
 async function check_users() {
     const c = await get_json("user");
@@ -29,13 +29,13 @@ async function check_users() {
         window.location.replace(logged_out_page);
     }
     else{
+        
         update_users();
     }
 }
 
 
 check_users();
-
 
 
 
@@ -217,10 +217,6 @@ function styles_signal(){
 document.addEventListener("DOMContentLoaded", update_users());
 //window.addEventListener('load', update_users);
 //window.addEventListener('load', () => {update_users()});
-
-
-
-
 document.addEventListener("keydown", function(event){
     if (event.key === "Enter"){
         send_msg();
@@ -241,7 +237,6 @@ document.getElementById('search-box').addEventListener('input', function() {
         }
     });
 });
-
 
 
 
