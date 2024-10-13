@@ -20,6 +20,11 @@ html {
 }
 
 body {
+  padding: 0;
+  margin: 0;
+}
+
+#app {
   background-color: #2c2c2c;
   display: flex;
   justify-content: center;
@@ -29,6 +34,9 @@ body {
   padding-inline: 2.5vw;
   overflow: hidden;
   -webkit-tap-highlight-color: transparent;
+}
+#downloadPrompt {
+  display: none;
 }
 main {
   width: 100vw;
@@ -188,6 +196,10 @@ nav {
   display: block;
   min-width: 240px;
 }
+.msg-rx:last-of-type .msg-content-rx,
+.msg-tx:last-of-type .msg-content-tx {
+  animation: msg .25s  forwards;
+}
 
 .info {
   color: rgb(177, 177, 177);
@@ -300,30 +312,6 @@ nav {
   box-shadow: 0 0 24px black;
 }
 
-.loading-con {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #0a0a0a;
-  animation: start-mobile .75s both;
-  z-index: 10;
-}
-.loading {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-}
-#loading-headline {
-  margin: 0;
-  font-size: 2rem;
-}
-
 @keyframes start-mobile {
   0% {display: normal;}
   100% {display: none;}
@@ -332,3 +320,8 @@ nav {
   0% {transform: scale(.5); translate: 144px; opacity: .25;}
   100% {transform: scale(1);}
 }
+@keyframes msg {
+  0% {transform: scale(.9); opacity: .5; translate: 24px 44px; rotate: 2deg;}
+  50% {transform: scale(1.05); opacity: 1; rotate: -2deg;}
+  100% {transform: scale(1);}
+ }
