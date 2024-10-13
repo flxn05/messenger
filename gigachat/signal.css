@@ -7,16 +7,20 @@ html {
 /*GENEREAL STYLES*/
 
 ::selection {
-  background-color: #005c4b;
+  background-color: #2265ee;
   color: black;
 }
 
 .msg-content-tx::selection {
   background-color: black;
-  color: #005c4b;
+  color: #2265ee;
+}
+body {
+  padding: 0;
+  margin: 0;
 }
 
-body {
+#app {
   background-color: #121212;
   display: flex;
   justify-content: center;
@@ -24,6 +28,9 @@ body {
   color: rgb(226, 226, 226);
   padding-inline: 2.5vw;
   overflow: hidden;
+}
+#downloadPrompt {
+  display: none;
 }
 main {
   width: 100vw;
@@ -145,6 +152,7 @@ nav {
 }
 .three {
   overflow-y: scroll;
+  overflow-x: hidden;
 }
 /*ONE*/
 /*ONE*/
@@ -190,14 +198,14 @@ nav {
 }
 
 /*CHAT-con CLASS*/
-.msg_rx,
-.msg_tx {
-  display: block;
-}
 
 .msg-tx {
    display: flex;
    justify-content: right;
+}
+.msg-rx:last-of-type .msg-content-rx,
+.msg-tx:last-of-type .msg-content-tx {
+  animation: msg .75s  forwards;
 }
 .space {
   height: 3rem;
@@ -238,12 +246,6 @@ nav {
   box-shadow: 0 0 24px rgba(0, 0, 0, 0.3);
   margin-right: 12px;
 }
-/*
-.msg-content-rx:hover,
-.msg-content-tx:hover {
-  transform: scale(1.025);
-  box-shadow: 0 0 24px black;
-}*/
 
 /*TEXT INPUT FIELD*/
 .text-input-con {
@@ -364,4 +366,9 @@ nav {
 @keyframes expand {
   0% {transform: scale(.5); translate: 144px; opacity: .25;}
   100% {transform: scale(1);}
+}
+@keyframes msg {
+ 0% {transform: scale(.9); opacity: 0; filter: saturate(.25);}
+ 50% {transform: scale(1.05); opacity: 1;}
+ 100% {transform: scale(1);}
 }
