@@ -4,10 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Closed Alpha | gigaCHAT</title>
-  <link rel="stylesheet" href="whatsapp.css">
+  <link rel="stylesheet" href="signal.css">
   <link rel="icon" type="image/x-icon" href="thumbnail.png">
-  <script type="text/javascript" src="clifdtent.js"></script>
-  <script type="text/javascript" src="websstzite2.js" defer></script>
+  <script type="text/javascript" src="client.js"></script>
+  <script type="text/javascript" src="website2.js" defer></script>
   
   <link rel="manifest" href="manifest.json">
   
@@ -61,44 +61,81 @@
       // Delay showing the download prompt by 10 seconds
       setTimeout(function() {
           document.getElementById('downloadPrompt').style.display = 'block';
-      }, 1000); // 10 seconds = 10000 milliseconds
+      }, 5000); // 5 seconds = 5000 milliseconds
   }
 </script>
-<div id="downloadPrompt" style="display: none; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); ">
 
-  <div class="app-headline">Download the gigaCHAT App</div>
-  <div>notif, private, easy acces, offline</div>
-  <div class="app-c1"></div>
-  <button id="installBtn">dth</button>
+<div id="downloadPrompt">
 
+  <div class="app-headline">Download the gigaCHAT App!</div>
+  <div class="ft">Our App has some extra features ....</div>
+  <div class="table">
+    <div></div>
+    <div style="font-weight: bold;">Browser</div><div style="font-weight: bold;">App</div>
+    <div style="font-weight: normal;">Privacy</div><div class="green">&#10003; <!-- Check symbol -->
+    </div><div class="green">&#10003; <!-- Check symbol -->
+    </div>
+    <div style="font-weight: normal;">One-Click-Access</div><div class="red">&#10006; <!-- Not correct symbol -->
+    </div><div class="green">&#10003; <!-- Check symbol -->
+    </div>
+    <div style="font-weight: normal;">Offline Preview</div><div class="red">&#10006; <!-- Not correct symbol -->
+    </div><div class="green">&#10003; <!-- Check symbol -->
+    </div>
+    <div style="font-weight: normal;">Notifications</div><div class="red">&#10006; <!-- Not correct symbol -->
+    </div><div class="green">&#10003; <!-- Check symbol -->
+    </div>
+  </div>
+  <button class="install">Install</button>
+<button class="close">Close</button>
+</div>
 
+<div class="explanation" style="display: none;">
+  <div class="app-headline" style="color: grey;">How To Install <img src="thumbnail.png" style="height: 2.5rem; translate: 0 .75rem;"> gigaCHAT</div>
+  <div class="ft" style="color: rgb(226, 226, 226);">GigaCHAT is installable as a Progressive Web App (PWA), which means it can be downloaded directly from this website.<br><br>
+  On your phone, go to the three dots and navigate to "Add page to home screen", then click on "Install as App". The installation process will begin, this can take some minutes.<br><br>On your PC, click on the install icon on the right of the search bar, then confirm the installation.<br><br> <b><span style="color: grey;">Please note that you have to use a new version of Chrome, Samsung Internet or Safari to be able to use this feature. Also, give gigaCHAT the permission to send you notifications.</span></b><br>
+
+<button class="install-close">Close</button>
+<button class="email-help">Help (click to copy Email Adress)</button>
+
+</div>
+</div>
 
 <script>
+  document.querySelector('.close').addEventListener('click', function() {
+      document.getElementById('downloadPrompt').style.display = 'none';
+  });
+</script>
+<script>
+    document.querySelector('.install').addEventListener('click', function() {
+        document.querySelector('.explanation').style.display = 'block';
+    });
+</script>
 
-let deferredPrompt
+<script>
+document.querySelector('.install-close').addEventListener('click', function() {
+        document.querySelector('.explanation').style.display = 'none';
+    });
+</script>
 
-  // Install button click event
-document.getElementById('installBtn').addEventListener('click', () => {
-    if (deferredPrompt) {
-        // Show the install prompt
-        deferredPrompt.prompt();
-        // Wait for the user's response
-        deferredPrompt.userChoice.then((choiceResult) => {
-            if (choiceResult.outcome === 'accepted') {
-                console.log('User accepted the install prompt');
-            } else {
-                console.log('User dismissed the install prompt');
-            }
-            // Clear the deferredPrompt so it can't be used again
-            deferredPrompt = null;
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const copyButton = document.querySelector('.email-help');
+
+    copyButton.addEventListener('click', function () {
+        const textToCopy = "hello, this text was copied";
+
+        // Copy the text to the clipboard
+        navigator.clipboard.writeText(textToCopy).then(function () {
+            // Change button text after successful copy
+            copyButton.textContent = "Copied! (get.giga.chat@gmail.com)";
+        }).catch(function (err) {
+            console.error('Could not copy text: ', err);
         });
-    }
+    });
 });
+
 </script>
 
 
-
-
-</div>
 </body>
 </html>
