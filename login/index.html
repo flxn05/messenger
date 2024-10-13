@@ -5,8 +5,8 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login | gigaCHAT</title>
-    <script type="text/javascript" src="script.js"></script>
-    <script type="text/javascript" src="login.js"></script>
+    <script type="text/javascript" src="scribvpt.js"></script>
+    <script type="text/javascript" src="logifgn.js"></script>
     <link rel="icon" type="image/x-icon" href="thumbnail.png">
     <style>
         
@@ -21,17 +21,22 @@
 }
 
 body {
+  padding: 0;
+  margin: 0;
+}
+
+#app {
   background-color: #202020;
   color: white;
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
   height: 100vh;
   overflow-y: hidden;
 }
 main {
-  width: 888px;
-  height: 555px;
+  width: 666px;
+  height: 444px;
   max-height: 80vh;
   max-width: 80vw;
   border-radius: 24px;
@@ -47,6 +52,24 @@ main {
   font-family: Arial, Helvetica, sans-serif;
   position: relative;
 }
+
+.left-part {
+  width: 592px;
+  height: 370px;
+  max-height: 80vh;
+  max-width: 80vw;
+  border-radius: 24px;
+  border-top-left-radius: 4px;
+  padding: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: left;
+  flex-direction: column;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  position: relative;
+}
+
 
 #login_form {
   display: flex;
@@ -105,6 +128,7 @@ main {
   font-weight: bold;
   margin-bottom: .5rem;
   font-size: 3rem;
+  letter-spacing: -1px;
 }
 #username,
 #password,
@@ -147,45 +171,106 @@ main {
   cursor: pointer;
 }
 
-.rd {
-  color: gray;
-  letter-spacing: 1px;
-  font-style: italic;
+a {
+  color: lightgrey;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all .15s;
+}
+
+.ba,
+.fr,
+.de,
+.cu,
+.sc {
+  transition: all .33s cubic-bezier(.48,.11,.52,1.06);
+  background-color: #202020;
+  z-index: 2;
+  cursor: pointer;
+}
+
+
+.ba:hover,
+.fr:hover,
+.de:hover,
+.cu:hover,
+.sc:hover {
+  translate: 12px 0;
+  opacity: 0;
+}
+
+
+
+
+
+
+
+
+
+
+.welcome {
+  font-size: 2.6rem;
   font-weight: bold;
-  margin-bottom: 6px;
-  text-align: center;
-  position: absolute;
-  bottom: 0;
+  letter-spacing: -1px;
+  color: rgb(224, 224, 224);
+  margin-bottom: 24px;
+}
+.info-div {
+  color: rgb(185, 185, 185);
+  letter-spacing: 2px;
+  font-size: 1.2rem;
+}
+.credits {
+  margin-left: 2ch;
+  line-height: 2rem;
+  color: lightgrey;
+}
+p {
+  margin-bottom: 36px;
 }
     </style>
 </head>
 <body>
-
-<div class="lheader">
-  <img src="thumbnail.png" id="llogo-big">
-  <div class="space" style="width: 12px;"></div>
-  <div id="lheadline">gigaCHAT</div>
+  <div id="app">
+<div class="left-part">
+  <div class="welcome">Welcome to <img src="thumbnail.png" style="height: 3rem; margin-inline: 12px; translate: 0 .5rem;">gigaCHAT!</div>
+  <div class="info-div">
+  <p>The free, open-source messaging application.</p>
+  <div class="credits">
+      <div class="ba">Backend: David Ott</div>
+      <div class="fr">Frontend: Jonathan Wallasch</div>
+      <div class="de">Design: Felix Nowak</div>
+      <div class="cu">Contact us</div>
+      <a href="https://github.com/flxn05/messenger" target="_blank"><div class="sc">➡ Source Code</div></a>
+  </div>
+  </div>
 </div>
-  
+
+
     <main>
       <div class="llogin">Login</div>
-
         <div id="lerror"></div>
         <form id="login_form">
             <input type="text" name="username" id="username" placeholder="username ....">
             <input type="password" name="password" id="password" placeholder="password ....">
             <button type="button" id ="login_button" onclick="login()">Login</button>
-            <div class="rd">
-              
-              <a class="demo123" href="https://github.com/flxn05/messenger">github</a>
-            </div>
     </main>
-
     <div id="lfooter">
-      <div>backend: David Ott</div>
-      <div>frontend: Jonathan Wallasch</div>
-      <div>design: Felix Nowak</div>
+      
       </div>
+  </div>
+
+
+  <script>
+        // Check if the app is running in standalone mode
+        if (window.matchMedia('(display-mode: standalone)').matches) {
+            // PWA is installed, show the app content
+            document.getElementById('app').style.display = 'block';
+        } else {
+            // PWA is not installed, show the download prompt
+            document.getElementById('downloadPrompt').style.display = 'block';
+        }
+    </script>
+<div id="downloadPrompt">gigaCHAT is only available when installed on your device.</div>
 </body>
 </html>
-
