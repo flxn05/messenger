@@ -35,9 +35,7 @@ body {
   overflow: hidden;
   -webkit-tap-highlight-color: transparent;
 }
-#downloadPrompt {
-  display: none;
-}
+
 main {
   width: 100vw;
   max-width: 1920px;
@@ -312,6 +310,134 @@ nav {
   box-shadow: 0 0 24px black;
 }
 
+
+/*
+DOWNLOAD POP UP
+*/
+
+
+#downloadPrompt {
+  padding: 44px;
+  padding-block: 96px;
+  padding-bottom: 24px;
+  border: 1px solid #4d4d4d;
+  background-color: #141414;
+  border-radius: 10px;
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  display: none;
+  animation: downloadPromt .15s ease-in-out;
+}
+.app-headline {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  letter-spacing: -1px;
+}
+.ft {
+  color: lightgrey;
+  font-size: 1.25rem;
+  margin-top: 44px;
+  line-height: 3rem;
+  letter-spacing: 1px;
+}
+.table {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  border: solid grey 1px;
+  border-radius: 6px;
+  margin-top: 24px;
+}
+.table div {
+  border: 1px solid grey;
+  padding-inline: 6px;
+  padding-block: 8px;
+}
+.red {
+  color: red;
+}
+.green {
+  color: green;
+  font-weight: bold;
+}
+.close {
+  margin-top: 64px;
+  border: 2px solid rgb(228, 117, 117);
+  background-color: transparent;
+  color: white;
+  padding-inline: 18px;
+  padding-block: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-left: 15%;
+}
+.install {
+  margin-top: 64px;
+  border: 2px solid #00866e8e;
+  background-color: #005c4b;
+  box-shadow: 0 0 12px #00774994;
+  color: white;
+  padding-inline: 36px;
+  padding-block: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+
+.email-help {
+  margin-top: 64px;
+  border: 2px solid rgb(228, 117, 117);
+  background-color: transparent;
+  color: white;
+  padding-inline: 18px;
+  padding-block: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-left: 15%;
+}
+.install-close {
+  margin-top: 64px;
+  border: 2px solid #00866e8e;
+  background-color: #005c4b;
+  box-shadow: 0 0 12px #00774994;
+  color: white;
+  padding-inline: 36px;
+  padding-block: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+
+
+
+
+/*explanation*/
+.explanation {
+  padding: 44px;
+  padding-block: 96px;
+  padding-bottom: 24px;
+  border: 1px solid #4d4d4d;
+  background-color: #202020;
+  border-radius: 10px;
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  display: none;
+  animation: downloadPromt .1s ease-in-out;
+}
+
+
+
 @keyframes start-mobile {
   0% {display: normal;}
   100% {display: none;}
@@ -324,4 +450,8 @@ nav {
   0% {transform: scale(.9); opacity: .5; translate: 24px 44px; rotate: 2deg;}
   50% {transform: scale(1.05); opacity: 1; rotate: -2deg;}
   100% {transform: scale(1);}
+ }
+ @keyframes downloadPromt {
+  0% {opacity: 0; filter: blur(1px); transform: scale(.9);  transform: translate(-50%, -50%);}
+  100% {opacity: 1; filter: blur(0);   transform: translate(-50%, -50%);}
  }
