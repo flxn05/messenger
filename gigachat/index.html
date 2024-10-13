@@ -6,13 +6,14 @@
   <title>Closed Alpha | gigaCHAT</title>
   <link rel="stylesheet" href="whatsapp.css">
   <link rel="icon" type="image/x-icon" href="thumbnail.png">
-  <script type="text/javascript" src="client.js"></script>
-  <script type="text/javascript" src="website2.js" defer></script>
+  <script type="text/javascript" src="clifdtent.js"></script>
+  <script type="text/javascript" src="websstzite2.js" defer></script>
   
   <link rel="manifest" href="manifest.json">
   
 </head>
 <body>
+  <div id="app">
   <nav>
     <img src="thumbnail.png" id="logo-big">
     <div class="space" style="width: 12px;"></div>
@@ -49,23 +50,55 @@
     </div>
   </main>
 
+</div>
 
+<script>
+  // Check if the app is running in standalone mode
+  if (window.matchMedia('(display-mode: standalone)').matches) {
+      // PWA is installed, show the app content
+      document.getElementById('app').style.display = 'flex';
+  } else {
+      // Delay showing the download prompt by 10 seconds
+      setTimeout(function() {
+          document.getElementById('downloadPrompt').style.display = 'block';
+      }, 1000); // 10 seconds = 10000 milliseconds
+  }
+</script>
+<div id="downloadPrompt" style="display: none; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); ">
+
+  <div class="app-headline">Download the gigaCHAT App</div>
+  <div>notif, private, easy acces, offline</div>
+  <div class="app-c1"></div>
+  <button id="installBtn">dth</button>
+
+
+
+<script>
+
+let deferredPrompt
+
+  // Install button click event
+document.getElementById('installBtn').addEventListener('click', () => {
+    if (deferredPrompt) {
+        // Show the install prompt
+        deferredPrompt.prompt();
+        // Wait for the user's response
+        deferredPrompt.userChoice.then((choiceResult) => {
+            if (choiceResult.outcome === 'accepted') {
+                console.log('User accepted the install prompt');
+            } else {
+                console.log('User dismissed the install prompt');
+            }
+            // Clear the deferredPrompt so it can't be used again
+            deferredPrompt = null;
+        });
+    }
+});
+</script>
+
+
+
+
+</div>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
