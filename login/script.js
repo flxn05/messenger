@@ -54,7 +54,7 @@ async function login() {
         sleep(1000);
         succes();
         document.cookie.split(";").forEach(function(c) { document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/"); });
-        document.cookie = "user=" + user;
+        document.cookie = "user=" + user + "; path=/";
         window.location.replace(gigachat);
     }
     else {
