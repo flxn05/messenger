@@ -209,8 +209,9 @@ function styles_signal(){
     document.getElementById("head").innerHTML = '<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Messages | gigaCHAT</title><link rel="stylesheet" href="signal.css"><link rel="icon" type="image/x-icon" href="thumbnail.png"><script type="text/javascript" src="client.js"></script><script type="text/javascript" src="website2.js" defer></script><link rel="manifest" href="manifest.json">'
 
 }
-
-
+console.log("checking");
+document.addEventListener("DOMContentLoaded", check_users());
+console.log("checked");
 //sleep(100);
 //window.onload = update_users();
 //update_users();
