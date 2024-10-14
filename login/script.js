@@ -1,4 +1,4 @@
-const gigachat = "https://192.168.178.73/gigachat";
+const gigachat = "https://gigachat.ddns.net/gigachat";
 
 
 const fail_msgs = [
