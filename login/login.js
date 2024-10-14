@@ -1,4 +1,4 @@
-let socket = new WebSocket("wss://192.168.178.73:12369");
+let socket = new WebSocket("wss://gigachat.ddns.net:12369");
 let response = "";
 let wopened = false;
 
