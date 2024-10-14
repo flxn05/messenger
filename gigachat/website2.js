@@ -1,7 +1,7 @@
 //consts
 
-const login_page = "https://192.168.178.73/login"
-const logged_out_page = "https://192.168.178.73/logged_out"
+const login_page = "https://gigachat.ddns.net/login"
+const logged_out_page = "https://gigachat.ddns.net/logged_out"
 //const maion_page = 
 //document.cookie = "user=dave";
 
