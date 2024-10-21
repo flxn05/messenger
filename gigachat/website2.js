@@ -35,9 +35,11 @@ async function check_users() {
     }
 }
 
-await get_json("user").then((data) => {JSON.parse(data); }).then((data) => {console.log(data)});
+function ficken(){
+    check_users();
+}
 
-
+ficken();
 
 
 
