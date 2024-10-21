@@ -35,7 +35,7 @@ async function check_users() {
     }
 }
 
-get_json("user").then((data) => {JSON.parse(data); }).then((data) => {console.log(data)});
+await get_json("user").then((data) => {JSON.parse(data); }).then((data) => {console.log(data)});
 
 
 
