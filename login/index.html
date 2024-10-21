@@ -50,9 +50,13 @@ main {
   flex-direction: column;
   color: white;
   font-family: Arial, Helvetica, sans-serif;
-  position: relative;
+  z-index: 5;
+  animation: transform 7.5s ease-in-out both infinite;
 }
-
+@keyframes transform {
+  0% {transform: scale(1); box-shadow: 0 0 3rem rgba(0, 0, 0, 0.2);}
+  50% {transform: scale(1.01); box-shadow: 0 0 3rem rgba(0, 0, 0, 0.4);}
+}
 .left-part {
   width: 592px;
   height: 370px;
@@ -129,6 +133,7 @@ main {
   margin-bottom: .5rem;
   font-size: 3rem;
   letter-spacing: -1px;
+  color: lightgrey;
 }
 #username,
 #password,
@@ -141,6 +146,7 @@ main {
   color: white;
   margin-bottom: 12px;
   width: 180px;
+  font-size: 1.2rem;
 }
 
 #username,
@@ -161,7 +167,7 @@ main {
 }
 #username::placeholder,
 #password::placeholder {
-  color: lightgray;
+  color: white;
   font-size: 1.2rem;
 }
 #login_button {
@@ -172,7 +178,7 @@ main {
 }
 
 a {
-  color: lightgrey;
+  color: rgb(226, 226, 226);
   text-decoration: none;
   cursor: pointer;
   transition: all .15s;
@@ -189,45 +195,79 @@ a {
   cursor: pointer;
 }
 
-
 .ba:hover,
 .fr:hover,
 .de:hover,
 .cu:hover,
 .sc:hover {
-  translate: 12px 0;
-  opacity: 0;
+  transform: scale(1);
+  opacity: .66;
 }
-
-
-
-
-
-
-
-
-
 
 .welcome {
   font-size: 2.6rem;
   font-weight: bold;
   letter-spacing: -1px;
-  color: rgb(224, 224, 224);
+  color: grey;
   margin-bottom: 24px;
+  position: relative;
+}
+.welcome::after {
+  content: '';
+  width: 150%;
+  height: 5rem;
+  background-image: linear-gradient(270deg, transparent, #202020, #202020);
+  position: absolute;
+  translate: -100%;
+  animation: fade-in both ease 1.33s;
+  rotate: 180deg;
+}
+@keyframes fade-in {
+  0% {width: 150%;}
+  100% {width: 0%;}
 }
 .info-div {
-  color: rgb(185, 185, 185);
+  color: white;
   letter-spacing: 2px;
   font-size: 1.2rem;
 }
 .credits {
   margin-left: 2ch;
   line-height: 2rem;
-  color: lightgrey;
+  color: white;
 }
 p {
   margin-bottom: 36px;
 }
+.typewriter {
+            display: inline-block;
+            border-right: 2px solid black; /* Optional cursor effect */
+            white-space: nowrap;
+            overflow: hidden;
+            font-family: monospace;
+        }
+
+        #switch-btn {
+          position: absolute;
+          height: 1.5rem;
+          width: 1.5rem;
+          border-radius: 25%;
+          translate: -2rem .75rem;
+          border: solid 2px #2c2c2c;
+          background-color: #2c2c2c;
+          cursor: pointer;
+          color: lightgrey;
+          font-size: .75rem;
+          padding: 0;
+        }
+        #switch-btn:focus {
+          animation: switch .33s;
+        }
+        @keyframes switch {
+          0% {transform: scale(1);}
+          50% {transform: scale(.9);}
+          100% {transform: scale(1);}
+        }
     </style>
 </head>
 <body>
@@ -235,13 +275,13 @@ p {
 <div class="left-part">
   <div class="welcome">Welcome to <img src="thumbnail.png" style="height: 3rem; margin-inline: 12px; translate: 0 .5rem;">gigaCHAT!</div>
   <div class="info-div">
-  <p>The free, open-source messaging application.</p>
+  <p class="typewriter" data-text="The free, open-source messaging application." data-delay="1250" data-speed="33"></p>
   <div class="credits">
-      <div class="ba">Backend: David Ott</div>
-      <div class="fr">Frontend: Jonathan Wallasch</div>
-      <div class="de">Design: Felix Nowak</div>
+      <a href="https://github.com/gerbil008" target="_blank"><div class="ba">Backend: David Ott</div></a>
+      <a href="https://github.com/MulitmeterManiac" target="_blank"><div class="fr">Frontend: Jonathan Wallasch</div></a>
+      <a href="https://github.com/flxn05" target="_blank"><div class="de">Design: Felix Nowak</div></a>
       <div class="cu">Contact us</div>
-      <a href="https://github.com/flxn05/messenger" target="_blank"><div class="sc">➡ Source Code</div></a>
+      <a href="https://github.com/flxn05/messenger" target="_blank"><div class="sc">Source Code</div></a>
   </div>
   </div>
 </div>
@@ -252,7 +292,11 @@ p {
         <div id="lerror"></div>
         <form id="login_form">
             <input type="text" name="username" id="username" placeholder="username ....">
-            <input type="password" name="password" id="password" placeholder="password ....">
+
+            <div>
+            <input type="password" name="password" id="password" placeholder="password ...." style="position: relative;">
+            <button id="switch-btn" type="button">s/h</button></div>
+
             <button type="button" id ="login_button" onclick="login()">Login</button>
     </main>
     <div id="lfooter">
@@ -260,17 +304,64 @@ p {
       </div>
   </div>
 
-<!--
-  <script>
-        // Check if the app is running in standalone mode
-        if (window.matchMedia('(display-mode: standalone)').matches) {
-            // PWA is installed, show the app content
-            document.getElementById('app').style.display = 'block';
-        } else {
-            // PWA is not installed, show the download prompt
-            document.getElementById('downloadPrompt').style.display = 'block';
-        }
+<script>
+  //when contact is clicked, then show email AND copy to clipboard
+document.querySelector('.cu').addEventListener('click', function() {
+  this.innerText = "get.giga.chat@gmail.com";
+});
+document.querySelector('.cu').addEventListener('click', function() {
+    const textToCopy = "get.giga.chat@gmail.com";
+    const tempTextarea = document.createElement('textarea');
+    tempTextarea.value = textToCopy;
+    document.body.appendChild(tempTextarea);
+    tempTextarea.select();
+    document.execCommand('copy');
+    document.body.removeChild(tempTextarea);
+    console.log("get.giga.chat@gmail.com - copied email address");
+});
+</script>
+
+<script>
+  function typewriterEffect(element, text, speed = 100, delay = 0) {
+      let i = 0;
+
+      function type() {
+          if (i < text.length) {
+              element.innerHTML += text.charAt(i);
+              i++;
+              setTimeout(type, speed);
+          }
+      }
+
+      // Delay the start of typing by the given delay time
+      setTimeout(type, delay);
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+      const typewriterElements = document.querySelectorAll('.typewriter');
+      typewriterElements.forEach((element) => {
+          const text = element.getAttribute('data-text');
+          const delay = parseInt(element.getAttribute('data-delay')) || 0; // Get delay from attribute
+          const speed = parseInt(element.getAttribute('data-speed')) || 100; // Get speed from attribute
+          element.innerHTML = ''; // Clear content initially
+          typewriterEffect(element, text, speed, delay); // Pass the speed and delay to the function
+      });
+  });
+</script>
+
+
+    <script>
+        document.getElementById("switch-btn").addEventListener("click", function() {
+            const passwordInput = document.getElementById("password");
+            
+            // Toggle between password and text
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+            } else {
+                passwordInput.type = "password";
+            }
+        });
     </script>
-<div id="downloadPrompt">gigaCHAT is only available when installed on your device.</div>-->
+
 </body>
 </html>
