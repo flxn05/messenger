@@ -2,8 +2,8 @@
 
 const login_page = "https://gigachat.ddns.net/login"
 const logged_out_page = "https://gigachat.ddns.net/logged_out"
-//const maion_page = 
-//document.cookie = "user=dave";
+
+//document.cookie = "user=Joni";
 
 const x = document.cookie;
 console.log(x); 
@@ -26,6 +26,7 @@ async function check_users() {
     }
     console.log(qwertz);
     if (qwertz == false){
+        console.log("logged_out");
         window.location.replace(logged_out_page);
     }
     else{
@@ -37,10 +38,7 @@ async function check_users() {
 sleep(100);
 check_users();
 
-if (qwertz == false){
 
-    window.location.replace("https://gigachat.ddns.net/logged_out");
-}
 
 
 
