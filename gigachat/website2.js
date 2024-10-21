@@ -35,13 +35,11 @@ async function check_users() {
     }
 }
 
-const g = document.createElement("div");
-g.setAttribute("onclick", "check_users()");
-g.setAttribute("id", "check");
-g.setAttribute("class", "hidden");
-const h = document.getElementById("one");
-h.appendChild(g);
-document.getElementById("check").click();
+check_users()
+ .then(() => {
+    console.log('2');
+ });
+
 
 
 
@@ -222,15 +220,12 @@ function styles_signal(){
     document.getElementById("head").innerHTML = '<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Messages | gigaCHAT</title><link rel="stylesheet" href="signal.css"><link rel="icon" type="image/x-icon" href="thumbnail.png"><script type="text/javascript" src="client.js"></script><script type="text/javascript" src="website2.js" defer></script><link rel="manifest" href="manifest.json">'
 
 }
-console.log("checking");
-document.addEventListener("DOMContentLoaded", check_users());
-console.log("checked");
+
 //sleep(100);
 //window.onload = update_users();
 //update_users();
 document.addEventListener("DOMContentLoaded", update_users());
-sleep(100);
-check_users();
+
 //window.addEventListener('load', update_users);
 //window.addEventListener('load', () => {update_users()});
 document.addEventListener("keydown", function(event){
