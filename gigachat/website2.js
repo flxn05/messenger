@@ -27,7 +27,7 @@ async function check_users() {
     console.log(qwertz);
     if (qwertz == false){
         console.log("logged_out");
-        window.location.replace(logged_out_page);
+        //window.location.replace(logged_out_page);
     }
     else{
         
