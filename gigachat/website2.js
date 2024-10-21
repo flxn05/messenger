@@ -35,9 +35,16 @@ async function check_users() {
     }
 }
 
-sleep(100);
-check_users();
-sleep(100);
+const g = document.createElement("div");
+g.setAttribute("onclick", "check_users()");
+g.setAttribute("id", "check");
+g.setAttribute("class", "hidden");
+const h = document.getElementById("one");
+h.appendChild(g);
+document.getElementById("check").click();
+
+
+
 if (qwertz == false){
     console.log("logged_out");
     window.location.replace("https://gigachat.ddns.net/logged_out");
