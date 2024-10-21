@@ -39,13 +39,14 @@ async function check_users() {
 
 check_users();
 
-
+while(true){
 
 if (qwertz == false){
     console.log("logged_out");
     //window.location.replace("https://gigachat.ddns.net/logged_out");
+    break;
 }
-
+}
 
 
 
