@@ -35,10 +35,12 @@ async function check_users() {
     }
 }
 
-check_users()
- .then(() => {
+check_users().then(() => {
     console.log('2');
- });
+}).catch((error) => {
+    console.error('Error checking users:', error);
+});
+
 
 
 
