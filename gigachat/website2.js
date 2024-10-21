@@ -35,20 +35,15 @@ async function check_users() {
     }
 }
 
-function ficken(){
-    check_users();
-}
-
-ficken();
 
 
-
+check_users();
 
 
 
 if (qwertz == false){
     console.log("logged_out");
-    window.location.replace("https://gigachat.ddns.net/logged_out");
+    //window.location.replace("https://gigachat.ddns.net/logged_out");
 }
 
 
