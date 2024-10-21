@@ -216,6 +216,8 @@ console.log("checked");
 //window.onload = update_users();
 //update_users();
 document.addEventListener("DOMContentLoaded", update_users());
+sleep(100);
+check_users();
 //window.addEventListener('load', update_users);
 //window.addEventListener('load', () => {update_users()});
 document.addEventListener("keydown", function(event){
