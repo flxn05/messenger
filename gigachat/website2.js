@@ -35,11 +35,10 @@ async function check_users() {
     }
 }
 
-check_users().then(() => {
-    console.log('2');
-}).catch((error) => {
-    console.error('Error checking users:', error);
-});
+get_json("user").then((data) => {JSON.parse(data); }).then((data) => {console.log(data)});
+
+
+
 
 
 
