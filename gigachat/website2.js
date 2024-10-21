@@ -39,7 +39,8 @@ sleep(100);
 check_users();
 sleep(100);
 if (qwertz == false){
-    window.location.replace("https://gigachat.ddns.net/logged_out");
+    console.log("logged_out");
+    //window.location.replace("https://gigachat.ddns.net/logged_out");
 }
 
 
