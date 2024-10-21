@@ -160,6 +160,7 @@ nav {
 .search-con {
   display: flex;
   justify-content: center;
+  padding-top: 1rem;
 }
 
 #search-box {
@@ -250,14 +251,15 @@ nav {
 /*TEXT INPUT FIELD*/
 .text-input-con {
   position: fixed;
-  bottom: 44px;
-  left: 29%;
-  right: 0;
+  bottom: 0px;
+  left: 24%;
+  right: -4%;
   display: flex;
   justify-content: center;
-  padding-top: 18px;
+  padding-bottom: 44px;
   z-index: 10;
   margin-inline: 5%;
+  background-color: #121212;
 }
 /*DO NOT EDIT !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
 /*DO NOT EDIT !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
