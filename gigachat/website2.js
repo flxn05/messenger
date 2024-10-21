@@ -3,12 +3,12 @@
 const login_page = "https://gigachat.ddns.net/login"
 const logged_out_page = "https://gigachat.ddns.net/logged_out"
 
-document.cookie = "user=Joni";
+
 
 const x = document.cookie;
-console.log(x); 
+
 const y = x.substring(5, x.length+1);
-console.log(y);
+
 var qwertz = false;
 
 
@@ -17,22 +17,22 @@ async function check_users() {
     const c = await get_json("user");
     }
     catch (error){
-        console.log("weuz");
+        return;
     }
     const d = await JSON.parse(await get_json("user"));
-    console.log(d);
+
     for (let i = 0; i < d.length; i++){
-        console.log(d[i]);
+
         if (d[i] == y){
-            console.log("user found");
+
             qwertz = true;
 
         }
     }
-    console.log(qwertz);
+
     if (qwertz == false){
-        console.log("logged_out");
-        //window.location.replace(logged_out_page);
+        
+        window.location.replace(logged_out_page);
     }
     else{
         
@@ -163,7 +163,7 @@ async function load_grp() {
    
     for(let i=0; i < data.length; i++){
         var msg = data[i].sender + ": " + data[i].msg;
-        console.log(msg);
+
 
         var dir = "rx";
         if (data[i].sender == y){
@@ -186,7 +186,7 @@ async function send_msg(){
         return;
     }
     input.value = " ";
-    console.log(sending_msg)
+
     add_msg(y + ": " + sending_msg, "tx");
     var grp = await get_json("grp");
     var grp_data = JSON.parse(grp);
