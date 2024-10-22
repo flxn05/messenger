@@ -56,6 +56,7 @@ setTimeout(check_users, 200);
 
 
 popup_menu = document.getElementById("expanded");
+pupup_menu = document.getElementById("expanded");
 popup_menu.classList.add("hidden");
 
 const scrollContainer = document.getElementById('three');

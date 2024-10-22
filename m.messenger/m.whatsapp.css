@@ -38,6 +38,7 @@ main {
   font-size: 1.2rem;
   color: grey;
   position: fixed;
+  left: 0;
   bottom: calc(100% - 90vh - 3rem);
 }
 /*SCROLLBAR*/
@@ -59,10 +60,10 @@ nav {
   position: fixed;
   top: 0;
   left: 0;
+  padding-left: 12px;
   right: 0;
   max-height: 5vh;
   display: flex;
-  justify-content: center;
   align-items: center;
   background-color: #202020;
   max-height: 3rem;
@@ -73,12 +74,17 @@ nav {
 .headline {
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
-  font-size: 1.5rem;
+  font-size: 1rem;
 }
-.hamburger {
-  max-height: 1.25rem;
-  position: fixed;
-  right: 5vw;
+#logout {
+  padding-inline: 12px;
+  padding-block: 2px;
+  border: none;
+  box-shadow: #005c4b 0 0 12px;
+  background-color: #005c4b;
+  border-radius: 8px;
+  margin-left: 12px;
+  color: lightgrey;
 }
 
 /*MAIN CONTENT*/

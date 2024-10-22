@@ -55,7 +55,7 @@ async function login() {
         succes();
         document.cookie.split(";").forEach(function(c) { document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/"); });
         document.cookie = "user=" + user + "; path=/";
-        window.location.replace("https://gigachat.ddns.net/gigachat");
+        window.location.replace("https://gigachat.ddns.net/m.gigachat");
     }
     else {
         fail();
