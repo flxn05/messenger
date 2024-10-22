@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Logged Out | gigaCHAT</title>
+  <style>
+    ::selection {
+      background-color: white;
+      color: black;
+      color: #141c23;
+    }
+
+    body {
+      background-color: #202020;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow-y: hidden;
+    }
+
+    main {
+      height: 33vh;
+      width: 72vw;
+      border-radius: 24px;
+      border-top-left-radius: 4px;
+      padding: 45px;
+      background-color: #2c2c2c;
+      border: solid #3d3d3d 2px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      color: white;
+      font-family: Arial, Helvetica, sans-serif;
+      text-align: center;
+    }
+
+    #login_button {
+      height: 3rem;
+      border: none;
+      padding-inline: 14px;
+      text-align: center;
+      font-style: italic;
+      color: white;
+      margin-bottom: 12px;
+      width: 180px;
+      background-color: #005c4b;
+      border-radius: 8px;
+      border-top-right-radius: 0;
+      width: 208px;
+      font-weight: bold;
+      font-size: 1.1rem;
+      cursor: pointer;
+    }
+
+    p {}
+
+    span {
+      font-size: 2.5rem;
+      color: gray;
+      font-weight: bold;
+    }
+
+    .content {
+      color: white;
+      font-weight: bold;
+      font-size: 1.5rem;
+    }
+  </style>
+</head>
+<script>
+  function linkkk() {
+    window.location.href = "https://gigachat.ddns.net/m.login";
+
+  }
+
+</script>
+
+<body>
+  <main>
+    <p><span>Hey!</span>
+    <div class="space" style="margin-bottom: .1rem;"></div>
+    <div class="content">please log in to use gigaCHAT!</div>
+    </p>
+    <button id="login_button" onclick="linkkk()">Login</button>
+
+  </main>
+</body>
+
+</html>
