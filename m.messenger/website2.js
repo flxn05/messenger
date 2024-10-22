@@ -1,5 +1,67 @@
+//consts
 
-async function add_user(user_id){
+const login_page = "https://gigachat.ddns.net/login"
+const logged_out_page = "https://gigachat.ddns.net/logged_out"
+
+
+
+const x = document.cookie;
+
+const y = x.substring(5, x.length + 1);
+
+var qwertz = false;
+let current_chat;
+let uu;
+
+
+async function check_users() {
+    try {
+        const c = await get_json("user");
+
+
+        const d = await JSON.parse(await get_json("user"));
+
+        for (let i = 0; i < d.length; i++) {
+
+            if (d[i] == y) {
+
+                qwertz = true;
+
+            }
+        }
+    }
+    catch (error) {
+        window.location.replace(logged_out_page);
+    }
+
+
+    if (qwertz == false) {
+
+        window.location.replace(logged_out_page);
+    }
+    else {
+
+        update_users();
+    }
+}
+
+
+
+setTimeout(check_users, 200);
+
+
+
+
+
+
+
+popup_menu = document.getElementById("expanded");
+popup_menu.classList.add("hidden");
+
+const scrollContainer = document.getElementById('three');
+scrollContainer.scrollTop = 9999999;
+
+async function add_user(user_id) {
 
     const para = document.createElement("div");
     para.setAttribute("class", "chat-box");
@@ -10,13 +72,12 @@ async function add_user(user_id){
     parent.appendChild(para);
 }
 
-async function load_users(){
+async function load_users() {
 
-    //const user_bad = await fetch("user.json")
     //const user_good = await user_bad.json();
-    const user_bad = await get_json("user");
-    console.log(user_bad);
-    const user_good = JSON.parse(user_bad);
+    //const user_bad = await get_json("user");
+    //console.log(user_bad);
+    //const user_good = JSON.parse(user_bad);
 
     const para = document.createElement("div");
     para.setAttribute("class", "chat-box");
@@ -45,22 +106,22 @@ async function update_users() {
 }
 
 
-async function add_msg(msg, dir){
+async function add_msg(msg, dir) {
     var act_msg = msg
     var act_dir = dir
     const para2 = document.createElement("div");
-    
+
     para2.setAttribute("id", "msg-con");
     const el2 = document.getElementById("three");
     el2.appendChild(para2);
 
     const para3 = document.createElement("div");
     para3.innerHTML = act_msg;
-    if (act_dir == "rx"){
+    if (act_dir == "rx") {
         para3.setAttribute("class", "msg-content-rx");
         para2.setAttribute("class", "msg-rx");
     }
-    else if (act_dir == "tx"){
+    else if (act_dir == "tx") {
         para3.setAttribute("class", "msg-content-tx");
         para2.setAttribute("class", "msg-tx");
     }
@@ -80,16 +141,16 @@ function clear_chats() {
 }
 
 
-async function load_chats(user_id){
+async function load_chats(user_id) {
     clear_chats();
     var x = await fetch("dave.json");
     var r = await x.json();
-    
 
 
-    
 
-    for (let i= 0; i < r[user_id].length; i++){
+
+
+    for (let i = 0; i < r[user_id].length; i++) {
         var msg = r[user_id][i].text;
         var dir = r[user_id][i].dir;
         add_msg(msg, dir);
@@ -97,76 +158,97 @@ async function load_chats(user_id){
 }
 
 async function load_grp() {
+    current_chat = "grp";
+
     clear_chats();
 
     //local-fetching
     //var d = await fetch("grp.json");
     //var data = await d.json();
-    const d = await get_json("group");
+    const d = await get_json("grp");
+    
     const data = JSON.parse(d);
-   
-    for(let i=0; i < data.length; i++){
+
+    uu = JSON.stringify(d);
+
+    for (let i = 0; i < data.length; i++) {
         var msg = data[i].sender + ": " + data[i].msg;
-        console.log(msg);
+
 
         var dir = "rx";
-        if (data[i].sender == "logged_in_user"){
+        if (data[i].sender == y) {
             dir = "tx";
         }
         add_msg(msg, dir);
     }
+    scrollContainer.scrollTop = 9999999;
 }
 
 
-async function send_msg(){
+async function send_msg() {
 
-    var form = document.getElementById("form");
-    var sending_msg = form[0].value;
-    form[0].value = " ";
-    form[0].placeholder = "";
-    console.log(sending_msg)
 
-    add_msg(sending_msg, "tx");
-    var grp = await get_json("grp");
+    var input = document.getElementById("text_input");
+
+
+    var sending_msg = input.value;
+    if (sending_msg == " ") {
+        return;
+    }
+    input.value = " ";
+
+    add_msg(y + ": " + sending_msg, "tx");
+    var grp = await get_json(current_chat);
     var grp_data = JSON.parse(grp);
-    grp_data[grp_data.length] = {"sender": "logged_in_user", "msg": sending_msg};
-    send_json(JSON.stringify(grp_data));
+    grp_data[grp_data.length] = { "sender": y, "msg": sending_msg };
+    send_json(JSON.stringify(grp_data), "grp");
+    scrollContainer.scrollTop = 9999999;
 
 }
 
-async function ws_test(){
-    console.log("test");
-    const x = await get_json();
-    const y = JSON.parse(x);
-    console.log(y);
-    console.log(x);
-    
+function toggle_menu() {
+
+    popup_menu.classList.toggle("hidden");
 }
 
-async function ws_test2(){
+function logout() {
+    document.cookie.split(";").forEach(function (c) { document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/"); });
+    window.location.href = login_page;
+}
 
-    //const x = await fetch("user.json");
-    send_json("windows_for_life");
+function styles_whatsapp() {
+
+    document.getElementById("head").innerHTML = '<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Messages | gigaCHAT</title><link rel="stylesheet" href="whatsapp.css"><link rel="icon" type="image/x-icon" href="thumbnail.png"><script type="text/javascript" src="client.js"></script><script type="text/javascript" src="website2.js" defer></script><link rel="manifest" href="manifest.json">'
 
 }
 
-sleep(100);
+function styles_signal() {
+
+    document.getElementById("head").innerHTML = '<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Messages | gigaCHAT</title><link rel="stylesheet" href="signal.css"><link rel="icon" type="image/x-icon" href="thumbnail.png"><script type="text/javascript" src="client.js"></script><script type="text/javascript" src="website2.js" defer></script><link rel="manifest" href="manifest.json">'
+
+}
+
+styles_whatsapp();
+
+//sleep(100);
 //window.onload = update_users();
-update_users();
+//update_users();
+document.addEventListener("DOMContentLoaded", update_users());
+
 //window.addEventListener('load', update_users);
 //window.addEventListener('load', () => {update_users()});
-
-
-
-
-//injected for html appearance
+document.addEventListener("keydown", function (event) {
+    if (event.key === "Enter") {
+        send_msg();
+    }
+});
 
 //search-function
-document.getElementById('search-box').addEventListener('input', function() {
+document.getElementById('search-box').addEventListener('input', function () {
     let searchQuery = this.value.toLowerCase();
     let contacts = document.querySelectorAll('.chat-box');
 
-    contacts.forEach(function(contact) {
+    contacts.forEach(function (contact) {
         let contactName = contact.textContent.toLowerCase();
         if (contactName.includes(searchQuery)) {
             contact.classList.remove('hidden');
@@ -176,79 +258,28 @@ document.getElementById('search-box').addEventListener('input', function() {
     });
 });
 
-//scroll-function
-const scrollContainer = document.getElementById('three');
-scrollContainer.scrollTop = 9999999;
+let u;
 
-
-//input detector
-const inputField = document.getElementById('text-input');
-const warning = document.getElementById('text-input');
-const triggerWords = ['nigga','nugga','neger','nogger','nugger','nigger', 'suck', 'sugg','dildo','sperma','ganz groß','anus','cock','penis','rektal','samenleiter','spritz','stange','lange stange'];
-
-inputField.addEventListener('input', function() {
-  const inputValue = inputField.value.toLowerCase();
-  
-  // Überprüfen, ob eines der trigger words im Eingabewert enthalten ist
-  const containsTriggerWord = triggerWords.some(word => inputValue.includes(word));
-
-  // Wenn ein Triggerwort enthalten ist, wird das "!" angezeigt, sonst ausgeblendet
-  if (containsTriggerWord) {
-document.getElementById('text-input').style.border = '1px solid darkred';
-} else {
-document.getElementById('text-input').style.border = '1px solid transparent';
+async function check_update() {    
+    u = await get_json(current_chat);
+    u = JSON.stringify(u);
+    console.log(u);
+    console.log(uu);
+    if (u == uu){
+        console.log("no update");
+    }
+    if (u != uu) {
+        console.log("update");
+        uu = u;
+        load_grp();
+    }
 }
 
-});
 
-document.addEventListener('DOMContentLoaded', () => {
-    const menuButton = document.getElementById('menu');
-    const popupMenu = document.getElementById('expanded');
-    const form = document.getElementById('form'); // Formular-Element hinzufügen
-
-    menuButton.addEventListener('click', () => {
-        popupMenu.classList.toggle('hidden');
-        
-        // Formular ausblenden, wenn das Popup-Menü angezeigt wird
-        if (!popupMenu.classList.contains('hidden')) {
-            form.classList.add('hidden'); // Formular ausblenden
-        } else {
-            form.classList.remove('hidden'); // Formular wieder anzeigen, wenn Menü ausgeblendet ist
-        }
-    });
-
-    // Menü schließen, wenn der Benutzer außerhalb davon klickt
-    document.addEventListener('click', (event) => {
-        if (!menuButton.contains(event.target) && !popupMenu.contains(event.target)) {
-            popupMenu.classList.add('hidden');
-            form.classList.remove('hidden'); // Formular wieder anzeigen, wenn Menü geschlossen wird
-        }
-    });
-});
+setInterval(check_update, 2000);
 
 
-//for the web app:
-self.addEventListener('install', (event) => {
-    event.waitUntil(
-      caches.open('gigaCHAT-cache').then((cache) => {
-        return cache.addAll([
-          '/',
-          '/index.html',
-          '/whatsapp.css',
-          '/client.js',
-          '/website2.js',
-          '/thumbnail.png',
-          '/manifest.json'
-        ]);
-      })
-    );
-  });
-  
-  self.addEventListener('fetch', (event) => {
-    event.respondWith(
-      caches.match(event.request).then((response) => {
-        return response || fetch(event.request);
-      })
-    );
-  });
-  
+
+
+
+ 
