@@ -153,6 +153,8 @@ nav {
 .three {
   overflow-y: scroll;
   overflow-x: hidden;
+  padding-bottom: 96px;
+  
 }
 /*ONE*/
 /*ONE*/
@@ -207,6 +209,7 @@ nav {
 .msg-rx:last-of-type .msg-content-rx,
 .msg-tx:last-of-type .msg-content-tx {
   animation: msg .75s  forwards;
+  margin-bottom: 2rem;
 }
 .space {
   height: 3rem;
