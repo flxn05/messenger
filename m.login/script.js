@@ -1,3 +1,6 @@
+const gigachat = "https://gigachat.ddns.net/gigachat";
+
+
 const fail_msgs = [
     "are you sure you remember your password?",
     "did you forget how to type?",
@@ -10,43 +13,30 @@ const fail_msgs = [
     "invalid username or password.",
     "incorrect login details. Try again!",
     "access denied. invalid credentials!",
-    "invalid login try again!",
-    "wrong password. give it another shot!",
-    "login failed. invalid credentials detected!",
-    "dumbass, cant even remember your password...",
-    "even the memory of a goldfish is better than yours...",
-    "either our database is stupid, or you are...",
+    "invalid login; try again!",
     "do you even know how 'typing' is spelled?",
     "sure ur not a ghost? you're not in our database...",
-    "invalid credentials. please consult a dictionary for guidance.",
-    "incorrect credentials. please consult a psychiatrist for help with your typing skills and emotional stability.",
-    "incorrect credentials. please consult a dictionary for help with your vocabulary and spelling skills.",
     "with great power comes great responsibility, but with a wrong username or password youl'll get neither of them"
 ];
-//23 entrys 
-const succes_msgs = [
-    "beam me up, scotty!",
+//15 entries 
+const succes_msgs = [,
     "login succesful",
-    "wow, you remembered your login data, who's a good boy...",
-    "wow, you survived another login attempt...",
-    "we missed you....well, actually....no, we didnt miss you",
-    "acces granted! time to waste your time on our website...",
-    "it's not a login...it's a lifestyle change",
     "go update your profile picture! oh, wait, we dont have that feature(yet)",
     "welcome back, stranger!",
     "great job! you managed to remember your password. we're impressed (not really)."
 ]
+//4 entries
 
 function fail() {
-    var x = Math.floor(Math.random() * 23)
-    var div = document.getElementById("error");
+    var x = Math.floor(Math.random() * 15)
+    var div = document.getElementById("lerror");
     var msg = fail_msgs[x];
     div.innerHTML = msg;
 }
 
-function succes(){
-    var x = Math.floor(Math.random() * 10)
-    var div = document.getElementById("error");
+function succes() {
+    var x = Math.floor(Math.random() * 4)
+    var div = document.getElementById("lerror");
     var msg = succes_msgs[x];
     div.innerHTML = msg;
 }
@@ -55,22 +45,27 @@ function succes(){
 
 
 async function login() {
-    var data_bad = await fetch("user_data.json");
-    var data = await data_bad.json();
-
-    var form =  document.getElementById("login_form");
+    var form = document.getElementById("login_form");
     var user = form[0].value;
     var pswd = form[1].value;
-    try {
-        if (data[user].password == pswd) {
-           succes();
-           window.location.replace("login_succesful.html");
-        }
-        else {
-            fail();
-        }     
+    var dd = await loogin(user, pswd);
+    console.log(dd);
+    if (dd == "j") {
+        sleep(1000);
+        succes();
+        document.cookie.split(";").forEach(function(c) { document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/"); });
+        document.cookie = "user=" + user + "; path=/";
+        window.location.replace("https://gigachat.ddns.net/gigachat");
     }
-    catch {
+    else {
         fail();
     }
 }
+
+
+
+document.addEventListener("keydown", function (event) {
+    if (event.key === "Enter") {
+        login();
+    }
+});

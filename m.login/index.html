@@ -2,9 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login | gigaCHAT</title>
-    <script src="script.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+    <script type="text/javascript" src="login.js"></script>
     <link rel="icon" type="image/x-icon" href="thumbnail.png">
     <style>
         
@@ -19,7 +21,12 @@
 }
 
 body {
-  background-color: black;
+  padding: 0;
+  margin: 0;
+}
+
+#app {
+  background-color: #202020;
   color: white;
   display: flex;
   justify-content: center;
@@ -28,32 +35,57 @@ body {
   overflow-y: hidden;
 }
 main {
-  width: 888px;
-  height: 555px;
+  min-width: 666px;
+  height: 444px;
   max-height: 80vh;
   max-width: 80vw;
-  border-radius: 18px;
+  border-radius: 24px;
+  border-top-left-radius: 4px;
   padding: 45px;
-  background-color: grey;
-  border: solid #5c0091a8 2px;
+  background-color: #2c2c2c;
+  border: solid #3d3d3d 2px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   color: white;
   font-family: Arial, Helvetica, sans-serif;
+  z-index: 5;
+  animation: transform 5s ease-in-out both infinite;
+}
+@keyframes transform {
+  0% {transform: scale(1); box-shadow: 0 0 3rem rgba(0, 0, 0, 0.2);}
+  50% {transform: scale(1.01); box-shadow: 0 0 3rem rgba(0, 0, 0, 0.4);}
+}
+.left-part {
+  min-width: 666px;
+  height: 370px;
+  max-height: 80vh;
+  max-width: 80vw;
+  border-radius: 24px;
+  border-top-left-radius: 4px;
+  padding: 45px;
+  padding-right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: left;
+  flex-direction: column;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  position: relative;
 }
 
-form {
+
+#login_form {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
 
-header {
+.lheader {
   position: fixed;
-  top: 14vh;
+  top: 64px;
   left: 0;
   right: 0;
   max-height: 10vh;
@@ -61,45 +93,48 @@ header {
   justify-content: center;
   align-items: center;
 }
-#logo-big {
+#llogo-big {
   max-height: 5vh;
 }
-#headline {
+#lheadline {
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
-  font-size: 2rem;
+  font-size: 3rem;
 }
-#error {
-  color: #a200ff;
+#lerror {
+  color: gray;
   letter-spacing: 1px;
   font-style: italic;
-  font-size: .75rem;
+  font-weight: bold;
   margin-bottom: 24px;
+  margin-top: 6px;
+  text-align: center;
 }
-#footer {
+
+#lfooter {
   position: fixed;
-  bottom: 1vh;
+  bottom: 0;
   left: 0;
   right: 0;
   padding: 18px;
   display: flex;
   justify-content: center;
+  background-color: #181818;
   font-family: Arial, Helvetica, sans-serif;
-  
 }
-#footer div {
-  margin-left: 4px;
-  margin-right: 4px;
+#lfooter div {
+  margin-left: 24px;
+  margin-right: 24px;
   color: lightgray;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
-  font-size: .5rem;
-  white-space: nowrap;
 }
-.login {
+.llogin {
   font-weight: bold;
-  margin-bottom: 3vh;
-  font-size: 2rem;
+  margin-bottom: .5rem;
+  font-size: 3rem;
+  letter-spacing: -1px;
+  color: lightgrey;
 }
 #username,
 #password,
@@ -109,20 +144,31 @@ header {
   padding-inline: 14px;
   text-align: center;
   font-style: italic;
-  border-radius: 1rem;
-  background-color: rgba(0, 72, 121, 0.63);
-  background-image: linear-gradient(45deg, rgba(212, 0, 255, 0.418), rgba(212, 0, 255, 0.089));
   color: white;
   margin-bottom: 12px;
   width: 180px;
+  font-size: 1.2rem;
 }
+
+#username,
+#password {
+  background-color: #3d3d3d;
+  border-radius: 8px;
+  border-top-left-radius: 0;
+}
+#login_button {
+  background-color: #005c4b;
+  border-radius: 8px;
+  border-top-right-radius: 0;
+}
+
 #username:focus,
 #password:focus {
   outline: none;
 }
 #username::placeholder,
 #password::placeholder {
-  color: lightgray;
+  color: white;
   font-size: 1.2rem;
 }
 #login_button {
@@ -131,30 +177,203 @@ header {
   font-size: 1.1rem;
   cursor: pointer;
 }
+
+a {
+  color: rgb(226, 226, 226);
+  text-decoration: none;
+  cursor: pointer;
+  transition: all .15s;
+}
+
+.ba,
+.fr,
+.de,
+.cu,
+.sc {
+  transition: all .33s cubic-bezier(.48,.11,.52,1.06);
+  background-color: #202020;
+  z-index: 2;
+  cursor: pointer;
+}
+
+.ba:hover,
+.fr:hover,
+.de:hover,
+.cu:hover,
+.sc:hover {
+  transform: scale(1);
+  opacity: .66;
+}
+
+.welcome {
+  font-size: 2.6rem;
+  font-weight: bold;
+  letter-spacing: -1px;
+  color: grey;
+  margin-bottom: 24px;
+  position: relative;
+}
+.welcome::after {
+  content: '';
+  width: 150%;
+  height: 5rem;
+  background-image: linear-gradient(270deg, transparent, #202020, #202020);
+  position: absolute;
+  translate: -100%;
+  animation: fade-in both ease 1.33s;
+  rotate: 180deg;
+}
+@keyframes fade-in {
+  0% {width: 150%;}
+  100% {width: 0%;}
+}
+
+.info-div {
+  color: white;
+  letter-spacing: 2px;
+  font-size: 1.2rem;
+}
+.credits {
+  margin-left: 2ch;
+  line-height: 2rem;
+  color: white;
+}
+p {
+  margin-bottom: 36px;
+}
+.typewriter {
+            display: inline-block;
+            border-right: 2px solid black; /* Optional cursor effect */
+            white-space: nowrap;
+            overflow: hidden;
+            font-family: monospace;
+        }
+
+        #switch-btn {
+          position: absolute;
+          height: 1.5rem;
+          width: 1.5rem;
+          border-radius: 25%;
+          translate: -2rem .75rem;
+          border: solid 2px #2c2c2c;
+          background-color: #2c2c2c;
+          cursor: pointer;
+          color: lightgrey;
+          font-size: .75rem;
+          padding: 0;
+        }
+        #switch-btn:focus {
+          animation: switch .33s;
+        }
+        @keyframes switch {
+          0% {transform: scale(1);}
+          50% {transform: scale(.9);}
+          100% {transform: scale(1);}
+        }
+
+
+
+  @media (max-width: 1480px) {
+    .typewriter {font-size: .6rem;}
+    .welcome {font-size: 1.5rem;}
+    .left-part {min-width: 333px; padding-right: 24px;}
+    main {min-width: 333px;}
+    .credits {font-size: .9rem;}
+  }
     </style>
 </head>
 <body>
+  <div id="app">
+<div class="left-part">
+  <div class="welcome">Welcome to <img src="thumbnail.png" style="height: 3rem; margin-inline: 12px; translate: 0 .5rem;">gigaCHAT!</div>
+  <div class="info-div">
+  <p class="typewriter" data-text="The free, open-source messaging application." data-delay="1250" data-speed="33"></p>
+  <div class="credits">
+      <a href="https://github.com/gerbil008" target="_blank"><div class="ba">Backend: David Ott</div></a>
+      <a href="https://github.com/MulitmeterManiac" target="_blank"><div class="fr">Frontend: Jonathan Wallasch</div></a>
+      <a href="https://github.com/flxn05" target="_blank"><div class="de">Design: Felix Nowak</div></a>
+      <div class="cu">Contact us</div>
+      <a href="https://github.com/flxn05/messenger" target="_blank"><div class="sc">Source Code</div></a>
+  </div>
+  </div>
+</div>
 
-<header>
-  <img src="thumbnail.png" id="logo-big">
-  <div class="space" style="width: 12px;"></div>
-  <div id="headline">gigaCHAT</div>
-</header>
-  
+
     <main>
-      <div class="login">Login</div>
-        <div id="error"></div>
+      <div class="llogin">Login</div>
+        <div id="lerror"></div>
         <form id="login_form">
             <input type="text" name="username" id="username" placeholder="username ....">
-            <input type="password" name="password" id="password" placeholder="password ....">
-            <button type="button" id ="login_button" onclick="login()">Login</button>
-        </form>
-    </main>
 
-    <div id="footer">
-      <div>Server Networking: David Ott</div>
-      <div>Website Client: Jonathan Wallasch</div>
-      <div>UI Design: Felix Nowak</div>
+            <div>
+            <input type="password" name="password" id="password" placeholder="password ...." style="position: relative;">
+            <button id="switch-btn" type="button">s/h</button></div>
+
+            <button type="button" id ="login_button" onclick="login()">Login</button>
+    </main>
+    <div id="lfooter">
+      
       </div>
+  </div>
+
+<script>
+  //when contact is clicked, then show email AND copy to clipboard
+document.querySelector('.cu').addEventListener('click', function() {
+  this.innerText = "get.giga.chat@gmail.com";
+});
+document.querySelector('.cu').addEventListener('click', function() {
+    const textToCopy = "get.giga.chat@gmail.com";
+    const tempTextarea = document.createElement('textarea');
+    tempTextarea.value = textToCopy;
+    document.body.appendChild(tempTextarea);
+    tempTextarea.select();
+    document.execCommand('copy');
+    document.body.removeChild(tempTextarea);
+    console.log("get.giga.chat@gmail.com - copied email address");
+});
+</script>
+
+<script>
+  function typewriterEffect(element, text, speed = 100, delay = 0) {
+      let i = 0;
+
+      function type() {
+          if (i < text.length) {
+              element.innerHTML += text.charAt(i);
+              i++;
+              setTimeout(type, speed);
+          }
+      }
+
+      // Delay the start of typing by the given delay time
+      setTimeout(type, delay);
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+      const typewriterElements = document.querySelectorAll('.typewriter');
+      typewriterElements.forEach((element) => {
+          const text = element.getAttribute('data-text');
+          const delay = parseInt(element.getAttribute('data-delay')) || 0; // Get delay from attribute
+          const speed = parseInt(element.getAttribute('data-speed')) || 100; // Get speed from attribute
+          element.innerHTML = ''; // Clear content initially
+          typewriterEffect(element, text, speed, delay); // Pass the speed and delay to the function
+      });
+  });
+</script>
+
+
+    <script>
+        document.getElementById("switch-btn").addEventListener("click", function() {
+            const passwordInput = document.getElementById("password");
+            
+            // Toggle between password and text
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+            } else {
+                passwordInput.type = "password";
+            }
+        });
+    </script>
+
 </body>
 </html>
