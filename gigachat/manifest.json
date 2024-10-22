@@ -2,7 +2,7 @@
   "name": "gigaCHAT",
   "short_name": "gigaCHAT",
   "description": "A chat application",
-  "start_url": "/messenger/gigachat",
+  "start_url": "/gigachat",
   "display": "standalone",
   "background_color": "#2c2c2c",
   "theme_color": "#000000",
