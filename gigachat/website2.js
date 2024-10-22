@@ -221,6 +221,8 @@ function styles_signal() {
 
 }
 
+styles_whatsapp();
+
 //sleep(100);
 //window.onload = update_users();
 //update_users();
