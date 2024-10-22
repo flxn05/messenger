@@ -10,6 +10,8 @@ const x = document.cookie;
 const y = x.substring(5, x.length + 1);
 
 var qwertz = false;
+let current_chat;
+let uu;
 
 
 async function check_users() {
@@ -156,13 +158,18 @@ async function load_chats(user_id) {
 }
 
 async function load_grp() {
+    current_chat = "grp";
+
     clear_chats();
 
     //local-fetching
     //var d = await fetch("grp.json");
     //var data = await d.json();
     const d = await get_json("grp");
+    
     const data = JSON.parse(d);
+
+    uu = JSON.stringify(d);
 
     for (let i = 0; i < data.length; i++) {
         var msg = data[i].sender + ": " + data[i].msg;
@@ -191,7 +198,7 @@ async function send_msg() {
     input.value = " ";
 
     add_msg(y + ": " + sending_msg, "tx");
-    var grp = await get_json("grp");
+    var grp = await get_json(current_chat);
     var grp_data = JSON.parse(grp);
     grp_data[grp_data.length] = { "sender": y, "msg": sending_msg };
     send_json(JSON.stringify(grp_data), "grp");
@@ -251,7 +258,25 @@ document.getElementById('search-box').addEventListener('input', function () {
     });
 });
 
+let u;
 
+async function check_update() {    
+    u = await get_json(current_chat);
+    u = JSON.stringify(u);
+    console.log(u);
+    console.log(uu);
+    if (u == uu){
+        console.log("no update");
+    }
+    if (u != uu) {
+        console.log("update");
+        uu = u;
+        load_grp();
+    }
+}
+
+
+setInterval(check_update, 2000);
 
 
 
