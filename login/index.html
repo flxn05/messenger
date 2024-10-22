@@ -35,7 +35,7 @@ body {
   overflow-y: hidden;
 }
 main {
-  width: 666px;
+  min-width: 666px;
   height: 444px;
   max-height: 80vh;
   max-width: 80vw;
@@ -51,20 +51,21 @@ main {
   color: white;
   font-family: Arial, Helvetica, sans-serif;
   z-index: 5;
-  animation: transform 7.5s ease-in-out both infinite;
+  animation: transform 5s ease-in-out both infinite;
 }
 @keyframes transform {
   0% {transform: scale(1); box-shadow: 0 0 3rem rgba(0, 0, 0, 0.2);}
   50% {transform: scale(1.01); box-shadow: 0 0 3rem rgba(0, 0, 0, 0.4);}
 }
 .left-part {
-  width: 592px;
+  min-width: 666px;
   height: 370px;
   max-height: 80vh;
   max-width: 80vw;
   border-radius: 24px;
   border-top-left-radius: 4px;
   padding: 45px;
+  padding-right: 0;
   display: flex;
   justify-content: center;
   align-items: left;
@@ -226,6 +227,7 @@ a {
   0% {width: 150%;}
   100% {width: 0%;}
 }
+
 .info-div {
   color: white;
   letter-spacing: 2px;
@@ -268,6 +270,16 @@ p {
           50% {transform: scale(.9);}
           100% {transform: scale(1);}
         }
+
+
+
+  @media (max-width: 1480px) {
+    .typewriter {font-size: .6rem;}
+    .welcome {font-size: 1.5rem;}
+    .left-part {min-width: 333px; padding-right: 24px;}
+    main {min-width: 333px;}
+    .credits {font-size: .9rem;}
+  }
     </style>
 </head>
 <body>
