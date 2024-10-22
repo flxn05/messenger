@@ -1,0 +1,246 @@
+
+/*GENEREAL STYLES*/
+/*GENEREAL STYLES*/
+/*GENEREAL STYLES*/
+
+::selection {
+  background-color: white;
+  color: black;
+  color: #141c23;
+}
+
+body {
+  background-color: rgb(17, 0, 27);
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  height: 100vh;
+  overflow-y: hidden;
+  padding: 0;
+  margin: 0;
+  color: white;
+}
+main {
+  width: 100vw;
+  height: 90vh;
+  border-radius: 18px;
+  background-color: rgb(17, 0, 27);
+  display: grid;
+  grid-template-rows: 96px 1fr;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.2rem;
+  color: lightgray;
+}
+
+/*SCROLLBAR*/
+ ::-webkit-scrollbar {
+   width: 12px;
+   height: 12px;
+ }
+::-webkit-scrollbar-track {
+ background-color: #2c2c2c;
+ border-radius: 6px;
+ cursor: context-menu;
+}
+::-webkit-scrollbar-thumb {
+ background-color: #9f9f9f;
+ border-radius: 6px;
+ cursor: context-menu;
+}
+nav {
+  position: fixed;
+  bottom: 5vh;
+  left: 0;
+  right: 0;
+  max-height: 5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 18px;
+  display: flex;
+  justify-content: center;
+  background-color: #181818;
+}
+#footer div {
+  margin-left: 24px;
+  margin-right: 24px;
+  color: lightgray;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+}
+#logo-big {
+  max-height: 5vh;
+}
+.headline {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+/*MAIN CONTENT*/
+/*MAIN CONTENT*/
+/*MAIN CONTENT*/
+
+/*MAIN CONTENT GENERAL*/
+
+.one {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  display: flex;
+  align-items: center;
+
+
+}
+.three {
+  overflow-y: scroll;
+}
+
+
+/*CHAT BOX*/
+.chat-box {
+  padding: 6px;
+  height: 44px;
+  border-radius: 12px;
+  display: inline-block;
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  -webkit-tap-highlight-color: transparent;
+}
+.chat-box:hover {
+  transform: scale(0.95);
+  translate: 2.5% 0;
+}
+
+/*CHAT HEADER CLASS*/
+.chat-header {
+  position: fixed;
+  top: 0;
+  left: 30%;
+  right: 0;
+  margin-right: 16px;
+  padding-block: 12px;
+  text-align: center;
+  z-index: 5;
+}
+
+/*CHAT-con CLASS*/
+.msg_rx,
+.msg_tx {
+  display: block;
+}
+.msg-tx {
+   display: flex;
+   justify-content: right;
+}
+.chat-con {
+  padding-left: 8px;
+  padding-right: 8px;
+}
+.space {
+  height: 3rem;
+}
+
+.msg-content-rx {
+  padding-left: 18px;
+  padding-right: 18px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  max-width: 66%;
+  background-image: linear-gradient(315deg, rgb(111, 0, 255), rgb(159, 0, 190));
+  color: white;
+  display: inline-block;
+  border-radius: 16px;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  margin-left: 6px;
+}
+
+.msg-content-tx {
+  padding-left: 18px;
+  padding-right: 18px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  max-width: 66%;
+  background-image: linear-gradient(45deg, rgb(111, 0, 255), rgb(159, 0, 190));
+  color: white;
+  display: inline-block;
+  border-radius: 16px;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  margin-right: 6px;
+}
+
+/*TEXT INPUT FIELD*/
+.text-input-con {
+  position: fixed;
+  bottom: 15vh;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+}
+.text-input {
+  margin-inline: 6px;
+  padding-left: 24px;
+  padding-right: 24px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  border-radius: 16px;
+  border: none;
+  background-color: white;
+  color: black;
+  font-size: 1.1rem;
+}
+.text-input::placeholder {
+  color: rgb(172, 172, 172);
+}
+.text-input:focus {
+  outline: none;
+}
+.send-msg {
+  padding: 0;
+  margin-right: 6px;
+  width: 44px;
+  height: 44px;
+  border-radius: 22px;
+  border: none;
+  font-weight: bold;
+  background-image: linear-gradient(45deg, rgb(111, 0, 255), rgb(212, 0, 255));
+  color: white;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.loading-con {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(17, 0, 27);
+  animation: start-mobile .5s both;
+}
+.loading {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+#loading-headline {
+  margin: 0;
+}
+
+@keyframes start-mobile {
+  0% {display: normal; filter: brightness(.33);}
+  100% {display: none;}
+}

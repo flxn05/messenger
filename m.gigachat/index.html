@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Closed Alpha | gigaCHAT</title>
+  <link rel="stylesheet" href="m.whatsapp.css">
+  <link rel="icon" type="image/x-icon" href="thumbnail.png">
+  <script type="text/javascript" src="website2.js"></script>
+  <script src="client.js"></script>
+  <link rel="manifest" href="manifest.json">
+  <!--//usually width= 420px
+  //usually height= 800px-->
+</head>
+<body>
+  <nav> 
+    <img src="thumbnail.png" id="logo-big">
+    <div class="space" style="width: 12px;"></div>
+    <p class="headline">gigaCHAT |   Closed Alpha</p>
+    <button id="logout" onclick="logout()">Logout</button>
+  </nav>
+  <main>
+    <div class="one" id="one">
+
+
+      <div class="chat-box">David O.</div>
+      <div class="chat-box">Jonathan W.</div>
+      <div class="chat-box">Felix N.</div>
+      <div class="chat-box">Reinhard S.</div>
+      <div class="chat-box">P. Enis</div>
+      <div class="chat-box">Felix sein Ding</div>
+
+
+    </div>
+
+      <div class="text-input-con">
+      <input type="text" class="text-input" id="text_input" placeholder="Message ....">
+      <button type="button" class="send-msg" id="send-msg" onclick="send_msg()">&#10145;</button>
+        </div>
+
+    <div class="three" id="three">
+
+
+      <div class="chat-con">
+        <div class="space"></div>
+
+        <!--message-->
+        <div class="msg-rx">
+          <div class="msg-content-rx">Jonathan: Maiores minus nostrum nihil</div>
+        </div>
+
+        <!--message-->
+        <div class="msg-tx">
+          <div class="msg-content-tx">Felix: Maiores minus nostrum nihil</div>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
