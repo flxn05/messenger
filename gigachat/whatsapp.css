@@ -2,18 +2,9 @@ html {
   scroll-behavior: smooth;
 }
 
-/*GENEREAL STYLES*/
-/*GENEREAL STYLES*/
-/*GENEREAL STYLES*/
-
 ::selection {
-  background-color: #005c4b;
+  background-color: white;
   color: black;
-}
-
-.msg-content-tx::selection {
-  background-color: black;
-  color: #005c4b;
 }
 .hidden {
   display: none;
@@ -50,6 +41,26 @@ main {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 1.2rem;
   color: gray;
+}
+@media (max-width: 600px) {
+  body {margin: 0; padding: 0;}
+  main {display: flex;
+  flex-direction: column;
+  }
+  .one {display: grid;
+  grid-template-columns: 1fr 1fr;
+  max-height: 10vh;
+}
+  .one * {width: 20px;}
+  .three {background-color: green;}
+  #search-box {
+    display: none;
+  }
+  .chat-box {
+    max-height: 1vh !important;
+    padding: 12px !important;
+    border: 2px solid grey;
+  }
 }
 /*SCROLLBAR*/
  ::-webkit-scrollbar {
@@ -134,6 +145,17 @@ nav {
   font-weight: bold;
   font-size: 1.25rem;
 }
+.headline::after {
+  content: 'This is a temporary version, until the mobile version is fixed.';
+  font-weight: normal;
+  font-size: .9rem;
+  font-style: italic;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 3.25rem;
+  text-align: center;
+}
 /*MAIN CONTENT*/
 /*MAIN CONTENT*/
 /*MAIN CONTENT*/
@@ -197,6 +219,7 @@ nav {
 .msg-rx:last-of-type .msg-content-rx,
 .msg-tx:last-of-type .msg-content-tx {
   animation: msg .25s  forwards;
+  margin-bottom: 2rem;
 }
 
 .info {
@@ -284,7 +307,6 @@ nav {
   background-color: #3d3d3d;
   color: white;
   font-size: 1.1rem;
-  transition: all 1s ease-in-out;
 }
 .text-input::placeholder {
   color: rgb(172, 172, 172);
