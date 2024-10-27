@@ -47,7 +47,7 @@ async function check_users() {
 
 
 
-setTimeout(check_users, 200);
+setTimeout(check_users, 400);
 
 
 
