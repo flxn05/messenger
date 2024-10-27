@@ -1,7 +1,7 @@
 //consts
 
 const login_page = "https://gigachat.ddns.net/login"
-const logged_out_page = "https://gigachat.ddns.net/m.logged_out"
+const logged_out_page = "https://gigachat.ddns.net/logged_out"
 
 
 
@@ -56,7 +56,6 @@ setTimeout(check_users, 200);
 
 
 popup_menu = document.getElementById("expanded");
-pupup_menu = document.getElementById("expanded");
 popup_menu.classList.add("hidden");
 
 const scrollContainer = document.getElementById('three');
