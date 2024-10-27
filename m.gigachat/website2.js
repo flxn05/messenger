@@ -1,6 +1,6 @@
 //consts
 
-const login_page = "https://gigachat.ddns.net/login"
+const login_page = "https://gigachat.ddns.net/m.login"
 const logged_out_page = "https://gigachat.ddns.net/m.logged_out"
 
 
