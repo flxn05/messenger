@@ -32,12 +32,14 @@ async function check_users() {
     }
     catch (error) {
         window.location.replace(logged_out_page);
+
     }
 
 
     if (qwertz == false) {
 
         window.location.replace(logged_out_page);
+
     }
     else {
 
@@ -116,7 +118,10 @@ async function add_msg(msg, dir) {
     el2.appendChild(para2);
 
     const para3 = document.createElement("div");
-    para3.innerHTML = act_msg;
+
+    r = document.createTextNode(act_msg);
+    para3.appendChild(r);
+    //para3.innerHTML = act_msg;
     if (act_dir == "rx") {
         para3.setAttribute("class", "msg-content-rx");
         para2.setAttribute("class", "msg-rx");
@@ -263,13 +268,12 @@ let u;
 async function check_update() {    
     u = await get_json(current_chat);
     u = JSON.stringify(u);
-    console.log(u);
-    console.log(uu);
+    
     if (u == uu){
-        console.log("no update");
+        return;
     }
     if (u != uu) {
-        console.log("update");
+        
         uu = u;
         load_grp();
     }
