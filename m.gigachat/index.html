@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Closed Alpha | gigaCHAT</title>
-  <link rel="stylesheet" href="m.whatsapp.css">
+  <link id="themeStylesheet" rel="stylesheet" href="m.whatsapp.css">
   <link rel="icon" type="image/x-icon" href="thumbnail.png">
   <script type="text/javascript" src="website2.js" defer></script>
   <script src="client.js"></script>
@@ -18,6 +18,7 @@
     <div class="space" style="width: 12px;"></div>
     <p class="headline">gigaCHAT |   Closed Alpha</p>
     <button id="logout" onclick="logout()">Logout</button>
+    <button id="changeTheme">Theme</button>
   </nav>
   <main>
     <div class="one" id="one">
@@ -49,5 +50,17 @@
       </div>
     </div>
   </main>
+  <script>
+    document.getElementById("changeTheme").addEventListener("click", function () {
+        const stylesheet = document.getElementById("themeStylesheet");
+
+        // Überprüfen, welches Stylesheet gerade verwendet wird
+        if (stylesheet.getAttribute("href") === "m.whatsapp.css") {
+            stylesheet.setAttribute("href", "m.signal.css");
+        } else {
+            stylesheet.setAttribute("href", "m.whatsapp.css");
+        }
+    });
+</script>
 </body>
 </html>

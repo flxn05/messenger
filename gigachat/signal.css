@@ -7,13 +7,13 @@ html {
 /*GENEREAL STYLES*/
 
 ::selection {
-  background-color: #2265ee;
+  background-color: white;
   color: black;
 }
 
 .msg-content-tx::selection {
-  background-color: black;
-  color: #2265ee;
+  background-color: white;
+  color: black;
 }
 body {
   padding: 0;
@@ -21,7 +21,7 @@ body {
 }
 
 #app {
-  background-color: #121212;
+  background-color: #1b1c20;
   display: flex;
   justify-content: center;
   height: 100vh;
@@ -72,24 +72,6 @@ nav {
   align-items: center;
   z-index: 5;
   background-color: #202020;
-}
-.nav-btns {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 44px;
-}
-.nav-btns button {
-  padding-block: 8px;
-  padding-inline: 18px;
-  border-radius: 12px;
-  border: none;
-  font-weight: bold;
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
-  box-shadow: 0 0 24px rgba(0, 0, 0, 0.75);
-  width: 148px;
 }
 #button-logout {
   background-color: darkred;
@@ -147,13 +129,15 @@ nav {
 .one {
   overflow-y: scroll;
   overflow-x: hidden;
-  background-color: #2e2e2e;
+  background-color: #272a31;
   max-width: 640px;
 }
 .three {
   overflow-y: scroll;
   overflow-x: hidden;
   padding-bottom: 96px;
+  padding-top: 3rem;
+  background-color: #1b1c20;
   
 }
 /*ONE*/
@@ -221,11 +205,11 @@ nav {
   padding-top: 8px;
   padding-bottom: 8px;
   max-width: 66%;
-  background-color: #3b3b3b;
+  background-color: #303133;
   color: white;
   display: inline-block;
   border-radius: 16px;
-  border-top-left-radius: 8px;
+  border-top-left-radius: 4px;
   margin-bottom: 1rem;
   cursor: pointer;
   transition: all 0.1s;
@@ -239,11 +223,11 @@ nav {
   padding-top: 8px;
   padding-bottom: 8px;
   max-width: 66%;
-  background-color: #2265ee;
+  background-color: #315ff3;
   color: white;
   display: inline-block;
   border-radius: 16px;
-  border-top-right-radius: 8px;
+  border-top-right-radius: 4px;
   margin-bottom: 1rem;
   cursor: pointer;
   transition: all 0.1s;
@@ -262,7 +246,7 @@ nav {
   padding-bottom: 44px;
   z-index: 10;
   margin-inline: 5%;
-  background-color: #121212;
+  background-color: #1b1c20;
 }
 /*DO NOT EDIT !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
 /*DO NOT EDIT !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
@@ -277,7 +261,7 @@ nav {
   border-radius: 16px;
   margin-bottom: 12px;
   border: none;
-  background-color: #3b3b3b;
+  background-color: #3d3d3d;
   color: white;
   font-size: 1.1rem;
 }
@@ -292,7 +276,7 @@ nav {
   margin-bottom: 12px;
   border: none;
   font-weight: bold;
-  background-color: #2265ee;
+  background-color: #315ff3;
   color: white;
   cursor: pointer;
   box-shadow: 0 0 24px rgba(0, 0, 0, 0.75);
@@ -302,39 +286,6 @@ nav {
 .text-input:focus-visible        {
   outline: none;
 }
-.send-msg:hover {
-  box-shadow: 0 0 24px black;
-}
-
-.loading-con {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #121212;
-  animation: start-mobile .75s both;
-  z-index: 10;
-}
-.loading {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-}
-#loading-headline {
-  margin: 0;
-  font-size: 2rem;
-}
-
-@keyframes start-mobile {
-  0% {display: normal;}
-  100% {display: none;}
-}
-
 
 .hamburger {
   max-height: 1.25rem;

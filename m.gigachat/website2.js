@@ -99,7 +99,7 @@ function clear_users() {
     while (element.firstChild) {
         element.removeChild(element.lastChild);
     }
-    element.innerHTML = "<div class='search-con'><input type='text' id='search-box' class='text-input' placeholder='Search groups and contacts ....' style='font-size: 1rem;'></div>";
+    element.innerHTML = "<div class='search-con'><input type='text' id='search-box' class='text-input' placeholder='Search ....' style='font-size: 1rem; background-color: #13181c;'></div>";
 }
 
 async function update_users() {
