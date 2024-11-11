@@ -7,13 +7,8 @@ html {
 /*GENEREAL STYLES*/
 
 ::selection {
-  background-color: #005c4b;
+  background-color: white;
   color: black;
-}
-
-.msg-content-tx::selection {
-  background-color: black;
-  color: #005c4b;
 }
 
 body {
