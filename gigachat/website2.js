@@ -32,14 +32,14 @@ async function check_users() {
     }
     catch (error) {
         window.location.replace(logged_out_page);
-
+        //console.log("g");
     }
 
 
     if (qwertz == false) {
 
         window.location.replace(logged_out_page);
-
+        //console.log("g");
     }
     else {
 

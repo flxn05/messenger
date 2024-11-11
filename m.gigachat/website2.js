@@ -1,7 +1,7 @@
 //consts
 
-const login_page = "https://gigachat.ddns.net/login"
-const logged_out_page = "https://gigachat.ddns.net/logged_out"
+const login_page = "https://gigachat.ddns.net/m.login"
+const logged_out_page = "https://gigachat.ddns.net/m.logged_out"
 
 
 
@@ -31,15 +31,15 @@ async function check_users() {
         }
     }
     catch (error) {
+        
+        //console.log("G");
         window.location.replace(logged_out_page);
-
     }
 
 
     if (qwertz == false) {
-
+        //console.log("G");
         window.location.replace(logged_out_page);
-
     }
     else {
 
@@ -60,7 +60,7 @@ setTimeout(check_users, 400);
 popup_menu = document.getElementById("expanded");
 popup_menu.classList.add("hidden");
 
-const scrollContainer = document.getElementById('three');
+let scrollContainer = document.getElementById('three');
 scrollContainer.scrollTop = 9999999;
 
 async function add_user(user_id) {
@@ -118,10 +118,7 @@ async function add_msg(msg, dir) {
     el2.appendChild(para2);
 
     const para3 = document.createElement("div");
-
-    r = document.createTextNode(act_msg);
-    para3.appendChild(r);
-    //para3.innerHTML = act_msg;
+    para3.innerHTML = act_msg;
     if (act_dir == "rx") {
         para3.setAttribute("class", "msg-content-rx");
         para2.setAttribute("class", "msg-rx");
@@ -167,9 +164,7 @@ async function load_grp() {
 
     clear_chats();
 
-    //local-fetching
-    //var d = await fetch("grp.json");
-    //var data = await d.json();
+
     const d = await get_json("grp");
     
     const data = JSON.parse(d);
@@ -186,6 +181,7 @@ async function load_grp() {
         }
         add_msg(msg, dir);
     }
+    let scrollContainer = document.getElementById('three');
     scrollContainer.scrollTop = 9999999;
 }
 
@@ -207,6 +203,7 @@ async function send_msg() {
     var grp_data = JSON.parse(grp);
     grp_data[grp_data.length] = { "sender": y, "msg": sending_msg };
     send_json(JSON.stringify(grp_data), "grp");
+    let scrollContainer = document.getElementById('three');
     scrollContainer.scrollTop = 9999999;
 
 }
@@ -235,13 +232,8 @@ function styles_signal() {
 
 styles_whatsapp();
 
-//sleep(100);
-//window.onload = update_users();
-//update_users();
-document.addEventListener("DOMContentLoaded", update_users());
 
-//window.addEventListener('load', update_users);
-//window.addEventListener('load', () => {update_users()});
+document.addEventListener("DOMContentLoaded", update_users());
 document.addEventListener("keydown", function (event) {
     if (event.key === "Enter") {
         send_msg();
@@ -265,22 +257,25 @@ document.getElementById('search-box').addEventListener('input', function () {
 
 let u;
 
-async function check_update() {    
+async function check_update() {  
+    let u;  
     u = await get_json(current_chat);
     u = JSON.stringify(u);
-    
+    console.log(u);
+    console.log(uu);
     if (u == uu){
-        return;
+        console.log("no update");
     }
     if (u != uu) {
-        
+        console.log("update");
         uu = u;
         load_grp();
     }
 }
-
-
-setInterval(check_update, 2000);
+console.log("o");
+setTimeout(setInterval(check_update, 2000), 2000);
+console.log("o");
+//setInterval(check_update, 2000);
 
 
 
