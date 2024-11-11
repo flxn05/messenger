@@ -7,15 +7,9 @@ html {
 /*GENEREAL STYLES*/
 
 ::selection {
-  background-color: #005c4b;
+  background-color: white;
   color: black;
 }
-
-.msg-content-tx::selection {
-  background-color: black;
-  color: #005c4b;
-}
-
 body {
   background-color: #1b1c20;
   display: flex;
@@ -229,36 +223,6 @@ nav {
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
 }
-.loading-con {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #111c22;
-  animation: start-mobile .5s both;
-}
-.loading {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-}
-#loading-headline {
-  margin: 0;
-}
-
-@keyframes start-mobile {
-  0% {display: normal;}
-  100% {display: none;}
-}
-@keyframes expand {
-  0% {opacity: .25; translate: 0 15vh; transform: scale(.95);}
-}
-
 #expanded {
   background-color: rgb(10, 10, 10);
   position: fixed;
