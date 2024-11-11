@@ -38,12 +38,13 @@ main {
   font-size: 1.2rem;
   color: grey;
   position: fixed;
+  left: 0;
   bottom: calc(100% - 90vh - 3rem);
 }
 /*SCROLLBAR*/
  ::-webkit-scrollbar {
    width: 8px;
-   height: 0;
+   height: 8px;
  }
 ::-webkit-scrollbar-track {
  background-color: transparent;
@@ -59,12 +60,12 @@ nav {
   position: fixed;
   top: 0;
   left: 0;
+  padding-left: 12px;
   right: 0;
   max-height: 5vh;
   display: flex;
-  justify-content: center;
   align-items: center;
-  background-color: #272a31;
+  background-color: #202020;
   max-height: 3rem;
 }
 #logo-big {
@@ -73,12 +74,17 @@ nav {
 .headline {
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
-  font-size: 1.5rem;
+  font-size: 1rem;
 }
-.hamburger {
-  max-height: 1.25rem;
-  position: fixed;
-  right: 5vw;
+#logout, #changeTheme {
+  padding-inline: 12px;
+  padding-block: 2px;
+  border: none;
+  box-shadow: #454b5b 0 0 12px;
+  background-color: #454b5b;
+  border-radius: 8px;
+  margin-left: 12px;
+  color: lightgrey;
 }
 
 /*MAIN CONTENT*/
@@ -94,11 +100,11 @@ nav {
   align-items: center;
   background-color: #272a31;
   max-height: 4rem;
-
-
 }
 .three {
   overflow-y: scroll;
+  padding-bottom: 2rem;
+  background-color: #1b1c20;
 }
 
 
@@ -154,11 +160,11 @@ nav {
   padding-top: 8px;
   padding-bottom: 8px;
   max-width: 66%;
-  background-color: #404143;
+  background-color: #303133;
   color: white;
   display: inline-block;
-  border-radius: 12px;
-  border-top-left-radius: 8px;
+  border-radius: 16px;
+  border-top-left-radius: 4px;
   margin-bottom: 1rem;
   font-size: 1rem;
   margin-left: 6px;
@@ -174,8 +180,8 @@ nav {
   background-color: #315ff3;
   color: white;
   display: inline-block;
-  border-radius: 12px;
-  border-top-right-radius: 8px;
+  border-radius: 16px;
+  border-top-right-radius: 4px;
   margin-bottom: 1rem;
   font-size: 1rem;
   margin-right: 6px;
@@ -277,3 +283,8 @@ nav {
   font-size: 1.1rem;
   border-radius: 44px;
 }
+@keyframes msg {
+  0% {transform: scale(.9); opacity: 0; filter: saturate(0);}
+  50% {transform: scale(1.05); opacity: 1;}
+  100% {transform: scale(1);}
+ }
