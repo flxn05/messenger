@@ -106,6 +106,15 @@ nav {
   background-color: #1b1c20;
 }
 
+#search-box {
+  font-size: 1rem;
+  background-color: #13181c;
+  width: 8ch;
+  transition: all .25s ease;
+}
+#search-box:focus {
+  width: 33vw;
+}
 
 /*CHAT BOX*/
 .chat-box {
@@ -118,6 +127,7 @@ nav {
   font-size: 0.9rem;
   white-space: nowrap;
   -webkit-tap-highlight-color: transparent;
+  animation: loading 1.75s both ease;
 }
 .chat-box:hover {
   transform: scale(0.95);
@@ -256,4 +266,11 @@ nav {
   0% {transform: scale(.9); opacity: 0; filter: saturate(0);}
   50% {transform: scale(1.05); opacity: 1;}
   100% {transform: scale(1);}
+ }
+ @keyframes loading {
+  0% {opacity: 1;}
+  25% {opacity: .66;}
+  50% {opacity: 1;}
+  75% {opacity: .66;}
+  100% {opacity: 1;}
  }
