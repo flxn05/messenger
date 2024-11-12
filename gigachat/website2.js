@@ -4,10 +4,11 @@ const login_page = "https://gigachat.ddns.net/login"
 const logged_out_page = "https://gigachat.ddns.net/logged_out"
 
 
-
+let u;
 const x = document.cookie;
 
 const y = x.substring(5, x.length + 1);
+const userr = y;
 
 var qwertz = false;
 let current_chat;
@@ -77,10 +78,13 @@ async function add_user(user_id) {
 async function load_users() {
 
     //const user_good = await user_bad.json();
-    //const user_bad = await get_json("user");
-    //console.log(user_bad);
-    //const user_good = JSON.parse(user_bad);
+    //const user_bad = await get_json(userr +"_chats");
+    const user_bad = await get_json(userr + "_chats");
+    console.log(user_bad);
+    const user_good = JSON.parse(user_bad);
+    console.log(user_good);
 
+    //grp
     const para = document.createElement("div");
     para.setAttribute("class", "chat-box");
     para.setAttribute("id", "chat-box");
@@ -89,9 +93,9 @@ async function load_users() {
     const parent = document.getElementById("one");
     parent.appendChild(para);
 
-    //for (let i = 0; i < user_good.length; i++) {
-    //    add_user(user_good[i]);
-    //}    
+    for (let i = 0; i < user_good.length; i++) {
+        add_user(user_good[i]);
+    }    
 }
 
 function clear_users() {
@@ -104,6 +108,7 @@ function clear_users() {
 
 async function update_users() {
     clear_users();
+
     await load_users();
 }
 
@@ -147,17 +152,25 @@ function clear_chats() {
 
 
 async function load_chats(user_id) {
+    current_chat = user_id;
     clear_chats();
-    var x = await fetch("dave.json");
-    var r = await x.json();
+    var xx = await get_json(user_id);
+    u = xx;
+    var rr = await JSON.parse(xx);
+    console.log(xx);
 
 
 
 
+    for (let i = 0; i < rr.length; i++) {
+        var msg = rr[i].sender + ": " + rr[i].msg;
+        if (rr[i].sender == userr){
+            var dir = "tx";
+        }
+        else {
+            var dir = "rx";
+        }
 
-    for (let i = 0; i < r[user_id].length; i++) {
-        var msg = r[user_id][i].text;
-        var dir = r[user_id][i].dir;
         add_msg(msg, dir);
     }
 }
@@ -206,7 +219,7 @@ async function send_msg() {
     var grp = await get_json(current_chat);
     var grp_data = JSON.parse(grp);
     grp_data[grp_data.length] = { "sender": y, "msg": sending_msg };
-    send_json(JSON.stringify(grp_data), "grp");
+    send_json(JSON.stringify(grp_data), current_chat);
     scrollContainer.scrollTop = 9999999;
 
 }
@@ -263,7 +276,7 @@ document.getElementById('search-box').addEventListener('input', function () {
     });
 });
 
-let u;
+
 
 async function check_update() {    
     u = await get_json(current_chat);
@@ -275,7 +288,15 @@ async function check_update() {
     if (u != uu) {
         
         uu = u;
-        load_grp();
+        if (current_chat == "grp") {
+            clear_chats();
+            load_grp();
+        }
+        else {
+            clear_chats();
+            load_chats(current_chat);
+        }
+        
     }
 }
 
