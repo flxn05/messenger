@@ -61,7 +61,7 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #202020;
+  background-color: #121a20;
   max-height: 3rem;
 }
 #headlineLogo * {
