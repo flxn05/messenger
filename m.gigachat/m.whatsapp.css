@@ -76,6 +76,7 @@ nav {
   font-size: 1rem;
   margin-top: 0;
   translate: 0 -.5rem;
+  user-select: none;
 }
 #logout, #changeTheme {
   padding-inline: 12px;
@@ -118,6 +119,7 @@ nav {
   font-size: 0.9rem;
   white-space: nowrap;
   -webkit-tap-highlight-color: transparent;
+  user-select: none;
 }
 .chat-box:hover {
   transform: scale(0.95);
