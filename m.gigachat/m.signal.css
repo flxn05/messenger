@@ -54,13 +54,17 @@ nav {
   position: fixed;
   top: 0;
   left: 0;
-  padding-left: 12px;
+  padding-inline: 12px;
   right: 0;
   max-height: 5vh;
   display: flex;
+  justify-content: space-between;
   align-items: center;
   background-color: #202020;
   max-height: 3rem;
+}
+#headlineLogo * {
+  display: inline-block;
 }
 #logo-big {
   max-height: 2rem;
@@ -69,6 +73,7 @@ nav {
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
   font-size: 1rem;
+  translate: 0 -.5rem;
 }
 #logout, #changeTheme {
   padding-inline: 12px;
