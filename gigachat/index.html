@@ -18,7 +18,6 @@
     <img src="thumbnail.png" id="logo-big">
     <div class="space" style="width: 12px;"></div>
     <p class="headline">gigaCHAT</p>
-    <img src="menu-icon.png" alt="menu button" class="hamburger" id="menu" onclick="toggle_menu()">
 
 
     <div id="expanded">
@@ -39,13 +38,33 @@
       <button type="button" id="send_button" class="send-msg" id="send-msg" onclick="send_msg()">SEND</button>
     </div>
 
-    <div class="three" id="three">
-      <div class="chat-header" id="chat-header">
-        class/id: "chat-header"
-      </div>
-
+    <div class="three" id="three">     
+        <!--message-->
+        <div class="msg-rx">
+          <div class="msg-content-rx">Hi! Open a group or contact to start the chat!</div>
+        </div>
+        <!--message-->
+        <div class="msg-tx">
+          <div class="msg-content-tx">.... our source code is <a href="https://github.com/flxn05/messenger" target="_blank" style="color: grey">[here]</a>. Feel free to <a href="mailto:get.giga.chat@gmail.com?subject=Contact Request from gigaCHAT user" style="color: grey">[contact the gigaCHAT team]</a> for support!</div>
+        </div>
       
-
+        <!--message-->
+        <div class="msg-rx">
+          <div class="msg-content-rx" style="max-width: 100%; line-height: 1.5rem;">
+            Our developers:
+            <br><br>
+            <li>Jonathan Wallasch (Website-Frontend)</li>
+            <br>
+            <li>David Ott (Server-Backend)</li>
+            <br>
+            <li>Felix Nowak (UI/UX Design)</li>
+            <br>
+          </div>
+        </div>
+        <!--message-->
+        <div class="msg-rx">
+          <div class="msg-content-rx">Thank you for using gigaCHAT!</div>
+        </div>
       </div>
     </div>
   </main>
