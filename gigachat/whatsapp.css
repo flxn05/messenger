@@ -142,10 +142,10 @@ nav {
 
 /*CHAT BOX*/
 .chat-box {
-  padding: 36px;
-  height: 44px;
-  border: 1px solid #515151;
-  border-radius: 18px;
+  padding: 1rem;
+  border: 2px solid #353535;
+  border-radius: 8px;
+  border-top-left-radius: 4px;
   transition: all 0.15s;
   transition: transform .15s ease-in-out;
   display: flex;
