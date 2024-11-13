@@ -154,7 +154,6 @@ p {
 }
 #addGroup input {
   border-radius: .5rem;
-  margin-inline: 6px;
   padding-left: 24px;
   padding-right: 24px;
   padding-bottom: 10px;
@@ -169,7 +168,12 @@ p {
 #addGroup input:focus {
   outline: none;
 }
-
+#tooltipUserList {
+  font-size: .8rem;
+  margin-top: 4px;
+  font-style: italic;
+  line-height: 1.5rem;
+}
 
 /*MAIN CONTENT*/
 
