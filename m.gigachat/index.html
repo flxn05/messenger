@@ -13,18 +13,19 @@
   //usually height= 800px-->
 </head>
 <body>
-  <nav>
+  <nav id="nav">
     <section id="headlineLogo">
     <img src="thumbnail.png" id="logo-big">
     <div class="space" style="width: 12px;"></div>
     <p onclick="reloadPage()" class="headline">gigaCHAT</p>
     </section>
     <section>
-    <button id="logout" onclick="logout()">Logout</button>
-    <button id="changeTheme">Theme</button>
+      <button id="addNewBtn" style="filter: brightness(1.5);" onclick="addNew()">+</button>
+      <button id="changeTheme">Theme</button>
+      <button id="logout" onclick="logout()">Logout</button>
     </section>
   </nav>
-  <main>
+  <main id="main">
     <div class="one" id="one">
 
       <div class="chat-box" style="font-style: italic;">loading ....</div>
@@ -76,6 +77,30 @@
 
       </div>
     </div>
+
+    <div id="addMenu">
+
+      <h1>Add to gigaCHAT</h1>
+      <p>You can add members to a group.<br>For direct chats, just enter <i>one</i></p>
+    <section id="addGroup">
+
+      <section id="groupNameSection">
+        <label for="groupName">Group name:</label>
+        <input id="groupName">
+      </section>
+
+      <section id="userListSection">
+        <label for="userList">Users: Seperate with commas, check spelling</label>
+        <input id="userList">
+      </section>
+
+      <section id="cancelCreate">
+        <button id="cancelBtn">Cancel</button>
+        <button id="createBtn">Create</button>
+      </section>
+
+    </section>
+    </div>
   </main>
   <script>
     document.getElementById("changeTheme").addEventListener("click", function () {
@@ -93,6 +118,17 @@
     window.location.reload();
     console.log('Page reloaded.')
 }
+
+let addNewBtn = document.getElementById('addNewBtn');
+let addMenu = document.getElementById('addMenu');
+
+function addNew() {
+  addMenu.style.display = 'block';
+  document.querySelector('.one').classList.add('unfocus');
+  document.querySelector('.three').classList.add('unfocus');
+  document.getElementById('nav').classList.add('unfocus');
+}
+
 
 </script>
 </body>
