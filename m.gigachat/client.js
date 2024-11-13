@@ -2,6 +2,12 @@
 let socket = new WebSocket("wss://gigachat.ddns.net:12356");
 let response = "";
 let wopened = false;
+let encrypt;
+let decrypt;
+
+Module.onRuntimeInitialized = () => {
+                encrypt = Module.cwrap('encrypt', 'string', ['string']);
+                decrypt = Module.cwrap('decrypt', 'string', ['string']);};
 
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
