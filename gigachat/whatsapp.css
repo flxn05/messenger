@@ -16,7 +16,7 @@ body {
 }
 
 #app {
-  background-color: #0b1014;
+  background-color: #2c2c2c;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -119,12 +119,7 @@ nav {
   font-weight: bold;
   font-size: 1.25rem;
 }
-/*MAIN CONTENT*/
-/*MAIN CONTENT*/
-/*MAIN CONTENT*/
-
-/*MAIN CONTENT GENERAL*/
-
+/*main*/
 .one {
   overflow-y: scroll;
   overflow-x: hidden;
@@ -142,7 +137,7 @@ nav {
 }
 
 #search-box {
-  background-color: #1f272a;
+  background-color: #202020;
 }
 
 /*CHAT BOX*/
@@ -178,19 +173,6 @@ nav {
   margin-bottom: 2rem;
 }
 
-.info {
-  color: rgb(177, 177, 177);
-  font-size: .9rem;
-  position: fixed;
-  translate: 0 -1rem;
-}
-.info {
-  color: rgb(207, 207, 207);
-  font-size: .9rem;
-  font-weight: bold;
-  position: fixed;
-  translate: 0 -1rem;
-}
 .msg-tx {
    display: flex;
    justify-content: right;
@@ -205,7 +187,7 @@ nav {
   padding-top: 8px;
   padding-bottom: 8px;
   max-width: 66%;
-  background-color: #1f272a;
+  background-color: #353535;
   color: white;
   display: inline-block;
   border-radius: 4px;
@@ -223,7 +205,7 @@ nav {
   padding-top: 8px;
   padding-bottom: 8px;
   max-width: 66%;
-  background-color: #134d37;
+  background-color: #005c4b;
   color: white;
   display: inline-block;
   border-radius: 4px;
@@ -260,7 +242,7 @@ nav {
   border-radius: 16px;
   margin-bottom: 12px;
   border: 1px solid transparent;
-  background-color: #1f272a;
+  background-color: #202020;
   color: white;
   font-size: 1.1rem;
 }
@@ -274,7 +256,7 @@ nav {
   margin-bottom: 12px;
   border: none;
   font-weight: bold;
-  background-color: #21c063;
+  background-color: #3a3a3a;
   color: white;
   cursor: pointer;
   box-shadow: 0 0 24px rgba(0, 0, 0, 0.75);
