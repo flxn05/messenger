@@ -99,7 +99,7 @@
       </section>
 
       <section id="cancelCreate">
-        <button id="cancelBtn">Cancel</button>
+        <button id="cancelBtn" onclick="closeMenu()">Cancel</button>
         <button id="createBtn">Create</button>
       </section>
 
@@ -124,6 +124,7 @@
 
 let addNewBtn = document.getElementById('addNewBtn');
 let addMenu = document.getElementById('addMenu');
+let cancelBtn = document.getElementById('cancelBtn')
 
 function addNew() {
   addMenu.style.display = 'block';
@@ -132,6 +133,12 @@ function addNew() {
   document.getElementById('nav').classList.add('unfocus');
 }
 
+function closeMenu() {
+  addMenu.style.display = 'none';
+  document.querySelector('.one').classList.remove('unfocus');
+  document.querySelector('.three').classList.remove('unfocus');
+  document.getElementById('nav').classList.remove('unfocus');
+}
 
 </script>
 </body>
