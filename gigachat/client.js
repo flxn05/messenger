@@ -19,7 +19,7 @@ function csend(msg){
 
 async function get_clients(){
     if(wopened){
-        socket.csend("c");
+        csend("c");
     while(response == ""){
         await sleep(10);
     }
@@ -30,12 +30,12 @@ async function get_clients(){
 
 async function send_json(json, filename){
     if(wopened){
-    socket.csend("r"+filename+","+json);} 
+    csend("r"+filename+","+json);} 
 }
 
 async function get_updated(json, filename){
     if(wopened){
-    socket.csend("j" + filename+","+json);
+    csend("j" + filename+","+json);
     while(response == ""){
         await sleep(10);
     }
@@ -47,7 +47,7 @@ async function get_updated(json, filename){
 
 async function get_json(filename){
     if(wopened){
-        socket.csend("s"+filename);
+        csend("s"+filename);
         while(response == ""){
             await sleep(10);
         }
