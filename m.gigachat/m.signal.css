@@ -108,14 +108,14 @@ h1 {
   font-weight: normal;
 }
 p {
-  font-size: 1.2rem;
-  line-height: 2rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
   letter-spacing: .5px;
 }
 #groupNameSection, #userListSection {
   display: flex;
   flex-direction: column;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 #cancelCreate {
   display: flex;
