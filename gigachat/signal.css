@@ -73,44 +73,18 @@ nav {
   z-index: 5;
   background-color: #202020;
 }
-#button-logout {
-  background-color: darkred;
-  transition: all .15s;
-}
-#button-whatsapp {
-  background-color: green;
-  transition: all .15s;
-}
-#button-signal {
-  background-color: blue;
-  transition: all .25s;
-}
-#button-logout:hover {
-  box-shadow: 2px 2px 8px rgba(139, 0, 0, 0.5);
-}
-#button-whatsapp:hover {
-  box-shadow: 2px 2px 8px rgba(0, 128, 0, 0.5);
-}
-#button-signal:hover {
-  box-shadow: 2px 2px 8px rgba(0, 0, 255, 0.5);
-}
-#footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 18px;
-  display: flex;
-  justify-content: center;
-}
-/*DO NOT EDIT !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
-/*DO NOT EDIT !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
-#footer div {
-  margin-left: 24px;
-  margin-right: 24px;
-  color: lightgray;
-  font-family: Arial, Helvetica, sans-serif;
+#expanded button {
+  padding-block: 6px;
+  padding-inline: 14px;
+  border-radius: 12px;
+  border: none;
   font-weight: bold;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 0 24px rgba(0, 0, 0, 0.75);
+  margin-bottom: 12px;
+  background-color: transparent;
 }
 #logo-big {
   max-height: 2rem;
@@ -173,18 +147,6 @@ nav {
 .chat-box.hidden {
   display: none;
 }
-.hidden {
-  display: none;
-}
-
-/*DO NOT EDIT !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
-/*DO NOT EDIT !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
-/*CHAT HEADER CLASS*/
-.chat-header {
-  display: none;
-}
-
-/*CHAT-con CLASS*/
 
 .msg-tx {
    display: flex;
@@ -313,140 +275,12 @@ nav {
   color: white;
   font-weight: bold;
   cursor: pointer;
-  box-shadow: 0 0 24px rgba(0, 0, 0, 0.75);
   margin-bottom: 12px;
   background-color: transparent;
 }
 
-#downloadPrompt {
-  padding: 44px;
-  padding-block: 96px;
-  padding-bottom: 24px;
-  border: 1px solid #4d4d4d;
-  background-color: #141414;
-  border-radius: 10px;
-  display: none;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: white;
-  font-family: Arial, Helvetica, sans-serif;
-  text-align: center;
-  display: none;
-  animation: downloadPromt .15s ease-in-out;
-}
-.app-headline {
-  font-size: 2rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
-  letter-spacing: -1px;
-}
-.ft {
-  color: lightgrey;
-  font-size: 1.25rem;
-  margin-top: 44px;
-  line-height: 3rem;
-  letter-spacing: 1px;
-}
-.table {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  border: solid grey 1px;
-  border-radius: 6px;
-  margin-top: 24px;
-}
-.table div {
-  border: 1px solid grey;
-  padding-inline: 6px;
-  padding-block: 8px;
-}
-.red {
-  color: red;
-}
-.green {
-  color: #2d6fff;
-  font-weight: bold;
-}
-.close {
-  margin-top: 64px;
-  border: 2px solid rgb(228, 117, 117);
-  background-color: transparent;
-  color: white;
-  padding-inline: 18px;
-  padding-block: 8px;
-  border-radius: 8px;
-  cursor: pointer;
-  margin-left: 15%;
-}
-.install {
-  margin-top: 64px;
-  border: 2px solid #154ec0;
-  background-color: #2265ee;
-  box-shadow: 0 0 12px #0047d6;
-  color: white;
-  padding-inline: 36px;
-  padding-block: 8px;
-  border-radius: 8px;
-  cursor: pointer;
-}
-
-
-.email-help {
-  margin-top: 64px;
-  border: 2px solid rgb(228, 117, 117);
-  background-color: transparent;
-  color: white;
-  padding-inline: 18px;
-  padding-block: 8px;
-  border-radius: 8px;
-  cursor: pointer;
-  margin-left: 15%;
-}
-.install-close {
-  margin-top: 64px;
-  border: 2px solid #154ec0;
-  background-color: #2265ee;
-  box-shadow: 0 0 12px #0047d6;
-  color: white;
-  padding-inline: 36px;
-  padding-block: 8px;
-  border-radius: 8px;
-  cursor: pointer;
-}
-
-/*explanation*/
-.explanation {
-  padding: 44px;
-  padding-block: 96px;
-  padding-bottom: 24px;
-  border: 1px solid #4d4d4d;
-  background-color: #202020;
-  border-radius: 10px;
-  display: block;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: white;
-  font-family: Arial, Helvetica, sans-serif;
-  display: none;
-  animation: downloadPromt .1s ease-in-out;
-}
-
-
-
-
-@keyframes expand {
-  0% {transform: scale(.5); translate: 144px; opacity: .25;}
-  100% {transform: scale(1);}
-}
 @keyframes msg {
  0% {transform: scale(.9); opacity: 0; filter: saturate(.25);}
  50% {transform: scale(1.05); opacity: 1;}
  100% {transform: scale(1);}
 }
-@keyframes downloadPromt {
-  0% {opacity: 0; filter: blur(1px); transform: scale(.9);  transform: translate(-50%, -50%);}
-  100% {opacity: 1; filter: blur(0);   transform: translate(-50%, -50%);}
- }
