@@ -173,6 +173,7 @@ async function load_chats(user_id) {
 
         add_msg(msg, dir);
     }
+    scrollContainer.scrollTop = 9999999;
 }
 
 async function load_grp() {
