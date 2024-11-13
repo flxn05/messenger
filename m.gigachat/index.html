@@ -20,9 +20,10 @@
     <p onclick="reloadPage()" class="headline">gigaCHAT</p>
     </section>
     <section>
-      <button id="addNewBtn" style="filter: brightness(1.5);" onclick="addNew()">+</button>
+      
       <button id="changeTheme">Theme</button>
       <button id="logout" onclick="logout()">Logout</button>
+      <button id="addNewBtn" style="filter: brightness(2);" onclick="addNew()">+</button>
     </section>
   </nav>
   <main id="main">
@@ -62,9 +63,9 @@
           <div class="msg-content-rx" style="max-width: 100%; line-height: 1.5rem;">
             Our developers:
             <br><br>
-            <li>Jonathan Wallasch (Website-Frontend)</li>
+            <li>Jonathan Wallasch (Frontend)</li>
             <br>
-            <li>David Ott (Server-Backend)</li>
+            <li>David Ott (Backend)</li>
             <br>
             <li>Felix Nowak (UI/UX Design)</li>
             <br>
@@ -87,6 +88,7 @@
       <section id="groupNameSection">
         <label for="groupName">Chat name:</label>
         <input id="groupName">
+        <p id="tooltipUserList">e.g. <i>"Joni and David"</i></p>
       </section>
 
       <section id="userListSection">
