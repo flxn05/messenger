@@ -60,7 +60,7 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #202020;
+  background-color: #272a31;
   max-height: 3rem;
 }
 #headlineLogo * {
@@ -75,29 +75,111 @@ nav {
   font-size: 1rem;
   translate: 0 -.5rem;
 }
-#logout, #changeTheme {
+#logout, #changeTheme, #addNewBtn {
   padding-inline: 12px;
   padding-block: 2px;
   border: none;
-  box-shadow: #454b5b 0 0 12px;
   background-color: #454b5b;
   border-radius: 8px;
   margin-left: 12px;
   color: lightgrey;
 }
+#addNewBtn {
+  box-shadow: #454b5b 0 0 12px;
+}
+.unfocus {
+  filter: brightness(.9) blur(1px) saturate(.75);
+}
+
+#addMenu {
+  position: fixed;
+  bottom: 0;
+  top: 33vh;
+  left: 0;
+  right: 0;
+  background-color: #272a31;
+  box-shadow: 0 0 16vh black;
+  padding: 2rem;
+  display: none;
+  animation: addMenu .5s ease both;
+}
+h1 {
+  font-size: 1.66rem;
+  font-weight: normal;
+}
+p {
+  font-size: 1.2rem;
+  line-height: 2rem;
+  letter-spacing: .5px;
+}
+#groupNameSection, #userListSection {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2rem;
+}
+#cancelCreate {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  position: fixed;
+  bottom: 2rem;
+  left: 2rem;
+  right: 2rem;
+}
+#cancelBtn, #createBtn {
+  padding-inline: 18px;
+  padding-block: 8px;
+  font-size: 1.2rem;
+  color: #121a20;
+}
+#cancelBtn {
+  border-radius: .75rem;
+  background-color: #6c7b86cb;
+  color: black;
+  border: solid 1px ;
+}
+#createBtn {
+  background-color: #3363ff;
+  border: none;
+  border-radius: 1rem;
+}
+#addGroup label {
+  margin-bottom: .5rem;
+  font-size: 1rem;
+}
+#addGroup input {
+  border-radius: .5rem;
+  padding-left: 24px;
+  padding-right: 24px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  border-radius: 16px;
+  border: none;
+  background-color: #3d3d3d;
+  color: white;
+  font-size: 1.1rem;
+  width: 60vw;
+}
+#addGroup input:focus {
+  outline: none;
+}
+#tooltipUserList {
+  font-size: .8rem;
+  margin-top: 4px;
+  font-style: italic;
+  line-height: 1.5rem;
+}
+
+
 
 /*MAIN CONTENT*/
-/*MAIN CONTENT*/
-/*MAIN CONTENT*/
-
-/*MAIN CONTENT GENERAL*/
 
 .one {
   overflow-x: scroll;
   overflow-y: hidden;
   display: flex;
   align-items: center;
-  background-color: #272a31;
+  background-color: #1b1c20;
   max-height: 4rem;
 }
 .three {
@@ -274,3 +356,6 @@ nav {
   75% {opacity: .66;}
   100% {opacity: 1;}
  }
+ @keyframes addMenu {
+  0% {translate: 0 96vh;}
+}
