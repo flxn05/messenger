@@ -102,6 +102,7 @@ nav {
   padding: 2rem;
   display: none;
   animation: addMenu .5s ease both;
+  overflow-y: scroll;
 }
 h1 {
   font-size: 1.66rem;
