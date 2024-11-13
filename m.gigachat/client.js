@@ -13,43 +13,47 @@ function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
+function csend(msg){
+    socket.send(encrypt(msg));
+}
+
 async function get_clients(){
     if(wopened){
-        socket.send("c");
+        socket.csend("c");
     while(response == ""){
         await sleep(10);
     }
     let rresponse = response;
     response = "";
-    return rresponse;}
+    return decrypt(rresponse);}
 }
 
 async function send_json(json, filename){
     if(wopened){
-    socket.send("r"+filename+","+json);} 
+    socket.csend("r"+filename+","+json);} 
 }
 
 async function get_updated(json, filename){
     if(wopened){
-    socket.send("j" + filename+","+json);
+    socket.csend("j" + filename+","+json);
     while(response == ""){
         await sleep(10);
     }
     let rresponse = response;
     response = "";
-    return rresponse;}
+    return decrypt(rresponse);}
 
 }
 
 async function get_json(filename){
     if(wopened){
-        socket.send("s"+filename);
+        socket.csend("s"+filename);
         while(response == ""){
             await sleep(10);
         }
         let rresponse = response;
         response = "";
-        return rresponse;}
+        return decrypt(rresponse);}
 }
 
 socket.onopen = async function(e) {
