@@ -18,7 +18,7 @@ let uu;
 async function check_users() {
     try {
         const c = await get_json("user");
-        console.log(c);
+
 
         const d = await JSON.parse(await get_json("user"));
 
@@ -50,7 +50,7 @@ async function check_users() {
 
 
 
-setTimeout(check_users, 400000);
+setTimeout(check_users, 400);
 
 
 

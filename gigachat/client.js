@@ -2,58 +2,48 @@
 let socket = new WebSocket("wss://gigachat.ddns.net:12356");
 let response = "";
 let wopened = false;
-let encrypt;
-let decrypt;
-
-Module.onRuntimeInitialized = () => {
-                encrypt = Module.cwrap('encrypt', 'string', ['string']);
-                decrypt = Module.cwrap('decrypt', 'string', ['string']);};
 
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-function csend(msg){
-    socket.send(encrypt(msg));
-}
-
 async function get_clients(){
     if(wopened){
-        csend("c");
+        socket.send("c");
     while(response == ""){
         await sleep(10);
     }
     let rresponse = response;
     response = "";
-    return decrypt(rresponse);}
+    return rresponse;}
 }
 
 async function send_json(json, filename){
     if(wopened){
-    csend("r"+filename+","+json);} 
+    socket.send("r"+filename+","+json);} 
 }
 
 async function get_updated(json, filename){
     if(wopened){
-    csend("j" + filename+","+json);
+    socket.send("j" + filename+","+json);
     while(response == ""){
         await sleep(10);
     }
     let rresponse = response;
     response = "";
-    return decrypt(rresponse);}
+    return rresponse;}
 
 }
 
 async function get_json(filename){
     if(wopened){
-        csend("s"+filename);
+        socket.send("s"+filename);
         while(response == ""){
             await sleep(10);
         }
         let rresponse = response;
         response = "";
-        return decrypt(rresponse);}
+        return rresponse;}
 }
 
 socket.onopen = async function(e) {
