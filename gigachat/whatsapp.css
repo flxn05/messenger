@@ -6,10 +6,6 @@ html {
   background-color: white;
   color: black;
 }
-.hidden {
-  display: none;
-}
-
 body {
   padding: 0;
   margin: 0;
@@ -119,6 +115,103 @@ nav {
   font-weight: bold;
   font-size: 1.25rem;
 }
+
+.unfocus {
+  filter: brightness(.9) blur(1px) saturate(.75);
+}
+
+#addMenu {
+  position: fixed;
+  bottom: 16vh;
+  top: 16vh;
+  left: 16vw;
+  right: 16vw;
+  background-color: #202020;
+  box-shadow: 0 0 16vh black;
+  padding: 2rem;
+  display: none;
+  animation: addMenu .33s ease both;
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+}
+
+h1 {
+  font-size: 1.66rem;
+  font-weight: normal;
+}
+p {
+  font-size: 1rem;
+  line-height: 1.5rem;
+  letter-spacing: .5px;
+  color: lightgray;
+}
+
+#groupNameSection, #userListSection {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+#cancelCreate {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  position: fixed;
+  bottom: 2rem;
+  left: 2rem;
+  right: 2rem;
+}
+#cancelBtn, #createBtn {
+  padding-inline: 18px;
+  padding-block: 8px;
+  font-size: 1.2rem;
+  color: white;
+}
+#createBtn {
+  border-radius: .75rem;
+  background-color: #005c4b;
+  color: black;
+  border: solid 1px ;
+}
+#cancelBtn {
+  background-color: #3a3a3a;
+  border: none;
+  border-radius: 1rem;
+}
+#addGroup {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 4rem;
+}
+#addGroup label {
+  margin-bottom: .5rem;
+  font-size: 1rem;
+}
+#addGroup input {
+  border-radius: .5rem;
+  padding-left: 24px;
+  padding-right: 24px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  border-radius: 16px;
+  border: 2px solid #005c4b;
+  background-color: transparent;
+  color: white;
+  font-size: 1.1rem;
+  width: 72%;
+}
+#addGroup input::placeholder {
+  font-size: .9rem;
+}
+#addGroup input:focus {
+  outline: none;
+}
+#tooltipUserList {
+  font-size: .8rem;
+  margin-top: 4px;
+  font-style: italic;
+  line-height: 1.5rem;
+}
+
 /*main*/
 .one {
   overflow-y: scroll;
@@ -275,3 +368,6 @@ nav {
   50% {transform: scale(1.05); opacity: 1; rotate: -2deg;}
   100% {transform: scale(1);}
  }
+ @keyframes addMenu {
+  0% {opacity: 0; transform: scale(.75);}
+}
