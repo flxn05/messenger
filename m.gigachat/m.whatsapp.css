@@ -107,8 +107,6 @@ nav {
   padding-bottom: 2rem;
 }
 
-
-/*CHAT BOX*/
 .chat-box {
   padding: 6px;
   height: 44px;
@@ -120,25 +118,13 @@ nav {
   white-space: nowrap;
   -webkit-tap-highlight-color: transparent;
   user-select: none;
+  animation: loading 2s ease both;
 }
 .chat-box:hover {
   transform: scale(0.95);
   translate: 2.5% 0;
 }
 
-/*CHAT HEADER CLASS*/
-.chat-header {
-  position: fixed;
-  top: 0;
-  left: 30%;
-  right: 0;
-  margin-right: 16px;
-  padding-block: 12px;
-  text-align: center;
-  z-index: 5;
-}
-
-/*CHAT-con CLASS*/
 .msg_rx,
 .msg_tx {
   display: block;
@@ -230,35 +216,11 @@ nav {
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
 }
-@keyframes start-mobile {
-  0% {display: normal;}
-  100% {display: none;}
-}
-@keyframes expand {
-  0% {opacity: .25; translate: 0 15vh; transform: scale(.95);}
-}
 
-#expanded {
-  background-color: rgb(10, 10, 10);
-  position: fixed;
-  top: 60vh;
-  bottom: 2px;
-  left: 2px;
-  right: 2px;
-  border-radius: 1rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  padding-block: 4rem;
-  animation: expand .25s ease-in-out;
-
-}
-#expanded button {
-  background-color: #3d3d3d;
-  border: none;
-  height: 44px;
-  width: 60vw;
-  font-size: 1.1rem;
-  border-radius: 44px;
+@keyframes loading {
+  0% {opacity: 1;}
+  25% {opacity: .75;}
+  50% {opacity: 1;}
+  75% {opacity: .75;}
+  100% {opacity: 1;}
 }
