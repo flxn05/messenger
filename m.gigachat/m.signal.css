@@ -76,16 +76,17 @@ nav {
   translate: 0 -.5rem;
 }
 #logout, #changeTheme, #addNewBtn {
-  padding-inline: 12px;
-  padding-block: 2px;
+  padding-inline: 16px;
+  padding-block: 10px;
   border: none;
-  background-color: #454b5b;
+  background-color: #0b1014;
   border-radius: 8px;
-  margin-left: 12px;
+  margin-left: 6px;
   color: lightgrey;
+  box-shadow: #3e424d 0 0 12px;
 }
 #addNewBtn {
-  box-shadow: #454b5b 0 0 12px;
+  box-shadow: #596279 0 0 12px;
 }
 .unfocus {
   filter: brightness(.9) blur(1px) saturate(.75);
@@ -188,21 +189,41 @@ p {
   padding-bottom: 2rem;
   background-color: #1b1c20;
 }
-
+/**/
+#searchIconCon, #closeIconCon {
+  background-color: #3d3d3d;
+  border-radius: 8px;
+  padding: .5rem;
+  margin-right: 4px;
+  min-width: 1.25rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#searchIcon, #closeIcon {
+  height: 1rem;
+  width: 1rem;
+}
+#closeIconCon {
+  display: none;
+}
 #search-box {
   font-size: 1rem;
-  background-color: #13181c;
-  width: 8ch;
+  background-color: #3d3d3d;
+  width: 0;
   transition: all .25s ease;
+  font-size: 1rem;
+  padding: 0;
 }
-#search-box:focus {
-  width: 33vw;
-}
+/**/
 
 /*CHAT BOX*/
 .chat-box {
-  padding: 6px;
+  background-color: #272a31;
+  text-align: center;
   height: 44px;
+  padding-inline: 6px;
+  margin-inline: 2px;
   border-radius: 12px;
   display: inline-block;
   display: flex;
@@ -210,7 +231,8 @@ p {
   font-size: 0.9rem;
   white-space: nowrap;
   -webkit-tap-highlight-color: transparent;
-  animation: loading 1.75s both ease;
+  user-select: none;
+  animation: loading 2s ease both;
 }
 .chat-box:hover {
   transform: scale(0.95);
