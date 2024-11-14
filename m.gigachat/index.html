@@ -29,6 +29,10 @@
   <main id="main">
     <div class="one" id="one">
 
+
+      <input type="text" class="text-input" id="search-box" placeholder="Search ....">
+      <div id="searchIconCon" onclick="openSearch()"><img src="search-icon.svg" alt="searchIcon" id="searchIcon"></div>
+      <div id="closeIconCon"><img src="close-icon.svg" alt="closeIcon" id="closeIcon" onclick="closeSearch()"></div>
       <div class="chat-box" style="font-style: italic;">loading ....</div>
       <div class="chat-box" style="font-style: italic;">loading ....</div>
       <div class="chat-box" style="font-style: italic;">loading ....</div>
@@ -126,7 +130,11 @@
 
 let addNewBtn = document.getElementById('addNewBtn');
 let addMenu = document.getElementById('addMenu');
-let cancelBtn = document.getElementById('cancelBtn')
+let cancelBtn = document.getElementById('cancelBtn');
+
+let searchBtn = document.getElementById('searchIconCon');
+let searchBar = document.getElementById('search-box');
+let closeBtn = document.getElementById('closeIconCon');
 
 function addNew() {
   addMenu.style.display = 'block';
@@ -140,6 +148,36 @@ function closeMenu() {
   document.querySelector('.one').classList.remove('unfocus');
   document.querySelector('.three').classList.remove('unfocus');
   document.getElementById('nav').classList.remove('unfocus');
+}
+
+function openSearch() {
+  searchBar.style.width = '66vw';
+  searchBar.style.paddingBlock = '10px';
+  searchBar.style.paddingInline = '12px';
+  closeBtn.style.display = 'flex';
+  searchBtn.style.display = 'none';
+  searchBar.focus();
+}
+
+searchBar.addEventListener('input', function() {
+    const query = this.value.toLowerCase();
+    const items = document.querySelectorAll('#one .chat-box');
+
+    items.forEach(item => {
+        const itemText = item.textContent.toLowerCase();
+        if (itemText.includes(query)) {
+            item.style.display = '';
+        } else {
+            item.style.display = 'none';
+        }
+    });
+});
+
+function closeSearch() {
+  searchBar.style.width= '0';
+  searchBar.style.padding = '0';
+  closeBtn.style.display = 'none';
+  searchBtn.style.display = 'flex'
 }
 
 </script>
