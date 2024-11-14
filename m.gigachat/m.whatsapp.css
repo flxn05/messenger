@@ -79,16 +79,17 @@ nav {
   user-select: none;
 }
 #logout, #changeTheme, #addNewBtn {
-  padding-inline: 12px;
-  padding-block: 2px;
+  padding-inline: 16px;
+  padding-block: 10px;
   border: none;
-  background-color: #134d37;
+  background-color: #0b1014;
   border-radius: 8px;
-  margin-left: 12px;
+  margin-left: 6px;
   color: lightgrey;
+  box-shadow: #212f3b 0 0 12px;
 }
 #addNewBtn {
-  box-shadow: #134d37 0 0 12px;
+  box-shadow: #374f63 0 0 12px;
 }
 
 .unfocus {
@@ -194,6 +195,7 @@ p {
   background-color: #1f272a;
   border-radius: 8px;
   padding: .5rem;
+  margin-right: 4px;
   min-width: 1.25rem;
   display: flex;
   justify-content: center;
@@ -216,8 +218,11 @@ p {
 }
 /**/
 .chat-box {
-  padding: 6px;
+  background-color: #121a20;
+  text-align: center;
   height: 44px;
+  padding-inline: 6px;
+  margin-inline: 2px;
   border-radius: 12px;
   display: inline-block;
   display: flex;
