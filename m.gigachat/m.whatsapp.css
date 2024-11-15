@@ -208,6 +208,8 @@ p {
 #sendIcon, #microphoneIcon {
   height: 1.25rem;
   width: 1.25rem;
+}
+img {
   animation: fadeIn .25s ease both;
 }
 #closeIconCon {
@@ -302,7 +304,7 @@ p {
   background-color: #1f272a;
   color: white;
   display: grid;
-  grid-template-columns: 2fr 1fr 4fr;
+  grid-template-columns: 2fr 1fr 6fr;
   border-radius: 4px;
   border-top-left-radius: 0;
   margin-bottom: 1rem;
@@ -329,6 +331,67 @@ p {
   box-shadow: 0 0 24px rgba(0, 0, 0, 0.3);
 }
 
+/*voice msg elements display*/
+
+.voice-content-name {
+  margin-top: 1rem;
+}
+#playVoiceMsg, #pauseVoiceMsg {
+  height: 2rem;
+  width: 2rem;
+  margin-top: .5rem;
+}
+#pauseVoiceMsg {
+  display: none;
+}
+
+#voice-content-waves {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 1rem;
+  opacity: 0;
+}
+.voiceBars {
+  background-color: green;
+  background-image: radial-gradient(#121a20, #134d37);
+  filter: brightness(1.5);
+  height: 2rem;
+  width: 5px;
+  border-radius: 2px;
+  animation: voiceBarAnimationOne 1.25s linear both infinite;
+}
+
+#vB6 { animation: voiceBarAnimationTwo .5s linear both infinite; animation-delay: 0.025s; }
+#vB11 { animation-delay: 0.050s; }
+#vB14 { animation-delay: 0.075s; }
+#vB3 { animation-delay: 0.100s; }
+#vB1 { animation: voiceBarAnimationTwo 1s linear both infinite; animation-delay: 0.125s; }
+#vB8 { animation-delay: 0.150s; }
+#vB7 { animation: voiceBarAnimationTwo .3s linear both infinite; animation-delay: 0.575s; }
+#vB10 { animation-duration: 5s; animation-delay: 0.200s; }
+#vB5 { animation-delay: 0.225s; }
+#vB9 { animation: voiceBarAnimationTwo .5s linear both infinite; animation-delay: 0.250s; }
+#vB12 { animation-delay: 0.275s; }
+#vB2 { animation: voiceBarAnimationTwo 5s linear both infinite; animation-delay: 1s; }
+#vB13 { animation: voiceBarAnimationTwo 3s linear both infinite; animation-delay: 0.325s; }
+#vB15 { animation: voiceBarAnimationTwo .5s linear both infinite; animation-delay: 1s; }
+#vB16 { animation-delay: 0.375s; }
+#vB4 { animation-delay: 0.400s; }
+
+@keyframes voiceBarAnimationOne {
+  0% {transform: scaleY(1);}
+  33% {transform: scaleY(1.5);}
+  66% {transform: scaleY(.5);}
+  100% {transform: scaleY(1);}
+}
+@keyframes voiceBarAnimationTwo {
+  0% {transform: scaleY(1);}
+  33% {transform: scaleY(.25);}
+  66% {transform: scaleY(1.25);}
+  100% {transform: scaleY(1);}
+}
+
 /*TEXT INPUT FIELD*/
 .text-input-con {
   position: fixed;
@@ -349,7 +412,7 @@ p {
   background-color: #1f272a;
   color: white;
   font-size: 1.1rem;
-  width: 60vw;
+  width: 72vw;
 }
 .text-input::placeholder {
   color: rgb(172, 172, 172);
