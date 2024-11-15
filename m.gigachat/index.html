@@ -89,18 +89,29 @@
 <!--message-->
 <div class="msg-rx">
   <div class="voice-content-rx">
-    <div class="voice-content-name" style="background-color: rgb(54, 42, 42);">Name</div>
-    <div class="voice-content-controls" style="background-color: rgb(194, 69, 69);">controls</div>
-    <div class="voice-content-waves" style="background-color: rgb(77, 167, 77);">waves</div>
-  </div>
-</div>
-
-<!--message-->
-<div class="msg-tx">
-  <div class="voice-content-tx">
-    <div class="voice-content-name" style="background-color: rgb(54, 42, 42);">Name</div>
-    <div class="voice-content-controls" style="background-color: rgb(194, 69, 69);">controls</div>
-    <div class="voice-content-waves" style="background-color: rgb(77, 167, 77);">waves</div>
+    <div class="voice-content-name">Name:</div>
+    <div class="voice-content-controls">
+      <img src="play.png" id="playVoiceMsg" onclick="playClicked()">
+      <img src="pause.png" id="pauseVoiceMsg" onclick="pauseClicked()">
+    </div>
+    <div id="voice-content-waves">
+            <div class="voiceBars" id="vB1"></div>
+            <div class="voiceBars" id="vB2"></div>
+            <div class="voiceBars" id="vB3"></div>
+            <div class="voiceBars" id="vB4"></div>
+            <div class="voiceBars" id="vB5"></div>
+            <div class="voiceBars" id="vB6"></div>
+            <div class="voiceBars" id="vB7"></div>
+            <div class="voiceBars" id="vB8"></div>
+            <div class="voiceBars" id="vB9"></div>
+            <div class="voiceBars" id="vB10"></div>
+            <div class="voiceBars" id="vB11"></div>
+            <div class="voiceBars" id="vB12"></div>
+            <div class="voiceBars" id="vB13"></div>
+            <div class="voiceBars" id="vB14"></div>
+            <div class="voiceBars" id="vB15"></div>
+            <div class="voiceBars" id="vB16"></div>
+    </div>
   </div>
 </div>
 
@@ -209,7 +220,7 @@ function closeSearch() {
 
 const startVoiceMsgBtn = document.getElementById('startVoiceMsg');
 
-// Add event listeners for touch events
+//change buttons (type/talk)
 startVoiceMsgBtn.addEventListener('touchstart', () => {
     startVoiceMsgBtn.classList.add('recording');
 });
@@ -222,12 +233,13 @@ startVoiceMsgBtn.addEventListener('touchcancel', () => {
     startVoiceMsgBtn.classList.remove('recording');
 });
 
+//change buttons when writing
 document.getElementById('text_input').addEventListener('input', function () {
-    const textInput = document.getElementById('text_input').value.trim();
+    const textInputChange = document.getElementById('text_input').value.trim();
     const startVoiceMsg = document.getElementById('startVoiceMsg');
     const sendMsg = document.getElementById('send-msg');
 
-    if (textInput !== '') {
+    if (textInputChange !== '') {
         startVoiceMsg.style.display = 'none';
         sendMsg.style.display = 'inline-block';
     } else {
@@ -236,6 +248,24 @@ document.getElementById('text_input').addEventListener('input', function () {
     }
 });
 
+
+let playVoiceMsg = document.getElementById('playVoiceMsg');
+let pauseVoiceMsg = document.getElementById('pauseVoiceMsg');
+let soundWaves = document.getElementById('voice-content-waves');
+
+function playClicked() {
+  playVoiceMsg.style.display = 'none';
+  pauseVoiceMsg.style.display = 'flex';
+  soundWaves.style.opacity = '1';
+  //add btn function :: playMedia
+}
+
+function pauseClicked() {
+  pauseVoiceMsg.style.display = 'none';
+  playVoiceMsg.style.display = 'flex';
+  soundWaves.style.opacity = '0';
+  //add btn function :: pauseMedia
+}
 
 </script>
 </body>
