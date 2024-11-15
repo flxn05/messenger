@@ -204,6 +204,13 @@ p {
   height: 1rem;
   width: 1rem;
 }
+#sendIcon, #microphoneIcon {
+  height: 1.25rem;
+  width: 1.25rem;
+}
+img {
+  animation: fadeIn .25s ease both;
+}
 #closeIconCon {
   display: none;
 }
@@ -301,6 +308,102 @@ p {
   margin-right: 6px;
   box-shadow: 0 0 24px rgba(0, 0, 0, 0.3);
 }
+.voice-content-rx {
+  padding-left: 18px;
+  padding-right: 18px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  width: 66vw;
+  height: 3rem;
+  background-color: #303133;
+  color: white;
+  display: grid;
+  grid-template-columns: 2fr 1fr 6fr;
+  border-radius: 16px;
+  border-top-left-radius: 4px;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  margin-left: 6px;
+  box-shadow: 0 0 24px rgba(0, 0, 0, 0.2);
+}
+.voice-content-tx {
+  padding-left: 18px;
+  padding-right: 18px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  width: 66vw;
+  height: 3rem;
+  background-color: #315ff3;
+  color: white;
+  display: grid;
+  grid-template-columns: 2fr 1fr 4fr;
+  border-radius: 16px;
+  border-top-right-radius: 4px;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  margin-right: 6px;
+  box-shadow: 0 0 24px rgba(0, 0, 0, 0.3);
+}
+/*voice msg elements display*/
+
+.voice-content-name {
+  margin-top: 1rem;
+}
+#playVoiceMsg, #pauseVoiceMsg {
+  height: 2rem;
+  width: 2rem;
+  margin-top: .5rem;
+}
+#pauseVoiceMsg {
+  display: none;
+}
+
+#voice-content-waves {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 1rem;
+  opacity: 0;
+}
+.voiceBars {
+  background-color: blue;
+  background-image: radial-gradient(#1b1c20, #315ff3);
+  filter: brightness(1.5);
+  height: 2rem;
+  width: 5px;
+  border-radius: 2px;
+  animation: voiceBarAnimationOne 1.25s linear both infinite;
+}
+
+#vB6 { animation: voiceBarAnimationTwo .5s linear both infinite; animation-delay: 0.025s; }
+#vB11 { animation-delay: 0.050s; }
+#vB14 { animation-delay: 0.075s; }
+#vB3 { animation-delay: 0.100s; }
+#vB1 { animation: voiceBarAnimationTwo 1s linear both infinite; animation-delay: 0.125s; }
+#vB8 { animation-delay: 0.150s; }
+#vB7 { animation: voiceBarAnimationTwo .3s linear both infinite; animation-delay: 0.575s; }
+#vB10 { animation-duration: 5s; animation-delay: 0.200s; }
+#vB5 { animation-delay: 0.225s; }
+#vB9 { animation: voiceBarAnimationTwo .5s linear both infinite; animation-delay: 0.250s; }
+#vB12 { animation-delay: 0.275s; }
+#vB2 { animation: voiceBarAnimationTwo 5s linear both infinite; animation-delay: 1s; }
+#vB13 { animation: voiceBarAnimationTwo 3s linear both infinite; animation-delay: 0.325s; }
+#vB15 { animation: voiceBarAnimationTwo .5s linear both infinite; animation-delay: 1s; }
+#vB16 { animation-delay: 0.375s; }
+#vB4 { animation-delay: 0.400s; }
+
+@keyframes voiceBarAnimationOne {
+  0% {transform: scaleY(1);}
+  33% {transform: scaleY(1.5);}
+  66% {transform: scaleY(.5);}
+  100% {transform: scaleY(1);}
+}
+@keyframes voiceBarAnimationTwo {
+  0% {transform: scaleY(1);}
+  33% {transform: scaleY(.25);}
+  66% {transform: scaleY(1.25);}
+  100% {transform: scaleY(1);}
+}
 
 /*TEXT INPUT FIELD*/
 .text-input-con {
@@ -322,7 +425,7 @@ p {
   background-color: #3d3d3d;
   color: white;
   font-size: 1.1rem;
-  width: 60vw;
+  width: 72vw;
 }
 .text-input::placeholder {
   color: rgb(172, 172, 172);
@@ -330,7 +433,21 @@ p {
 .text-input:focus {
   outline: none;
 }
-.send-msg {
+#send-msg {
+  padding: 0;
+  margin-right: 6px;
+  width: 44px;
+  height: 44px;
+  border-radius: 22px;
+  border: none;
+  font-weight: bold;
+  background-color: #315ff3;
+  color: white;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  display: none;
+}
+#startVoiceMsg {
   padding: 0;
   margin-right: 6px;
   width: 44px;
@@ -343,29 +460,9 @@ p {
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
 }
-#expanded {
-  background-color: rgb(10, 10, 10);
-  position: fixed;
-  top: 60vh;
-  bottom: 2px;
-  left: 2px;
-  right: 2px;
-  border-radius: 1rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  padding-block: 4rem;
-  animation: expand .25s ease-in-out;
 
-}
-#expanded button {
-  background-color: #3d3d3d;
-  border: none;
-  height: 44px;
-  width: 60vw;
-  font-size: 1.1rem;
-  border-radius: 44px;
+#startVoiceMsg.recording {
+  animation: recording 1.5s .1s both infinite;
 }
 @keyframes msg {
   0% {transform: scale(.9); opacity: 0; filter: saturate(0);}
@@ -381,4 +478,8 @@ p {
  }
  @keyframes addMenu {
   0% {translate: 0 96vh;}
+}
+@keyframes fadeIn {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
 }
