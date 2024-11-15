@@ -65,7 +65,7 @@
         </div>
         <!--message-->
         <div class="msg-tx">
-          <div class="msg-content-tx">.... our source code is <a href="https://github.com/flxn05/messenger" target="_blank" style="color: grey">[here]</a>. Feel free to <a href="mailto:get.giga.chat@gmail.com?subject=Contact Request from gigaCHAT user" style="color: grey">[contact the gigaCHAT team]</a> for support!</div>
+          <div class="msg-content-tx">.... our source code is <a href="https://github.com/flxn05/messenger" target="_blank" style="color: black; font-weight: bold;">[here]</a>. Feel free to <a href="mailto:get.giga.chat@gmail.com?subject=Contact Request from gigaCHAT user" style="color: black; font-weight: bold;">[contact the gigaCHAT team]</a> for support!</div>
         </div>
       
         <!--message-->
@@ -115,9 +115,54 @@
   </div>
 </div>
 
+<!--message-->
+<div class="msg-rx">
+  <div class="msg-content-rx" style="line-height: 1.5rem;">Spoiler: Voice Messages, Media Upload and Notifications are coming soon to gigaCHAT!</div>
+</div>
+<!--message-->
+<div class="msg-tx"><!--msg-container-->
+  <div class="media-content-tx"><!--message itself-->
+    <div class="media-content-name">Name:</div><!--Sender-->
+    <img src="910205.png" id="media-img" onclick="enterFocus()" alt="Error displaying media. Contact gigaCHAT developers."><!--#media-img [main img]-->
+
+    <div class="media-content-description">This is an image.</div>
+  </div>
+</div>
+
+
+<!--message-->
+<div class="msg-tx"><!--msg-container-->
+  <div class="media-content-tx"><!--message itself-->
+    <div class="media-content-name">Name:</div><!--Sender-->
+    <img src="microphone.png" id="media-img" onclick="enterFocus()" alt="Error displaying media. Contact gigaCHAT developers."><!--#media-img [main img]-->
+
+    <div class="media-content-description">This is an image.</div>
+  </div>
+</div>
 
       </div> <!--chat con-->
     </div> <!--three-->
+
+
+ <div id="mediaAreaFocus">
+<!--#media-img-focus for fullscreen viewing. display none is default-->
+<!-- MEDIA AREA FOR FOCUS -->
+
+<img id="closeGallery" src="close.svg" alt="close" onclick="closeFocus()">
+
+
+<img src="910205.png" id="media-img-focus-bg" alt="Error displaying media. Contact gigaCHAT developers.">
+<img src="910205.png" id="media-img-focus" alt="Error displaying media. Contact gigaCHAT developers.">
+<!--new img--><!--this is an example.
+
+[ERROR: THE CODE OPENS THE OTHER IMAGE (MAYBE BACUASE IT IS THE FIRST???)]
+
+-->
+<img src="microphone.png" id="media-img-focus-bg" alt="nigger">
+<img src="microphone.png" id="media-img-focus" alt="nogger shock">
+    
+
+ </div>
 
     <div id="addMenu">
 
@@ -265,6 +310,28 @@ function pauseClicked() {
   playVoiceMsg.style.display = 'flex';
   soundWaves.style.opacity = '0';
   //add btn function :: pauseMedia
+}
+
+let galleryView = document.getElementById('mediaAreaFocus');
+let imgFocusBg = document.getElementById('media-img-focus-bg');
+let imgFocus = document.getElementById('media-img-focus');
+let closeGallery = document.getElementById('closeGallery');
+
+
+function enterFocus() {
+  console.log('Entering Gallery view ....');
+  galleryView.style.display = 'block';
+  imgFocus.style.display = 'block';
+  imgFocusBg.style.display = 'block';
+  closeGallery.style.display = 'block';
+}
+
+function closeFocus() {
+  console.log('Closing Gallery view ....');
+  galleryView.style.display = 'none';
+  imgFocus.style.display = 'none';
+  imgFocusBg.style.display = 'none';
+  closeGallery.style.display = 'none';
 }
 
 </script>
