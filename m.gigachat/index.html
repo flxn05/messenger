@@ -31,8 +31,8 @@
 
 
       <input type="text" class="text-input" id="search-box" placeholder="Search ....">
-      <div id="searchIconCon" onclick="openSearch()"><img src="search-icon.svg" alt="searchIcon" id="searchIcon"></div>
-      <div id="closeIconCon"><img src="close-icon.svg" alt="closeIcon" id="closeIcon" onclick="closeSearch()"></div>
+      <div id="searchIconCon" onclick="openSearch()"><img src="search.svg" alt="searchIcon" id="searchIcon"></div>
+      <div id="closeIconCon"><img src="close.svg" alt="closeIcon" id="closeIcon" onclick="closeSearch()"></div>
       <div class="chat-box" style="font-style: italic;">loading ....</div>
       <div class="chat-box" style="font-style: italic;">loading ....</div>
       <div class="chat-box" style="font-style: italic;">loading ....</div>
@@ -44,9 +44,15 @@
 
       <div class="text-input-con">
       <input type="text" class="text-input" id="text_input" placeholder="Message ....">
-      <button type="button" class="send-msg" id="send-msg" onclick="send_msg()">&#10145;</button>
+      <div>
+      <button type="button" id="startVoiceMsg" onclick="startVoiceMsg()">
+          <img src="microphone.png" alt="send" id="microphoneIcon"></button>
         </div>
 
+      <button type="button" id="send-msg" onclick="send_msg()">
+        <img src="send.png" alt="send" id="sendIcon"></button>
+      </div>
+    </div>
     <div class="three" id="three">
 
 
@@ -80,8 +86,27 @@
           <div class="msg-content-rx">Thank you for using gigaCHAT!</div>
         </div>
 
-      </div>
-    </div>
+<!--message-->
+<div class="msg-rx">
+  <div class="voice-content-rx">
+    <div class="voice-content-name" style="background-color: rgb(54, 42, 42);">Name</div>
+    <div class="voice-content-controls" style="background-color: rgb(194, 69, 69);">controls</div>
+    <div class="voice-content-waves" style="background-color: rgb(77, 167, 77);">waves</div>
+  </div>
+</div>
+
+<!--message-->
+<div class="msg-tx">
+  <div class="voice-content-tx">
+    <div class="voice-content-name" style="background-color: rgb(54, 42, 42);">Name</div>
+    <div class="voice-content-controls" style="background-color: rgb(194, 69, 69);">controls</div>
+    <div class="voice-content-waves" style="background-color: rgb(77, 167, 77);">waves</div>
+  </div>
+</div>
+
+
+      </div> <!--chat con-->
+    </div> <!--three-->
 
     <div id="addMenu">
 
@@ -179,6 +204,38 @@ function closeSearch() {
   closeBtn.style.display = 'none';
   searchBtn.style.display = 'flex'
 }
+
+
+
+const startVoiceMsgBtn = document.getElementById('startVoiceMsg');
+
+// Add event listeners for touch events
+startVoiceMsgBtn.addEventListener('touchstart', () => {
+    startVoiceMsgBtn.classList.add('recording');
+});
+
+startVoiceMsgBtn.addEventListener('touchend', () => {
+    startVoiceMsgBtn.classList.remove('recording');
+});
+
+startVoiceMsgBtn.addEventListener('touchcancel', () => {
+    startVoiceMsgBtn.classList.remove('recording');
+});
+
+document.getElementById('text_input').addEventListener('input', function () {
+    const textInput = document.getElementById('text_input').value.trim();
+    const startVoiceMsg = document.getElementById('startVoiceMsg');
+    const sendMsg = document.getElementById('send-msg');
+
+    if (textInput !== '') {
+        startVoiceMsg.style.display = 'none';
+        sendMsg.style.display = 'inline-block';
+    } else {
+        startVoiceMsg.style.display = 'inline-block';
+        sendMsg.style.display = 'none';
+    }
+});
+
 
 </script>
 </body>
