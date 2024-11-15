@@ -86,10 +86,10 @@ nav {
   border-radius: 8px;
   margin-left: 6px;
   color: lightgrey;
-  box-shadow: #212f3b 0 0 12px;
+  box-shadow: #2f4253 0 0 12px;
 }
 #addNewBtn {
-  box-shadow: #374f63 0 0 12px;
+  box-shadow: #3f5c74 0 0 12px;
 }
 
 .unfocus {
@@ -330,6 +330,39 @@ img {
   margin-right: 6px;
   box-shadow: 0 0 24px rgba(0, 0, 0, 0.3);
 }
+.media-content-rx {
+  padding-left: 18px;
+  padding-right: 18px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  width: 66vw;
+  height: 66vw;
+  background-color: #1f272a;
+  color: white;
+  display: inline-block;
+  border-radius: 4px;
+  border-top-left-radius: 0;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  margin-left: 6px;
+  box-shadow: 0 0 24px rgba(0, 0, 0, 0.2);
+}
+.media-content-tx {
+  padding-left: 18px;
+  padding-right: 18px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  max-width: 66%;
+  background-color: #134d37;
+  color: white;
+  display: inline-block;
+  border-radius: 4px;
+  border-top-right-radius: 0;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  margin-right: 6px;
+  box-shadow: 0 0 24px rgba(0, 0, 0, 0.3);
+}
 
 /*voice msg elements display*/
 
@@ -390,6 +423,68 @@ img {
   33% {transform: scaleY(.25);}
   66% {transform: scaleY(1.25);}
   100% {transform: scaleY(1);}
+}
+
+/* media elements display */
+
+#media-img,
+#media-video {
+  height: 56vw;
+  width: 56vw;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+#media-img-focus,
+#media-video-focus {
+  height: 56vw;
+  width: 56vw;
+  object-fit: scale-down;
+  border-radius: 4px;
+}
+#closeGallery {
+  position: fixed;
+  top: 2rem;
+  right: 1rem;
+  height: 2rem !important;
+  width: 44px !important;
+  background-color: rgb(41, 41, 41);
+  color: white;
+  border: none;
+  padding: 4px;
+  border-radius: 1rem;
+  z-index: 9;
+}
+
+#mediaAreaFocus {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: black;
+  display: none;
+}
+#mediaAreaFocus img,
+#mediaAreaFocus video {
+  height: 100%;
+  width: 100%;
+  object-fit: scale-down;
+  display: none;
+}
+
+#media-img-focus-bg,
+#media-video-focus-bg {
+  object-fit: fill;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  width: 100vw;
+  filter: blur(24px) brightness(.33);
+  z-index: -1;
 }
 
 /*TEXT INPUT FIELD*/
