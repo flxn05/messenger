@@ -205,6 +205,11 @@ p {
   height: 1rem;
   width: 1rem;
 }
+#sendIcon, #microphoneIcon {
+  height: 1.25rem;
+  width: 1.25rem;
+  animation: fadeIn .25s ease both;
+}
 #closeIconCon {
   display: none;
 }
@@ -287,6 +292,42 @@ p {
   margin-right: 6px;
   box-shadow: 0 0 24px rgba(0, 0, 0, 0.3);
 }
+.voice-content-rx {
+  padding-left: 18px;
+  padding-right: 18px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  width: 66vw;
+  height: 3rem;
+  background-color: #1f272a;
+  color: white;
+  display: grid;
+  grid-template-columns: 2fr 1fr 4fr;
+  border-radius: 4px;
+  border-top-left-radius: 0;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  margin-left: 6px;
+  box-shadow: 0 0 24px rgba(0, 0, 0, 0.2);
+}
+.voice-content-tx {
+  padding-left: 18px;
+  padding-right: 18px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  width: 66vw;
+  height: 3rem;
+  background-color: #134d37;
+  color: white;
+  display: grid;
+  grid-template-columns: 2fr 1fr 4fr;
+  border-radius: 4px;
+  border-top-right-radius: 0;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  margin-right: 6px;
+  box-shadow: 0 0 24px rgba(0, 0, 0, 0.3);
+}
 
 /*TEXT INPUT FIELD*/
 .text-input-con {
@@ -316,7 +357,21 @@ p {
 .text-input:focus {
   outline: none;
 }
-.send-msg {
+#send-msg {
+  padding: 0;
+  margin-right: 6px;
+  width: 44px;
+  height: 44px;
+  border-radius: 22px;
+  border: none;
+  font-weight: bold;
+  background-color: #21c063;
+  color: white;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  display: none;
+}
+#startVoiceMsg {
   padding: 0;
   margin-right: 6px;
   width: 44px;
@@ -330,6 +385,10 @@ p {
   -webkit-tap-highlight-color: transparent;
 }
 
+#startVoiceMsg.recording {
+  animation: recording 1.5s .1s both infinite;
+}
+
 @keyframes loading {
   0% {opacity: 1;}
   25% {opacity: .75;}
@@ -339,4 +398,12 @@ p {
 }
 @keyframes addMenu {
   0% {translate: 0 96vh;}
+}
+@keyframes recording {
+  0% {transform: scale(1); background-color: #21c063;}
+  50% {transform: scale(1.25);}
+}
+@keyframes fadeIn {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
 }
