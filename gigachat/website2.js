@@ -5,7 +5,7 @@ const logged_out_page = "https://gigachat.ddns.net/logged_out"
 
 
 let u;
-document.cookie = "user=Joni";
+
 const x = document.cookie;
 
 const y = x.substring(5, x.length + 1);
@@ -33,15 +33,15 @@ async function check_users() {
         }
     }
     catch (error) {
-        //window.location.replace(logged_out_page);
-        console.log("g");
+        window.location.replace(logged_out_page);
+        //console.log("g");
     }
 
 
     if (qwertz == false) {
 
-        //window.location.replace(logged_out_page);
-        console.log("g");
+        window.location.replace(logged_out_page);
+        //console.log("g");
     }
     else {
 
