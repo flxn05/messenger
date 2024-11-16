@@ -1,5 +1,4 @@
-//y=true, n=false, c=how many clients, j=check json, s=send json, r=receive new json
-let socket = new WebSocket("wss://gigachat.ddns.net:12356");
+let socket = new WebSocket("ws://localhost:12356");
 let response = "";
 let wopened = false;
 let encrypt;
@@ -14,8 +13,7 @@ function sleep(ms) {
 }
 
 function csend(msg){
-    //socket.send(encrypt(msg));
-    socket.send(msg);
+    socket.send(btoa(unescape(encodeURIComponent(encrypt(msg)))));
 }
 
 async function get_clients(){
