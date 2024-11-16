@@ -5,13 +5,14 @@ const logged_out_page = "https://gigachat.ddns.net/logged_out"
 
 
 let u;
+document.cookie = "user=Joni";
 const x = document.cookie;
 
 const y = x.substring(5, x.length + 1);
 const userr = y;
 
 var qwertz = false;
-let current_chat;
+let current_chat = "undefined123";
 let uu;
 
 
@@ -32,15 +33,15 @@ async function check_users() {
         }
     }
     catch (error) {
-        window.location.replace(logged_out_page);
-        //console.log("g");
+        //window.location.replace(logged_out_page);
+        console.log("g");
     }
 
 
     if (qwertz == false) {
 
-        window.location.replace(logged_out_page);
-        //console.log("g");
+        //window.location.replace(logged_out_page);
+        console.log("g");
     }
     else {
 
@@ -280,6 +281,9 @@ document.getElementById('search-box').addEventListener('input', function () {
 
 
 async function check_update() {    
+    if (current_chat == "undefined123") {
+        return;
+    }
     u = await get_json(current_chat);
     u = JSON.stringify(u);
     
@@ -301,6 +305,13 @@ async function check_update() {
     }
 }
 
+
+async function createYourMother(){
+    let grpName = document.getElementById("groupName").value;
+    let userList = document.getElementById("userList").value;
+    await make_group_chat(grpName, userList);
+    update_users();
+}
 
 setInterval(check_update, 2000);
 
