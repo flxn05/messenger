@@ -5,9 +5,9 @@ let wopened = false;
 let encrypt;
 let decrypt;
 
-Module.onRuntimeInitialized = () => {
-                encrypt = Module.cwrap('encrypt', 'string', ['string']);
-                decrypt = Module.cwrap('decrypt', 'string', ['string']);};
+//Module.onRuntimeInitialized = () => {
+               // encrypt = Module.cwrap('encrypt', 'string', ['string']);
+               // decrypt = Module.cwrap('decrypt', 'string', ['string']);};
 
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
@@ -26,7 +26,7 @@ async function get_clients(){
     }
     let rresponse = response;
     response = "";
-    return decrypt(rresponse);}
+    return rresponse;}
 }
 
 async function send_json(json, filename){
@@ -42,7 +42,7 @@ async function get_updated(json, filename){
     }
     let rresponse = response;
     response = "";
-    return decrypt(rresponse);}
+    return rresponse;}
 
 }
 
@@ -54,7 +54,7 @@ async function get_json(filename){
         }
         let rresponse = response;
         response = "";
-        return decrypt(rresponse);}
+        return rresponse;}
 }
 
 async function make_group_chat(groupname, users){
