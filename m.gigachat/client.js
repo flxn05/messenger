@@ -5,17 +5,16 @@ let wopened = false;
 let encrypt;
 let decrypt;
 
-//Module.onRuntimeInitialized = () => {
-               // encrypt = Module.cwrap('encrypt', 'string', ['string']);
-               // decrypt = Module.cwrap('decrypt', 'string', ['string']);};
+Module.onRuntimeInitialized = () => {
+                encrypt = Module.cwrap('encrypt', 'string', ['string']);
+                decrypt = Module.cwrap('decrypt', 'string', ['string']);};
 
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
 function csend(msg){
-    //socket.send(encrypt(msg));
-    socket.send(msg);
+    socket.send(encrypt(msg));
 }
 
 async function get_clients(){
@@ -26,7 +25,7 @@ async function get_clients(){
     }
     let rresponse = response;
     response = "";
-    return rresponse;}
+    return decrypt(rresponse);}
 }
 
 async function send_json(json, filename){
@@ -42,7 +41,7 @@ async function get_updated(json, filename){
     }
     let rresponse = response;
     response = "";
-    return rresponse;}
+    return decrypt(rresponse);}
 
 }
 
@@ -54,13 +53,7 @@ async function get_json(filename){
         }
         let rresponse = response;
         response = "";
-        return rresponse;}
-}
-
-async function make_group_chat(groupname, users){
-    if(wopened){
-        csend("m"+groupname+"%"+users);
-    }
+        return decrypt(rresponse);}
 }
 
 socket.onopen = async function(e) {

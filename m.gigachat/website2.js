@@ -5,9 +5,13 @@ const logged_out_page = "https://gigachat.ddns.net/m.logged_out"
 
 
 
+
+
+let u;
 const x = document.cookie;
 
 const y = x.substring(5, x.length + 1);
+const userr = y;
 
 var qwertz = false;
 let current_chat;
@@ -31,15 +35,15 @@ async function check_users() {
         }
     }
     catch (error) {
-        
-        //console.log("G");
         window.location.replace(logged_out_page);
+        //console.log("g");
     }
 
 
     if (qwertz == false) {
-        //console.log("G");
+
         window.location.replace(logged_out_page);
+        //console.log("g");
     }
     else {
 
@@ -49,7 +53,7 @@ async function check_users() {
 
 
 
-setTimeout(check_users, 40000);
+setTimeout(check_users, 400);
 
 
 
@@ -77,10 +81,13 @@ async function add_user(user_id) {
 async function load_users() {
 
     //const user_good = await user_bad.json();
-    //const user_bad = await get_json("user");
+    //const user_bad = await get_json(userr +"_chats");
+    const user_bad = await get_json(userr + "_chats");
     //console.log(user_bad);
-    //const user_good = JSON.parse(user_bad);
+    const user_good = JSON.parse(user_bad);
+    //console.log(user_good);
 
+    //grp
     const para = document.createElement("div");
     para.setAttribute("class", "chat-box");
     para.setAttribute("id", "chat-box");
@@ -89,9 +96,9 @@ async function load_users() {
     const parent = document.getElementById("one");
     parent.appendChild(para);
 
-    //for (let i = 0; i < user_good.length; i++) {
-    //    add_user(user_good[i]);
-    //}    
+    for (let i = 0; i < user_good.length; i++) {
+        add_user(user_good[i]);
+    }    
 }
 
 function clear_users() {
@@ -99,11 +106,12 @@ function clear_users() {
     while (element.firstChild) {
         element.removeChild(element.lastChild);
     }
-    element.innerHTML = "<div class='search-con'><input type='text' id='search-box' class='text-input' placeholder='Search ....' style='font-size: 1rem; background-color: #13181c;'></div>";
+    element.innerHTML = "<div class='search-con'><input type='text' id='search-box' class='text-input' placeholder='Search groups and contacts ....' style='font-size: 1rem;'></div>";
 }
 
 async function update_users() {
     clear_users();
+
     await load_users();
 }
 
@@ -118,7 +126,10 @@ async function add_msg(msg, dir) {
     el2.appendChild(para2);
 
     const para3 = document.createElement("div");
-    para3.innerHTML = act_msg;
+
+    r = document.createTextNode(act_msg);
+    para3.appendChild(r);
+    //para3.innerHTML = act_msg;
     if (act_dir == "rx") {
         para3.setAttribute("class", "msg-content-rx");
         para2.setAttribute("class", "msg-rx");
@@ -144,19 +155,29 @@ function clear_chats() {
 
 
 async function load_chats(user_id) {
+    current_chat = user_id;
     clear_chats();
-    var x = await fetch("dave.json");
-    var r = await x.json();
+    var xx = await get_json(user_id);
+    u = xx;
+    var rr = await JSON.parse(xx);
+    //console.log(xx);
 
 
 
 
+    for (let i = 0; i < rr.length; i++) {
+        var msg = rr[i].sender + ": " + rr[i].msg;
+        if (rr[i].sender == userr){
+            var dir = "tx";
+        }
+        else {
+            var dir = "rx";
+        }
 
-    for (let i = 0; i < r[user_id].length; i++) {
-        var msg = r[user_id][i].text;
-        var dir = r[user_id][i].dir;
         add_msg(msg, dir);
     }
+    let scrollContainer = document.getElementById('three');
+    scrollContainer.scrollTop = 9999999;
 }
 
 async function load_grp() {
@@ -164,7 +185,9 @@ async function load_grp() {
 
     clear_chats();
 
-
+    //local-fetching
+    //var d = await fetch("grp.json");
+    //var data = await d.json();
     const d = await get_json("grp");
     
     const data = JSON.parse(d);
@@ -202,7 +225,7 @@ async function send_msg() {
     var grp = await get_json(current_chat);
     var grp_data = JSON.parse(grp);
     grp_data[grp_data.length] = { "sender": y, "msg": sending_msg };
-    send_json(JSON.stringify(grp_data), "grp");
+    send_json(JSON.stringify(grp_data), current_chat);
     let scrollContainer = document.getElementById('three');
     scrollContainer.scrollTop = 9999999;
 
@@ -232,8 +255,13 @@ function styles_signal() {
 
 styles_whatsapp();
 
-
+//sleep(100);
+//window.onload = update_users();
+//update_users();
 document.addEventListener("DOMContentLoaded", update_users());
+
+//window.addEventListener('load', update_users);
+//window.addEventListener('load', () => {update_users()});
 document.addEventListener("keydown", function (event) {
     if (event.key === "Enter") {
         send_msg();
@@ -255,30 +283,39 @@ document.getElementById('search-box').addEventListener('input', function () {
     });
 });
 
-let u;
 
-async function check_update() {  
-    let u;  
+
+async function check_update() {    
     u = await get_json(current_chat);
     u = JSON.stringify(u);
-    console.log(u);
-    console.log(uu);
+    
     if (u == uu){
-        console.log("no update");
+        return;
     }
     if (u != uu) {
-        console.log("update");
+        
         uu = u;
-        load_grp();
+        if (current_chat == "grp") {
+            clear_chats();
+            load_grp();
+        }
+        else {
+            clear_chats();
+            load_chats(current_chat);
+        }
+        
     }
 }
-console.log("o");
-setTimeout(setInterval(check_update, 2000), 2000);
-console.log("o");
-//setInterval(check_update, 2000);
 
 
+setInterval(check_update, 2000);
 
-
-
- 
+//      .---.
+//     /     \
+//     \.@-@./
+//     /`\_/`\
+//    //  _  \\
+//   | \     )|_
+//  /`\_`>  <_/ \
+//  \__/'---'\__/
+//MultimeterManiac
