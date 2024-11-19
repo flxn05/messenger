@@ -44,17 +44,13 @@
 
       <div class="text-input-con">
       <input type="text" class="text-input" id="text_input" placeholder="Message ....">
-
+      <div>
       <button type="button" id="startVoiceMsg" onclick="startVoiceMsg()">
           <img src="microphone.png" alt="send" id="microphoneIcon"></button>
+        </div>
 
-
-      <button type="button" id="uploadMedia" onclick="uploadMediaDialog()">
-        <img src="upload.png" alt="upload" id="uploadIcon"></button>
-
-        <button type="button" id="send-msg" onclick="send_msg()">
-          <img src="send.png" alt="send" id="sendIcon"></button>
-
+      <button type="button" id="send-msg" onclick="send_msg()">
+        <img src="send.png" alt="send" id="sendIcon"></button>
       </div>
     </div>
     <div class="three" id="three">
@@ -124,28 +120,49 @@
   <div class="msg-content-rx" style="line-height: 1.5rem;">Spoiler: Voice Messages, Media Upload and Notifications are coming soon to gigaCHAT!</div>
 </div>
 <!--message-->
-<div class="msg-tx">
-  <div class="media-tx">
-    <div class="media-name">Name:</div>
-    <img src="910205.png" id="media" class="media" onclick="mediaPreview()" alt="Error displaying media. Contact gigaCHAT developers."><!--#media-img [main img]-->
+<div class="msg-tx"><!--msg-container-->
+  <div class="media-content-tx"><!--message itself-->
+    <div class="media-content-name">Name:</div><!--Sender-->
+    <img src="910205.png" id="media-img" onclick="enterFocus()" alt="Error displaying media. Contact gigaCHAT developers."><!--#media-img [main img]-->
 
-    <div class="media-description">This is an image.</div>
+    <div class="media-content-description">This is an image.</div>
   </div>
 </div>
 
 
 <!--message-->
-<div class="msg-tx">
-  <div class="media-tx">
-    <div class="media-name">Name:</div>
-    <img src="microphone.png" id="media" class="media" onclick="mediaPreview()" alt="Error displaying media. Contact gigaCHAT developers."><!--#media-img [main img]-->
+<div class="msg-tx"><!--msg-container-->
+  <div class="media-content-tx"><!--message itself-->
+    <div class="media-content-name">Name:</div><!--Sender-->
+    <img src="microphone.png" id="media-img" onclick="enterFocus()" alt="Error displaying media. Contact gigaCHAT developers."><!--#media-img [main img]-->
 
-    <div class="media-description">This is an image.</div>
+    <div class="media-content-description">This is an image.</div>
   </div>
 </div>
 
       </div> <!--chat con-->
     </div> <!--three-->
+
+
+ <div id="mediaAreaFocus">
+<!--#media-img-focus for fullscreen viewing. display none is default-->
+<!-- MEDIA AREA FOR FOCUS -->
+
+<img id="closeGallery" src="close.svg" alt="close" onclick="closeFocus()">
+
+
+<img src="910205.png" id="media-img-focus-bg" alt="Error displaying media. Contact gigaCHAT developers.">
+<img src="910205.png" id="media-img-focus" alt="Error displaying media. Contact gigaCHAT developers.">
+<!--new img--><!--this is an example.
+
+[ERROR: THE CODE OPENS THE OTHER IMAGE (MAYBE BACUASE IT IS THE FIRST???)]
+
+-->
+<img src="microphone.png" id="media-img-focus-bg" alt="nigger">
+<img src="microphone.png" id="media-img-focus" alt="nogger shock">
+    
+
+ </div>
 
     <div id="addMenu">
 
@@ -175,27 +192,6 @@
 
     </section>
     </div>
-
-    <div id="uploadMenu">
-
-      <h1>Upload Media</h1>
-      <p>Choose what to upload.</p>
-        <section id="uploadType">
-          <div id="uploadCamera"><img src="camera.png"></div>
-          <div id="uploadGallery"><img src="image.png"></div>
-          <div id="uploadDocument"><img src="doc.svg"></div>
-        </section>
-        <input type="file" id="galleryInput" multiple accept="image/*,video/*" style="display:none;">
-<div id="preview"></div>
-<input type="file" id="documentInput" multiple style="display:none;">
-<div id="documentPreview"></div>
-        <section id="cancelCreate">
-          <button id="cancelBtn" onclick="closeUploadMediaDialog()">Cancel</button>
-          <button id="createBtn">Upload</button>
-        </section>
-
-    </div>
-
   </main>
   <script>
     document.getElementById("changeTheme").addEventListener("click", function () {
@@ -286,16 +282,13 @@ startVoiceMsgBtn.addEventListener('touchcancel', () => {
 document.getElementById('text_input').addEventListener('input', function () {
     const textInputChange = document.getElementById('text_input').value.trim();
     const startVoiceMsg = document.getElementById('startVoiceMsg');
-    const uploadMedia = document.getElementById('uploadMedia')
     const sendMsg = document.getElementById('send-msg');
 
     if (textInputChange !== '') {
         startVoiceMsg.style.display = 'none';
-        uploadMedia.style.display = 'none';
         sendMsg.style.display = 'inline-block';
     } else {
         startVoiceMsg.style.display = 'inline-block';
-        uploadMedia.style.display = 'inline-block';
         sendMsg.style.display = 'none';
     }
 });
@@ -319,80 +312,27 @@ function pauseClicked() {
   //add btn function :: pauseMedia
 }
 
-// upload dialogue
+let galleryView = document.getElementById('mediaAreaFocus');
+let imgFocusBg = document.getElementById('media-img-focus-bg');
+let imgFocus = document.getElementById('media-img-focus');
+let closeGallery = document.getElementById('closeGallery');
 
-let uploadDialog = document.getElementById('uploadMedia');
-let uploadMenu = document.getElementById('uploadMenu');
 
-function uploadMediaDialog() {
-  uploadMenu.style.display = 'block';
+function enterFocus() {
+  console.log('Entering Gallery view ....');
+  galleryView.style.display = 'block';
+  imgFocus.style.display = 'block';
+  imgFocusBg.style.display = 'block';
+  closeGallery.style.display = 'block';
 }
 
-function closeUploadMediaDialog() {
-  uploadMenu.style.display = 'none';
+function closeFocus() {
+  console.log('Closing Gallery view ....');
+  galleryView.style.display = 'none';
+  imgFocus.style.display = 'none';
+  imgFocusBg.style.display = 'none';
+  closeGallery.style.display = 'none';
 }
-
-// upload gallery
-
-document.getElementById('uploadGallery').addEventListener('click', function () {
-    // Klick auf den unsichtbaren Dateiauswahldialog
-    document.getElementById('galleryInput').click();
-});
-
-document.getElementById('galleryInput').addEventListener('change', function (event) {
-    const files = event.target.files; // Enthält alle ausgewählten Dateien
-    const preview = document.getElementById('preview');
-    preview.innerHTML = ''; // Vorschau zurücksetzen
-
-    Array.from(files).forEach(file => {
-        const reader = new FileReader();
-        
-        if (file.type.startsWith('image/')) {
-            reader.onload = function (e) {
-                const img = document.createElement('img');
-                img.src = e.target.result;
-                img.style.width = '88vw';
-                img.style.margin = '5px';
-                preview.appendChild(img);
-            };
-            reader.readAsDataURL(file);
-        } else if (file.type.startsWith('video/')) {
-            // Video-Vorschau erstellen
-            reader.onload = function (e) {
-                const video = document.createElement('video');
-                video.src = e.target.result;
-                video.controls = true;
-                video.style.width = '88vw';
-                video.style.margin = '5px';
-                preview.appendChild(video);
-            };
-            reader.readAsDataURL(file);
-        }
-    });
-});
-
-document.getElementById('uploadDocument').addEventListener('click', function () {
-    // Klick auf den unsichtbaren Dateiauswahldialog
-    document.getElementById('documentInput').click();
-});
-
-document.getElementById('documentInput').addEventListener('change', function (event) {
-    const files = event.target.files; // Enthält alle ausgewählten Dateien
-    const preview = document.getElementById('documentPreview');
-    preview.innerHTML = ''; // Vorschau zurücksetzen
-
-    Array.from(files).forEach(file => {
-        const fileElement = document.createElement('div');
-        fileElement.textContent = file.name; // Zeigt den Dateinamen an
-
-        // Optional: Weitere Informationen anzeigen
-        fileElement.innerHTML += `<br>Größe: ${file.size} Bytes`;
-
-        preview.appendChild(fileElement);
-    });
-});
-
-
 
 </script>
 </body>

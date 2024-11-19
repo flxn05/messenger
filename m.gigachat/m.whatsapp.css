@@ -106,69 +106,9 @@ nav {
   box-shadow: 0 0 16vh black;
   padding: 2rem;
   display: none;
-  animation: Menu .5s ease both;
+  animation: addMenu .5s ease both;
   overflow-y: scroll;
 }
-#uploadMenu {
-  position: fixed;
-  bottom: 0;
-  top: 56vh;
-  left: 0;
-  right: 0;
-  background-color: #121a20;
-  box-shadow: 0 0 16vh black;
-  padding: 2rem;
-  display: none;
-  animation: Menu .5s ease both;
-  overflow-y: scroll;
-}
-#uploadType {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 1rem;
-  text-align: center;
-}
-#uploadType img {
-  height: 3vh;
-  width: 3vh;
-}
-#uploadCamera, #uploadGallery, #uploadDocument {
-  height: 8vh;
-  width: 8vh;
-  border-radius: 50%;
-  border: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  position: relative;
-}
-#uploadCamera {
-  background-color: green;
-}
-#uploadCamera::after {
-  content: 'Camera';
-  position: absolute;
-  bottom: -3rem;
-}
-#uploadGallery {
-  background-color: orange;
-}
-#uploadGallery::after {
-  content: 'Gallery';
-  position: absolute;
-  bottom: -3rem;
-}
-#uploadDocument {
-  background-color: red;
-}
-#uploadDocument::after {
-  content: 'Doc';
-  position: absolute;
-  bottom: -3rem;
-}
-
-
 h1 {
   font-size: 1.66rem;
   font-weight: normal;
@@ -265,12 +205,9 @@ p {
   height: 1rem;
   width: 1rem;
 }
-#sendIcon, #microphoneIcon, #uploadIcon {
+#sendIcon, #microphoneIcon {
   height: 1.25rem;
   width: 1.25rem;
-}
-#uploadIcon {
-  translate: -1px 1px;
 }
 img {
   animation: fadeIn .25s ease both;
@@ -393,7 +330,7 @@ img {
   margin-right: 6px;
   box-shadow: 0 0 24px rgba(0, 0, 0, 0.3);
 }
-.media-rx {
+.media-content-rx {
   padding-left: 18px;
   padding-right: 18px;
   padding-top: 8px;
@@ -410,7 +347,7 @@ img {
   margin-left: 6px;
   box-shadow: 0 0 24px rgba(0, 0, 0, 0.2);
 }
-.media-tx {
+.media-content-tx {
   padding-left: 18px;
   padding-right: 18px;
   padding-top: 8px;
@@ -490,11 +427,64 @@ img {
 
 /* media elements display */
 
-#media {
+#media-img,
+#media-video {
   height: 56vw;
   width: 56vw;
   object-fit: cover;
   border-radius: 4px;
+}
+
+#media-img-focus,
+#media-video-focus {
+  height: 56vw;
+  width: 56vw;
+  object-fit: scale-down;
+  border-radius: 4px;
+}
+#closeGallery {
+  position: fixed;
+  top: 2rem;
+  right: 1rem;
+  height: 2rem !important;
+  width: 44px !important;
+  background-color: rgb(41, 41, 41);
+  color: white;
+  border: none;
+  padding: 4px;
+  border-radius: 1rem;
+  z-index: 9;
+}
+
+#mediaAreaFocus {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: black;
+  display: none;
+}
+#mediaAreaFocus img,
+#mediaAreaFocus video {
+  height: 100%;
+  width: 100%;
+  object-fit: scale-down;
+  display: none;
+}
+
+#media-img-focus-bg,
+#media-video-focus-bg {
+  object-fit: fill;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  width: 100vw;
+  filter: blur(24px) brightness(.33);
+  z-index: -1;
 }
 
 /*TEXT INPUT FIELD*/
@@ -517,7 +507,7 @@ img {
   background-color: #1f272a;
   color: white;
   font-size: 1.1rem;
-  width: 64vw;
+  width: 72vw;
 }
 .text-input::placeholder {
   color: rgb(172, 172, 172);
@@ -552,19 +542,6 @@ img {
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
 }
-#uploadMedia {
-  padding: 0;
-  margin-right: 6px;
-  width: 44px;
-  height: 44px;
-  border-radius: 22px;
-  border: none;
-  font-weight: bold;
-  background-color: #21c063;
-  color: white;
-  cursor: pointer;
-  -webkit-tap-highlight-color: transparent;
-}
 
 #startVoiceMsg.recording {
   animation: recording 1.5s .1s both infinite;
@@ -577,7 +554,7 @@ img {
   75% {opacity: .75;}
   100% {opacity: 1;}
 }
-@keyframes Menu {
+@keyframes addMenu {
   0% {translate: 0 96vh;}
 }
 @keyframes recording {
