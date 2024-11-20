@@ -558,7 +558,7 @@ img {
   0% {translate: 0 96vh;}
 }
 @keyframes recording {
-  0% {transform: scale(1); background-color: #21c063;}
+  0% {transform: scale(1);}
   50% {transform: scale(1.25);}
 }
 @keyframes fadeIn {
