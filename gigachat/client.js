@@ -4,6 +4,7 @@ let response = "";
 let wopened = false;
 let encrypt;
 let decrypt;
+let is_smth_new = false;
 
 //Module.onRuntimeInitialized = () => {
                // encrypt = Module.cwrap('encrypt', 'string', ['string']);
@@ -63,12 +64,22 @@ async function make_group_chat(groupname, users){
     }
 }
 
+function is_new_avaiable(){
+    rr = is_smth_new;
+    is_smth_new = false;
+    return rr;
+}
+
 socket.onopen = async function(e) {
     wopened = true;
 };
 
 socket.onmessage = function(event) {
     response = event.data;
+    if(response="new"){
+        is_smth_new = true;
+        response = "";
+    }
 };
 
 socket.onclose = function(event) {
