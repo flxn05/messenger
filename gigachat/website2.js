@@ -216,12 +216,9 @@ async function send_msg() {
         return;
     }
     input.value = " ";
-
-    add_msg(y + ": " + sending_msg, "tx");
-    var grp = await get_json(current_chat);
-    var grp_data = JSON.parse(grp);
-    grp_data[grp_data.length] = { "sender": y, "msg": sending_msg };
-    send_json(JSON.stringify(grp_data), current_chat);
+    add_msg(userr + ": " + sending_msg, "tx");
+    msg = { "sender": y, "msg": sending_msg };
+    send_json(JSON.stringify(msg), current_chat);
     scrollContainer.scrollTop = 9999999;
 
 }

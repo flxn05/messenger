@@ -18,6 +18,7 @@ const fail_msgs = [
     "sure ur not a ghost? you're not in our database...",
     "with great power comes great responsibility, but with a wrong username or password youl'll get neither of them"
 ];
+
 //15 entries 
 const succes_msgs = [,
     "login succesful",
