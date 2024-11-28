@@ -76,7 +76,7 @@ socket.onopen = async function(e) {
 
 socket.onmessage = function(event) {
     response = event.data;
-    if(response="new"){
+    if(response=="new"){
         is_smth_new = true;
         response = "";
     }
