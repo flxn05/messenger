@@ -4,17 +4,19 @@ let response = "";
 let wopened = false;
 let encrypt;
 let decrypt;
+let is_smth_new = false;
 
-Module.onRuntimeInitialized = () => {
-                encrypt = Module.cwrap('encrypt', 'string', ['string']);
-                decrypt = Module.cwrap('decrypt', 'string', ['string']);};
+//Module.onRuntimeInitialized = () => {
+               // encrypt = Module.cwrap('encrypt', 'string', ['string']);
+               // decrypt = Module.cwrap('decrypt', 'string', ['string']);};
 
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
 function csend(msg){
-    socket.send(encrypt(msg));
+    //socket.send(encrypt(msg));
+    socket.send(msg);
 }
 
 async function get_clients(){
@@ -25,7 +27,7 @@ async function get_clients(){
     }
     let rresponse = response;
     response = "";
-    return decrypt(rresponse);}
+    return rresponse;}
 }
 
 async function send_json(json, filename){
@@ -41,7 +43,7 @@ async function get_updated(json, filename){
     }
     let rresponse = response;
     response = "";
-    return decrypt(rresponse);}
+    return rresponse;}
 
 }
 
@@ -53,7 +55,19 @@ async function get_json(filename){
         }
         let rresponse = response;
         response = "";
-        return decrypt(rresponse);}
+        return rresponse;}
+}
+
+async function make_group_chat(groupname, users){
+    if(wopened){
+        csend("m"+groupname+"%"+users);
+    }
+}
+
+function is_new_avaiable(){
+    let rr = is_smth_new;
+    is_smth_new = false;
+    return rr;
 }
 
 socket.onopen = async function(e) {
@@ -62,6 +76,10 @@ socket.onopen = async function(e) {
 
 socket.onmessage = function(event) {
     response = event.data;
+    if(response=="new"){
+        is_smth_new = true;
+        response = "";
+    }
 };
 
 socket.onclose = function(event) {
