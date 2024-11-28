@@ -3,7 +3,7 @@
 const login_page = "https://gigachat.ddns.net/login"
 const logged_out_page = "https://gigachat.ddns.net/logged_out"
 
-
+document.cookie = "user=Joni"; 
 let u;
 
 const x = document.cookie;
@@ -302,6 +302,23 @@ async function check_update() {
     }
 }
 
+async function check_update2(){
+    if (current_chat == "undefined123") {
+        return;
+    }
+    if(is_new_avaiable()){
+        if (current_chat == "grp") {
+            clear_chats();
+            load_grp();
+        }
+        else {
+            clear_chats();
+            load_chats(current_chat);
+        }
+    }
+
+}
+
 
 async function createYourMother(){
     let grpName = document.getElementById("groupName").value;
@@ -310,7 +327,7 @@ async function createYourMother(){
     update_users();
 }
 
-setInterval(check_update, 2000);
+setInterval(check_update2, 2000);
 
 
 
