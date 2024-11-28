@@ -65,7 +65,7 @@ async function make_group_chat(groupname, users){
 }
 
 function is_new_avaiable(){
-    rr = is_smth_new;
+    let rr = is_smth_new;
     is_smth_new = false;
     return rr;
 }
