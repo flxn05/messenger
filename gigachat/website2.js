@@ -3,7 +3,7 @@
 const login_page = "https://gigachat.ddns.net/login"
 const logged_out_page = "https://gigachat.ddns.net/logged_out"
 
-document.cookie = "user=Joni"; 
+
 let u;
 
 const x = document.cookie;
