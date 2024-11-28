@@ -307,8 +307,26 @@ async function check_update() {
     }
 }
 
+async function check_update2(){
+    if (current_chat == "undefined123") {
+        return;
+    }
+    if(is_new_avaiable()){
+        if (current_chat == "grp") {
+            clear_chats();
+            load_grp();
+        }
+        else {
+            clear_chats();
+            load_chats(current_chat);
+        }
+    }
 
-setInterval(check_update, 2000);
+}
+
+
+
+setInterval(check_update2, 2000);
 
 //      .---.
 //     /     \
