@@ -29,9 +29,6 @@ body {
   padding-inline: 2.5vw;
   overflow: hidden;
 }
-#downloadPrompt {
-  display: none;
-}
 main {
   width: 100vw;
   height: 95vh;
@@ -98,6 +95,71 @@ nav {
 /*MAIN CONTENT*/
 /*MAIN CONTENT*/
 
+#groupNameSection, #userListSection {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+#cancelCreate {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  position: fixed;
+  bottom: 2rem;
+  left: 2rem;
+  right: 2rem;
+}
+#cancelBtn, #createBtn {
+  padding-inline: 18px;
+  padding-block: 8px;
+  font-size: 1.2rem;
+  color: white;
+}
+#createBtn {
+  border-radius: .75rem;
+  background-color: #005c4b;
+  color: black;
+  border: solid 1px ;
+}
+#cancelBtn {
+  background-color: #3a3a3a;
+  border: none;
+  border-radius: 1rem;
+}
+#addGroup {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 4rem;
+}
+#addGroup label {
+  margin-bottom: .5rem;
+  font-size: 1rem;
+}
+#addGroup input {
+  border-radius: .5rem;
+  padding-left: 24px;
+  padding-right: 24px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  border-radius: 16px;
+  border: 2px solid #005c4b;
+  background-color: transparent;
+  color: white;
+  font-size: 1.1rem;
+  width: 72%;
+}
+#addGroup input::placeholder {
+  font-size: .9rem;
+}
+#addGroup input:focus {
+  outline: none;
+}
+#tooltipUserList {
+  font-size: .8rem;
+  margin-top: 4px;
+  font-style: italic;
+  line-height: 1.5rem;
+}
 /*MAIN CONTENT GENERAL*/
 
 .one {
