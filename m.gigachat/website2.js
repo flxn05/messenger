@@ -219,7 +219,7 @@ async function send_msg() {
     if (sending_msg == " ") {
         return;
     }
-    input.value = " ";
+    input.value = "";
     add_msg(userr + ": " + sending_msg, "tx");
     msg = { "sender": y, "msg": sending_msg };
     send_json(JSON.stringify(msg), current_chat);
