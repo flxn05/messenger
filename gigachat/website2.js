@@ -6,54 +6,52 @@ const logged_out_page = "https://gigachat.ddns.net/logged_out"
 
 let u;
 
-const x = document.cookie;
+//const x = document.cookie;
 
-const y = x.substring(5, x.length + 1);
-const userr = y;
+//const y = x.substring(5, x.length + 1);
+//const userr = y;
 
-var qwertz = false;
+//var qwertz = false;
 let current_chat = "undefined123";
 let uu;
+let userr;
 
+let user = "";
+let username = "";
 
-async function check_users() {
-    try {
-        const c = await get_json("user");
+const client = new Appwrite.Client();
+	client
+    .setEndpoint('https://cloud.appwrite.io/v1') 
+    .setProject('67571cd7002ca90a77ef'); 
 
+const account = new Appwrite.Account(client);
 
-        const d = await JSON.parse(await get_json("user"));
+async function check(){
+	try {
+		user = await account.get();
 
-        for (let i = 0; i < d.length; i++) {
+		username = await user.name;
+        userr = user.name;
+		console.log(username);
+        console.log(userr);         
+	} catch (err) {
+		console.log(err);
+		window.location.replace("https://gigachat.ddns.net/login");
+	}
+}
 
-            if (d[i] == y) {
+//check();
 
-                qwertz = true;
-
-            }
-        }
-    }
-    catch (error) {
-        window.location.replace(logged_out_page);
-        //console.log("g");
-    }
-
-
-    if (qwertz == false) {
-
-        window.location.replace(logged_out_page);
-        //console.log("g");
-    }
-    else {
-
-        update_users();
-    }
+async function logout(){
+	const res = await account.deleteSessions();
+	username = "";
+	user = "";
+	window.location.replace("https://gigachat.ddns.net/login");
 }
 
 
 
-setTimeout(check_users, 400);
-
-
+setTimeout(check, 400);
 
 
 
@@ -228,10 +226,10 @@ function toggle_menu() {
     popup_menu.classList.toggle("hidden");
 }
 
-function logout() {
-    document.cookie.split(";").forEach(function (c) { document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/"); });
-    window.location.href = login_page;
-}
+//function logout() {
+//    document.cookie.split(";").forEach(function (c) { document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/"); });
+//    window.location.href = login_page;
+//}
 
 function styles_whatsapp() {
 
