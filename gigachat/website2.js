@@ -40,7 +40,7 @@ async function check(){
 	}
 }
 
-//check();
+check();
 
 async function logout(){
 	const res = await account.deleteSessions();
@@ -326,6 +326,7 @@ async function createYourMother(){
 }
 
 setInterval(check_update2, 2000);
+setTimeout(update_users, 500);
 
 
 
