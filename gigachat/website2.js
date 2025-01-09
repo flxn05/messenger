@@ -194,7 +194,7 @@ async function load_grp() {
 
 
         var dir = "rx";
-        if (data[i].sender == y) {
+        if (data[i].sender == username) {
             dir = "tx";
         }
         add_msg(msg, dir);
