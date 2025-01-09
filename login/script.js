@@ -114,3 +114,27 @@ document.addEventListener("keydown", function (event) {
         login();
     }
 });
+
+function signup(){
+    let l = document.getElementById("1").value;
+    let ll = document.getElementById("2").value;
+    const promise = account.create(makeid(35), l + '@giga.drive', ll);
+
+    promise.then(function (response) {
+        console.log(response); // Success
+        document.getElementById("succes").innerHTML = "account creation succesful, please login now";
+    }, function (error) {
+        console.log(error); // Failure
+    });
+}
+function makeid(length) {
+    let result = '';
+    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_';
+    const charactersLength = characters.length;
+    let counter = 0;
+    while (counter < length) {
+      result += characters.charAt(Math.floor(Math.random() * charactersLength));
+      counter += 1;
+    }
+    return result;
+}
