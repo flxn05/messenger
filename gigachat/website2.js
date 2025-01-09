@@ -82,7 +82,7 @@ async function load_users() {
     //console.log(user_bad);
     const user_good = JSON.parse(user_bad);
     //console.log(user_good);
-
+    //const user_good = ["s", "grp"];
     //grp
     const para = document.createElement("div");
     para.setAttribute("class", "chat-box");
