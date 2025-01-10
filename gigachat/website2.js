@@ -1,6 +1,6 @@
 //consts
 
-const login_page = "https://gigachat.ddns.net/login"
+/*const login_page = "https://gigachat.ddns.net/login"
 const logged_out_page = "https://gigachat.ddns.net/logged_out"
 
 
@@ -39,7 +39,7 @@ async function check(){
 		window.location.replace("https://gigachat.ddns.net/login");
 	}
 }
-
+*/
 check();
 
 async function logout(){
