@@ -15,9 +15,6 @@
   background-color: var(--accent);
   color: white;
 }
-::-webkit-scrollbar {
-  display: none;
-}
 :focus {
   outline: none;
 }
@@ -32,12 +29,12 @@ body {
 .app {
   background-color: #3a3a3a;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   justify-content: center;
   align-content: center;
   height: 100vh;
   width: calc(100vw - 88px);
-  max-width: 1400px;
+  max-width: 1920px;
 }
 a {
   text-decoration: none;
@@ -48,6 +45,11 @@ h1 {
   letter-spacing: -1px;
   margin-bottom: 3rem;
   margin-top: 1rem;
+}
+header p,
+header a {
+  display: none;
+
 }
 main {
   background-color: #2e2e2e;
@@ -103,11 +105,17 @@ footer {
   bottom: .5rem;
   left: 0;
   right: 0;
+  display: flex;
+  justify-content: center;
 }
 footer * {
   font-size: .75rem;
   color: rgb(86, 86, 86);
-}
-.mobileonly {
   display: none;
+}
+footer a {
+  display: block;
+  border-radius: 1rem;
+  padding-inline: 1rem;
+  padding-block: .1rem;
 }
