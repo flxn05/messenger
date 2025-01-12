@@ -57,7 +57,7 @@ nav {
   left: 0;
   padding-inline: 12px;
   right: 0;
-  max-height: 5vh;
+  height: 6vh;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -74,8 +74,6 @@ nav {
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
   font-size: 1rem;
-  margin-top: 0;
-  translate: 0 -.5rem;
   user-select: none;
 }
 #logout, #changeTheme, #addNewBtn {
