@@ -40,7 +40,7 @@ async function check(){
 	}
 }
 
-check();
+//check();
 
 async function logout(){
 	const res = await account.deleteSessions();
@@ -51,7 +51,7 @@ async function logout(){
 
 
 
-setTimeout(check, 400);
+//setTimeout(check, 400);
 
 
 
@@ -109,6 +109,20 @@ async function update_users() {
     clear_users();
 
     await load_users();
+    document.getElementById('search-box').addEventListener('input', function () {
+        let searchQuery = this.value.toLowerCase();
+        console.log(searchQuery);
+        let contacts = document.querySelectorAll('.chat-box');
+    
+        contacts.forEach(function (contact) {
+            let contactName = contact.textContent.toLowerCase();
+            if (contactName.includes(searchQuery)) {
+                contact.classList.remove('hidden');
+            } else {
+                contact.classList.add('hidden');
+            }
+        });
+    });
 }
 
 
@@ -261,6 +275,7 @@ document.addEventListener("keydown", function (event) {
 //search-function
 document.getElementById('search-box').addEventListener('input', function () {
     let searchQuery = this.value.toLowerCase();
+    console.log(searchQuery);
     let contacts = document.querySelectorAll('.chat-box');
 
     contacts.forEach(function (contact) {

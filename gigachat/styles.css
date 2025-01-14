@@ -134,7 +134,7 @@ nav {
 .chat-box:hover {
   transform: scale(0.975);
 }
-.chat-box.hidden {
+.hidden {
   display: none;
 }
 
