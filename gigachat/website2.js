@@ -40,7 +40,7 @@ async function check(){
 	}
 }
 
-//check();
+check();
 
 async function logout(){
 	const res = await account.deleteSessions();
@@ -78,11 +78,11 @@ async function load_users() {
 
     //const user_good = await user_bad.json();
     //const user_bad = await get_json(userr +"_chats");
-    const user_bad = await get_json(userr + "_chats");
+    //const user_bad = await get_json(userr + "_chats");
     //console.log(user_bad);
-    const user_good = JSON.parse(user_bad);
+    //const user_good = JSON.parse(user_bad);
     //console.log(user_good);
-    //const user_good = ["s", "grp"];
+    const user_good = ["s", "grp"];
     //grp
     const para = document.createElement("div");
     para.setAttribute("class", "chat-box");
@@ -167,11 +167,18 @@ function clear_chats() {
 async function load_chats(user_id) {
     current_chat = user_id;
     clear_chats();
+
+    let dd = document.createElement("div");
+    dd.setAttribute("id", "currentChat");
+    dd.innerHTML = current_chat;
+    document.getElementById("three").appendChild(dd);
+
     var xx = await get_json(user_id);
     u = xx;
     var rr = await JSON.parse(xx);
     //console.log(xx);
-
+    
+    
 
 
 
@@ -193,7 +200,9 @@ async function load_grp() {
     current_chat = "grp";
 
     clear_chats();
-
+    let dd = document.createElement("div");
+    dd.setAttribute("id", "currentChat");
+    let curr_chat = document.getElementById("three").appendChild(dd);
     //local-fetching
     //var d = await fetch("grp.json");
     //var data = await d.json();
@@ -343,6 +352,12 @@ async function createYourMother(){
 setInterval(check_update2, 2000);
 setTimeout(update_users, 500);
 
+clear_chats();
+
+let dd = document.createElement("div");
+    dd.setAttribute("id", "currentChat");
+    dd.innerHTML = current_chat;
+    document.getElementById("three").appendChild(dd);
 
 
 
