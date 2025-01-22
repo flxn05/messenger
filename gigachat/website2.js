@@ -78,11 +78,11 @@ async function load_users() {
 
     //const user_good = await user_bad.json();
     //const user_bad = await get_json(userr +"_chats");
-    //const user_bad = await get_json(userr + "_chats");
+    const user_bad = await get_json(userr + "_chats");
     //console.log(user_bad);
-    //const user_good = JSON.parse(user_bad);
+    const user_good = JSON.parse(user_bad);
     //console.log(user_good);
-    const user_good = ["s", "grp"];
+    //const user_good = ["s", "grp"];
     //grp
     const para = document.createElement("div");
     para.setAttribute("class", "chat-box");

@@ -40,7 +40,7 @@ async function check(){
 	}
 }
 
-check();
+//check();
 
 async function logout(){
 	const res = await account.deleteSessions();
@@ -51,7 +51,7 @@ async function logout(){
 
 
 
-setTimeout(check, 400);
+//setTimeout(check, 400);
 
 
 
@@ -77,14 +77,43 @@ async function add_user(user_id) {
 }
 
 async function load_users() {
+    let one = document.getElementById("one");
+
+    let s = document.createElement("input");
+    s.class = "text-input";
+    s.id = "search-box";
+    
+    s.type = "text";
+    
+    one.appendChild(s);
+
+    let tt = document.createElement("div");
+    tt.id = "searchIconCon";
+    tt.onclick = "openSearch()";
+    let pic1 = document.createElement("img");
+    pic1.src = "search.svg";
+    pic1.id = "searchIcon";
+    tt.appendChild(pic1);
+    one.appendChild(tt);
+
+    
+
+
+    let three = document.createElement("div");
+    three.innerHTML = "Search";
+    one.appendChild(three);
+    
+
+    
+    
 
     //const user_good = await user_bad.json();
     //const user_bad = await get_json(userr +"_chats");
-    const user_bad = await get_json(userr + "_chats");
+    //const user_bad = await get_json(userr + "_chats");
     //console.log(user_bad);
-    const user_good = JSON.parse(user_bad);
+    //const user_good = JSON.parse(user_bad);
     //console.log(user_good);
-
+    const user_good = ["s", "grp"];
     //grp
     const para = document.createElement("div");
     para.setAttribute("class", "chat-box");
@@ -110,7 +139,7 @@ function clear_users() {
 async function update_users() {
     clear_users();
 
-    await load_users();
+    load_users();
 }
 
 
@@ -329,7 +358,7 @@ async function check_update2(){
 }
 
 
-
+setTimeout(update_users, 200);
 setInterval(check_update2, 2000);
 
 //      .---.
