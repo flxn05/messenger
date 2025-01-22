@@ -40,7 +40,7 @@ async function check(){
 	}
 }
 
-//check();
+check();
 
 async function logout(){
 	const res = await account.deleteSessions();
@@ -155,6 +155,11 @@ function clear_chats() {
 async function load_chats(user_id) {
     current_chat = user_id;
     clear_chats();
+    let dd = document.createElement("div");
+    dd.setAttribute("id", "currentChat");
+    dd.innerHTML = current_chat;
+    document.getElementById("three").appendChild(dd);
+
     var xx = await get_json(user_id);
     u = xx;
     var rr = await JSON.parse(xx);
@@ -183,6 +188,10 @@ async function load_grp() {
 
     clear_chats();
 
+    let dd = document.createElement("div");
+    dd.setAttribute("id", "currentChat");
+    dd.innerHTML = current_chat;
+    document.getElementById("three").appendChild(dd);
     //local-fetching
     //var d = await fetch("grp.json");
     //var data = await d.json();
