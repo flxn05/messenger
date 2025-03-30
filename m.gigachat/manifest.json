@@ -1,8 +1,8 @@
 {
-  "name": "gigaCHAT",
-  "short_name": "gigaCHAT",
+  "name": "gigaChat",
+  "short_name": "gigaChat",
   "description": "A chat application",
-  "start_url": "/m.gigachat",
+  "start_url": "sigmachat/m.gigachat",
   "display": "standalone",
   "background_color": "#2c2c2c",
   "theme_color": "#12b886",

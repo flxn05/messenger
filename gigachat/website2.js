@@ -40,7 +40,7 @@ async function check(){
 	}
 }
 
-check();
+//check();
 
 async function logout(){
 	const res = await account.deleteSessions();
