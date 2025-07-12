@@ -4,86 +4,121 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>gigaChat</title>
-  <link id="themeStylesheet" rel="stylesheet" href="m.whatsapp.css">
+  <link id="themeStylesheet" rel="stylesheet" href="new.css">
   <link rel="icon" type="image/x-icon" href="thumbnail.png">
   <script src="https://cdn.jsdelivr.net/npm/appwrite@16.0.2"></script>
   <script type="text/javascript" src="website2.js"></script>
   <script src="client.js"></script>
   <link rel="manifest" href="manifest.json">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
   <!--//usually width= 420px
   //usually height= 800px-->
 </head>
 <body>
   <nav id="nav">
-    <section id="headlineLogo">
-    <p onclick="reloadPage()" class="headline">gigaChat</p>
-    </section>
-    <section>
-      
-      <button id="changeTheme">Theme</button>
-      <button id="logout" onclick="logout()">Logout</button>
-      <button id="addNewBtn" onclick="addNew()">+</button>
-    </section>
+    <p onclick="reloadPage()">gigaChat (clickmenu)</p>
+    <section id="searchSection">
+    <input type="text" class="text-input" id="search-box" placeholder="Search">
+    </section> 
   </nav>
+
+  <!--<div id="popupMenu" class="hidden">
+    <button id="changeTheme" class="primary">Theme</button>
+    <button id="logout" class="secondary" onclick="logout()">Logout</button>
+    <button id="addNewBtn" onclick="addNew()">+</button>
+  </div>-->
+
   <main id="main">
     <div class="one" id="one">
-
-
-      <input type="text" class="text-input" id="search-box" placeholder="Search ....">
-      <div id="searchIconCon" onclick="openSearch()"><img src="search.svg" alt="searchIcon" id="searchIcon"></div>
-      <div id="closeIconCon"><img src="close.svg" alt="closeIcon" id="closeIcon" onclick="closeSearch()"></div>
-      <div class="chat-box" style="font-style: italic;">loading ....</div>
-      <div class="chat-box" style="font-style: italic;">loading ....</div>
-      <div class="chat-box" style="font-style: italic;">loading ....</div>
-      <div class="chat-box" style="font-style: italic;">loading ....</div>
-      <div class="chat-box" style="font-style: italic;">loading ....</div>
-      <div class="chat-box" style="font-style: italic;">loading ....</div>
-
+      <div class="chat-box" style="color: var(--light); font-weight: normal;">loading ....</div>
+      <div class="chat-box" style="color: var(--light); font-weight: normal;">loading ....</div>
+      <div class="chat-box" style="color: var(--light); font-weight: normal;">loading ....</div>
+      <div class="chat-box" style="color: var(--light); font-weight: normal;">loading ....</div>
+      <div class="chat-box" style="color: var(--light); font-weight: normal;">loading ....</div>
+      <div class="chat-box" style="color: var(--light); font-weight: normal;">loading ....</div>
     </div>
 
       <div class="text-input-con">
-      <input type="text" class="text-input" id="text_input" placeholder="Message ....">
-      <div>
-      <button type="button" id="startVoiceMsg" onclick="startVoiceMsg()" style="user-select: none;">
-          <img src="microphone.png" alt="send" id="microphoneIcon"></button>
-        </div>
-
+      <input type="text" class="text-input" id="text_input" placeholder="Message">
       <button type="button" id="send-msg" onclick="send_msg()">
         <img src="send.png" alt="send" id="sendIcon"></button>
       </div>
     </div>
     <div class="three" id="three">
-
+<!--/bottom-->
+<div class="bottomBlur"></div>
 
       <div class="chat-con">
-        <div class="space"></div>
+        <div id="backToList"><img src="back.png" alt="back"></div>
+        <div id="contact">"Neue Gruppe"</div>
 
         <!--message-->
         <div class="msg-rx">
-          <div class="msg-content-rx">Hi! Open a group or contact to start the chat!</div>
+          <div class="msg-content-rx">Hi!</div>
         </div>
         <!--message-->
         <div class="msg-tx">
-          <div class="msg-content-tx">.... our source code is <a href="https://github.com/flxn05/messenger" target="_blank" style="color: black; font-weight: bold;">[here]</a>. Feel free to <a href="mailto:get.giga.chat@gmail.com?subject=Contact Request from gigaChat user" style="color: black; font-weight: bold;">[contact the gigaChat team]</a> for support!</div>
+          <div class="msg-content-tx">HI HOW ARE YOU ESTAS BIEN?</div>
         </div>
-      
+
+        <!--message-->
+        <div class="msg-tx">
+          <div class="msg-content-tx">HI HOW ARE YOU ESTAS BIEN? Lorem, ipsum dolor sit elit. Assumenda consectetur deleniti sint animi aspernatur eaque similique blanditiis voluptas, eius nihil repellendus!</div>
+        </div>
+      <!--message-->
+      <div class="msg-rx">
+        <div class="msg-content-rx">Hi!</div>
+      </div>
+      <!--message-->
+      <div class="msg-tx">
+        <div class="msg-content-tx">HI HOW ARE YOU ESTAS BIEN?</div>
+      </div>
+
+      <!--message-->
+      <div class="msg-tx">
+        <div class="msg-content-tx">HI HOW ARE YOU ESTAS BIEN? Lorem, ipsum dolor sit elit. Assumenda consectetur deleniti sint animi aspernatur eaque similique blanditiis voluptas, eius nihil repellendus!</div>
+      </div>
+
+
         <!--message-->
         <div class="msg-rx">
           <div class="msg-content-rx" style="max-width: 100%; line-height: 1.5rem;">
             Our developers:
-            <br><br>
-            <li>Jonathan Wallasch (Frontend)</li>
-            <br>
-            <li>David Ott (Backend)</li>
-            <br>
-            <li>Felix Nowak (UI/UX Design)</li>
-            <br>
+            Sigma Boii
           </div>
         </div>
         <!--message-->
         <div class="msg-rx">
-          <div class="msg-content-rx">Thank you for using gigaChat!</div>
+          <div class="msg-content-rx">Hasta Luego!</div>
         </div>
+
+        <!--message-->
+        <div class="msg-rx">
+          <div class="msg-content-rx">HHI HOW ARE YOU ESTAS BIEN? Lorem, ipsum dolor sit elit. Assumenda consectetur deleniti sint animi aspernatur eaque similique blanditiis voluptas, eius nihil repellendusgo!</div>
+        </div>
+
+
+        <!--message-->
+        <div class="msg-tx">
+          <div class="msg-content-tx">?</div>
+       </div>
+
+
+
+
+         <!--message-->
+        <div class="msg-rx">
+          <div class="msg-content-rx">Hasta Luego!</div>
+        </div>
+
+              <!--message-->
+      <div class="msg-tx">
+        <div class="msg-content-tx">HI HOW ARE YOU ESTAS BIEN? Lorem, ipsum dolor sit elit. Assumenda consectetur deleniti sint animi aspernatur eaque similique blanditiis voluptas, eius nihil repellendus!</div>
+      </div>
+
+
 
 <!--message
 <div class="msg-rx">
@@ -145,10 +180,10 @@ message
 
 [ERROR: THE CODE OPENS THE OTHER IMAGE (MAYBE BACUASE IT IS THE FIRST???)]
 
--->
+
 <img src="microphone.png" id="media-img-focus-bg" alt="nigger">
 <img src="microphone.png" id="media-img-focus" alt="nogger shock">
-    
+ -->
 
  </div>
 

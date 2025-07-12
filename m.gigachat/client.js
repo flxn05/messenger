@@ -82,7 +82,7 @@ socket.onmessage = function(event) {
     }
 };
 
-socket.onclose = function(event) {
+/*socket.onclose = function(event) {
     wopened = false;
   if (event.wasClean) {
     alert(`[error] please refresh page or contact developers`);
@@ -95,3 +95,4 @@ socket.onerror = function(error) {
     wopened = false;
   alert(`[error] please refresh page or contact developers`);
 };
+*/

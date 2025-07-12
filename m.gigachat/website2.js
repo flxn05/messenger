@@ -40,7 +40,7 @@ async function check(){
 	}
 }
 
-//check();
+check();
 
 async function logout(){
 	const res = await account.deleteSessions();
@@ -370,3 +370,44 @@ setInterval(check_update2, 2000);
 //  /`\_`>  <_/ \
 //  \__/'---'\__/
 //MultimeterManiac
+
+
+/*
+
+async function add_user(user_id) {
+    const para = document.createElement("div");
+    para.classList.add("chat-box");
+    para.textContent = user_id;
+
+    para.addEventListener("click", async function () {
+        // Klassenwechsel beim Klick auf Kontakt
+        const chatWindow = document.getElementById("chat-con");
+        const contactList = document.getElementById("one");
+
+        chatWindow.classList.remove("chatInactive", "chatActive");
+        contactList.classList.remove("listInactive", "listActive");
+
+        chatWindow.classList.add("chatActive");
+        contactList.classList.add("listInactive");
+
+        await load_chats(user_id);
+    });
+
+    const parent = document.getElementById("one");
+    parent.appendChild(para);
+}
+
+
+
+document.querySelector(".backToList").addEventListener("click", function () {
+    const chatWindow = document.getElementById("chat-con");
+    const contactList = document.getElementById("one");
+
+    chatWindow.classList.remove("chatInactive", "chatActive");
+    contactList.classList.remove("listInactive", "listActive");
+
+    chatWindow.classList.add("chatInactive");
+    contactList.classList.add("listActive");
+});
+
+*/
