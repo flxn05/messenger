@@ -168,6 +168,143 @@ img {
   box-shadow: 12px 12px 44px rgba(25, 110, 81, .5);
 }
 
+.animate {
+  animation: colors ease 5s .5s both;
+}
+@keyframes important {
+  0% {scale: 1;}
+  50% {scale: 1.15; filter: brightness(1.15); rotate: 1deg;}
+  100% {scale: 1;}
+}
+
+@keyframes secret {
+  0% {filter: blur(10px) saturate(0) brightness(.2); scale: .9;}
+  330% {filter: blur(5px);}
+  100% {filter: blur(0);}
+}
+
+
+@keyframes fun {
+  0%, 100% {transform: scaleX(1);}
+  50% {transform: scaleX(1.5); rotate: 5deg; translate: 0 -24px;}
+}
+
+@keyframes joy {
+  0%, 100% {transform: translateY(0);}
+  50% {transform: translateY(-44px); filter: brightness(1.2); scale: 1.05;}
+}
+
+@keyframes white {
+  0% {background-color: var(--font);}
+  100% {background-color: rgba(255, 255, 255, 0.4);}
+}
+
+@keyframes colors {
+  0%   { background-color: hsl(234, 100%, 50%); }
+  1%   { background-color: hsl(57, 100%, 50%); }
+  2%   { background-color: hsl(143, 100%, 50%); }
+  3%   { background-color: hsl(300, 100%, 50%); }
+  4%   { background-color: hsl(18, 100%, 50%); }
+  5%   { background-color: hsl(276, 100%, 50%); }
+  6%   { background-color: hsl(105, 100%, 50%); }
+  7%   { background-color: hsl(201, 100%, 50%); }
+  8%   { background-color: hsl(336, 100%, 50%); }
+  9%   { background-color: hsl(189, 100%, 50%); }
+  10%  { background-color: hsl(72, 100%, 50%); }
+  11%  { background-color: hsl(159, 100%, 50%); }
+  12%  { background-color: hsl(33, 100%, 50%); }
+  13%  { background-color: hsl(249, 100%, 50%); }
+  14%  { background-color: hsl(123, 100%, 50%); }
+  15%  { background-color: hsl(90, 100%, 50%); }
+  16%  { background-color: hsl(312, 100%, 50%); }
+  17%  { background-color: hsl(174, 100%, 50%); }
+  18%  { background-color: hsl(45, 100%, 50%); }
+  19%  { background-color: hsl(267, 100%, 50%); }
+  20%  { background-color: hsl(198, 100%, 100%); }
+  21%  { background-color: hsl(357, 100%, 50%); }
+  22%  { background-color: hsl(66, 100%, 50%); }
+  23%  { background-color: hsl(138, 100%, 50%); }
+  24%  { background-color: hsl(111, 100%, 50%); }
+  25%  { background-color: hsl(15, 100%, 50%); }
+  26%  { background-color: hsl(285, 100%, 50%); }
+  27%  { background-color: hsl(195, 100%, 0%); }
+  28%  { background-color: hsl(246, 100%, 100%); }
+  29%  { background-color: hsl(27, 100%, 50%); }
+  30%  { background-color: hsl(171, 50%, 50%); }
+  31%  { background-color: hsl(87, 100%, 50%); }
+  32%  { background-color: hsl(120, 100%, 50%); }
+  33%  { background-color: hsl(303, 100%, 50%); }
+  34%  { background-color: hsl(60, 0%, 50%); }
+  35%  { background-color: hsl(252, 100%, 50%); }
+  36%  { background-color: hsl(6, 100%, 50%); }
+  37%  { background-color: hsl(162, 100%, 50%); }
+  38%  { background-color: hsl(96, 100%, 50%); }
+  39%  { background-color: hsl(216, 100%, 50%); }
+  40%  { background-color: hsl(123, 100%, 50%); }
+  41%  { background-color: hsl(282, 100%, 50%); }
+  42%  { background-color: hsl(39, 100%, 50%); }
+  43%  { background-color: hsl(267, 100%, 50%); }
+  44%  { background-color: hsl(108, 100%, 50%); }
+  45%  { background-color: hsl(339, 100%, 50%); }
+  46%  { background-color: hsl(177, 100%, 50%); }
+  47%  { background-color: hsl(240, 100%, 50%); }
+  48%  { background-color: hsl(81, 100%, 50%); }
+  49%  { background-color: hsl(150, 100%, 50%); }
+  50%  { background-color: hsl(0, 100%, 50%); }
+  51%  { background-color: hsl(228, 100%, 50%); }
+  52%  { background-color: hsl(117, 100%, 50%); }
+  53%  { background-color: hsl(93, 100%, 50%); }
+  54%  { background-color: hsl(351, 100%, 50%); }
+  55%  { background-color: hsl(210, 100%, 50%); }
+  56%  { background-color: hsl(165, 100%, 50%); }
+  57%  { background-color: hsl(69, 100%, 50%); }
+  58%  { background-color: hsl(312, 100%, 50%); }
+  59%  { background-color: hsl(255, 100%, 50%); }
+  60%  { background-color: hsl(132, 100%, 50%); }
+  61%  { background-color: hsl(222, 100%, 50%); }
+  62%  { background-color: hsl(99, 100%, 50%); }
+  63%  { background-color: hsl(24, 100%, 50%); }
+  64%  { background-color: hsl(282, 100%, 50%); }
+  65%  { background-color: hsl(183, 100%, 50%); }
+  66%  { background-color: hsl(351, 100%, 50%); }
+  67%  { background-color: hsl(75, 100%, 50%); }
+  68%  { background-color: hsl(147, 100%, 50%); }
+  69%  { background-color: hsl(36, 100%, 50%); }
+  70%  { background-color: hsl(258, 100%, 50%); }
+  71%  { background-color: hsl(114, 100%, 50%); }
+  72%  { background-color: hsl(213, 100%, 50%); }
+  73%  { background-color: hsl(321, 100%, 50%); }
+  74%  { background-color: hsl(204, 100%, 50%); }
+  75%  { background-color: hsl(87, 100%, 50%); }
+  76%  { background-color: hsl(129, 100%, 50%); }
+  77%  { background-color: hsl(51, 100%, 50%); }
+  78%  { background-color: hsl(291, 100%, 50%); }
+  79%  { background-color: hsl(198, 100%, 50%); }
+  80%  { background-color: hsl(357, 100%, 50%); }
+  81%  { background-color: hsl(105, 100%, 50%); }
+  82%  { background-color: hsl(165, 100%, 50%); }
+  83%  { background-color: hsl(297, 100%, 50%); }
+  84%  { background-color: hsl(72, 100%, 50%); }
+  85%  { background-color: hsl(240, 100%, 50%); }
+  86%  { background-color: hsl(180, 100%, 50%); }
+  87%  { background-color: hsl(306, 100%, 50%); }
+  88%  { background-color: hsl(144, 100%, 50%); }
+  89%  { background-color: hsl(21, 100%, 50%); }
+  90%  { background-color: hsl(264, 100%, 50%); }
+  91%  { background-color: hsl(111, 100%, 50%); }
+  92%  { background-color: hsl(183, 100%, 50%); }
+  93%  { background-color: hsl(318, 100%, 50%); }
+  94%  { background-color: hsl(237, 100%, 50%); }
+  95%  { background-color: hsl(54, 100%, 50%); }
+  96%  { background-color: hsl(171, 100%, 50%); }
+  97%  { background-color: hsl(309, 100%, 50%); }
+  98%  { background-color: hsl(42, 100%, 50%); }
+  99%  { background-color: hsl(123, 100%, 50%); }
+  100% { background-color: hsl(234, 100%, 50%); }
+}
+
+
+
 #chatName {
   position: fixed;
   top: 4vh;                             /* only for development */
