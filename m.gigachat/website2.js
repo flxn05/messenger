@@ -40,7 +40,7 @@ async function check(){
 	}
 }
 
-check();
+//check();
 
 async function logout(){
 	const res = await account.deleteSessions();
@@ -360,6 +360,9 @@ async function check_update2(){
 
 setTimeout(update_users, 200);
 setInterval(check_update2, 2000);
+
+
+
 
 //      .---.
 //     /     \

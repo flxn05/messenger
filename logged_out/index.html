@@ -6,14 +6,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Logged Out | gigaChat</title>
   <style>
-    ::selection {
-      background-color: white;
-      color: black;
-      color: #141c23;
+    :root {
+      --main: hsl(0, 0%, 10%);
+      --pop: hsl(0, 0%, 25%);
+      --primary: hsl(162, 82%, 45%);
+      --secondary: hsl(162, 82%, 20%);
+      --font: hsl(0, 0%, 95%);
+      --light: hsl(0, 0%, 65%);
+    }
+
+    *:focus {
+      outline: none;
     }
 
     body {
-      background-color: #202020;
+      background-color: var(--main);
       color: white;
       display: flex;
       justify-content: center;
@@ -27,11 +34,8 @@
       height: 555px;
       max-height: 80vh;
       max-width: 80vw;
-      border-radius: 24px;
-      border-top-left-radius: 4px;
+      border-radius: 3rem;
       padding: 45px;
-      background-color: #2c2c2c;
-      border: solid #3d3d3d 2px;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -42,25 +46,22 @@
     }
 
     #login_button {
-      height: 3rem;
-      border: none;
-      padding-inline: 14px;
-      text-align: center;
-      font-style: italic;
-      color: white;
-      margin-bottom: 12px;
-      width: 180px;
-      background-color: #005c4b;
-      border-radius: 8px;
-      border-top-right-radius: 0;
-      width: 208px;
+      border-radius: 20px;
+      padding-block: 12px;
+      padding-inline: 20px;
+      color: var(--font);
+      font-size: 1.2rem;
+      letter-spacing: 1px;
       font-weight: bold;
-      font-size: 1.1rem;
       cursor: pointer;
+      background-image: linear-gradient(45deg, var(--primary), var(--secondary));
+      border: none;
+      color: var(--font);
+      margin-top: 5vh;
     }
 
     span {
-      font-size: 2.5rem;
+      font-size: 2rem;
       color: gray;
       font-weight: bold;
     }
@@ -68,8 +69,35 @@
     .content {
       color: white;
       font-weight: bold;
-      font-size: 1.5rem;
+      font-size: 2.25rem;
     }
+
+    .rotate1 {
+      transform: rotateX(45deg);
+    }
+
+    .rotate2 {
+      transform: rotateX(315deg);
+    }
+
+    .gradient-text {
+        background: linear-gradient(120deg, var(--primary), var(--secondary)); /* Adjust colors as desired */
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-weight: bold;
+      }
+      .gradient-text2 {
+        background: linear-gradient(to top, var(--font),  var(--main)); /* Adjust colors as desired */
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-weight: bold;
+      }
+      .gradient-text3 {
+        background: linear-gradient(to bottom, var(--font), var(--main)); /* Adjust colors as desired */
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-weight: bold;
+      }
   </style>
 </head>
 <script>
@@ -82,12 +110,19 @@
 
 <body>
   <main>
-    <p><span>Hey!</span>
-    <div class="space" style="margin-bottom: .1rem;"></div>
-    <div class="content">please log in to use gigaCHAT!</div>
-    </p>
-    <button id="login_button" onclick="linkkk()">Login</button>
 
+  
+    <div class="rotate1">
+      <p class="gradient-text2"><span>Tu sesión ha terminado.</span></p>
+    </div>
+    <div class="content gradient-text">Your session has ended.</div>
+    <div class="rotate2">
+      <p class="gradient-text3"><span>Sitzung beendet.</span></p>
+    </div>
+  
+    <a href="https://gigachat.ddns.net/login">
+      <button id="login_button" onclick="linkkk()">Login</button>
+    </a>
   </main>
 </body>
 

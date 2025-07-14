@@ -23,44 +23,44 @@
     <button id="addNewBtn" onclick="document.getElementById('addMenu').style.display = 'flex'"><img src="close.svg" alt="new"></button>
     </section>
     <section id="searchSection">
-    <input type="text" class="text-input" id="search-box" placeholder="Search">
+    <input type="text" class="text-input" id="search-box" placeholder="Durchsuchen">
     </section> 
   </nav>
 
   <div id="popupMenu" class="hidden">
-    <button id="changeTheme" class="primary">Switch Theme</button>
+    <button id="changeTheme" class="primary">Design ändern</button>
     <a href="espanol.html"><button id="changeLanguage" class="primary">Español</button></a>
-    <a href="deutsch.html"><button id="changeLanguage" class="primary">Deutsch</button></a>
-    <button>Set as default (English)</button>
-    <button id="logout" class="secondary" onclick="logout()" style="color: red;">Logout</button>
+    <a href="index.html"><button id="changeLanguage" class="primary">English</button></a>
+    <button>Sprache beibehalten (Deutsch)</button>
+    <button id="logout" class="secondary" onclick="logout()" style="color: red;">Ausloggen</button>
   </div>
 
   <main id="main">
     <div class="one" id="one">
-      <div id="loadDefault" class="chat-box" style="color: var(--light); font-weight: normal;">load default ....</div>
-      <div class="chat-box" style="color: var(--light); font-weight: normal;">loading ....</div>
-      <div class="chat-box" style="color: var(--light); font-weight: normal;">loading ....</div>
-      <div class="chat-box" style="color: var(--light); font-weight: normal;">loading ....</div>
-      <div class="chat-box" style="color: var(--light); font-weight: normal;">loading ....</div>
-      <div class="chat-box" style="color: var(--light); font-weight: normal;">loading ....</div>
-      <div class="chat-box" style="color: var(--light); font-weight: normal;">loading ....</div>
-      <div class="chat-box" style="color: var(--light); font-weight: normal;">loading ....</div>
-      <div class="chat-box" style="color: var(--light); font-weight: normal;">loading ....</div>
-      <div class="chat-box" style="color: var(--light); font-weight: normal;">loading ....</div>
-      <div class="chat-box" style="color: var(--light); font-weight: normal;">loading ....</div>
-      <div class="chat-box" style="color: var(--light); font-weight: normal;">loading ....</div>
-      <div class="chat-box" style="color: var(--light); font-weight: normal;">loading ....</div>
-      <div class="chat-box" style="color: var(--light); font-weight: normal;">loading ....</div>
-      <div class="chat-box" style="color: var(--light); font-weight: normal;">loading ....</div>
-      <div class="chat-box" style="color: var(--light); font-weight: normal;">loading ....</div>
-      <div class="chat-box" style="color: var(--light); font-weight: normal;">loading ....</div>
-      <div class="chat-box" style="color: var(--light); font-weight: normal;">loading ....</div>
-      <div class="chat-box" style="color: var(--light); font-weight: normal;">loading ....</div>
-      <div class="chat-box" style="color: var(--light); font-weight: normal;">loading ....</div>
+      <div class="chat-box" style="color: var(--light); font-weight: normal;">lädt ....</div>
+      <div class="chat-box" style="color: var(--light); font-weight: normal;">lädt ....</div>
+      <div class="chat-box" style="color: var(--light); font-weight: normal;">lädt ....</div>
+      <div class="chat-box" style="color: var(--light); font-weight: normal;">lädt ....</div>
+      <div class="chat-box" style="color: var(--light); font-weight: normal;">lädt ....</div>
+      <div class="chat-box" style="color: var(--light); font-weight: normal;">lädt ....</div>
+      <div class="chat-box" style="color: var(--light); font-weight: normal;">lädt ....</div>
+      <div class="chat-box" style="color: var(--light); font-weight: normal;">lädt ....</div>
+      <div class="chat-box" style="color: var(--light); font-weight: normal;">lädt ....</div>
+      <div class="chat-box" style="color: var(--light); font-weight: normal;">lädt ....</div>
+      <div class="chat-box" style="color: var(--light); font-weight: normal;">lädt ....</div>
+      <div class="chat-box" style="color: var(--light); font-weight: normal;">lädt ....</div>
+      <div class="chat-box" style="color: var(--light); font-weight: normal;">lädt ....</div>
+      <div class="chat-box" style="color: var(--light); font-weight: normal;">lädt ....</div>
+      <div class="chat-box" style="color: var(--light); font-weight: normal;">lädt ....</div>
+      <div class="chat-box" style="color: var(--light); font-weight: normal;">lädt ....</div>
+      <div class="chat-box" style="color: var(--light); font-weight: normal;">lädt ....</div>
+      <div class="chat-box" style="color: var(--light); font-weight: normal;">lädt ....</div>
+      <div class="chat-box" style="color: var(--light); font-weight: normal;">lädt ....</div>
+      <div class="chat-box" style="color: var(--light); font-weight: normal;">lädt ....</div>
     </div>
 
-      <div class="text-input-con" id="text-input-con">
-      <input type="text" class="text-input" id="text_input" placeholder="Message">
+      <div class="text-input-con">
+      <input type="text" class="text-input" id="text_input" placeholder="Nachricht">
       <button type="button" id="send-msg" onclick="send_msg()">
         <img src="send.png" alt="send" id="sendIcon"></button>
       </div>
@@ -71,9 +71,9 @@
 
       <div class="chat-con" id="chat-con">
         <div id="backToList"><img src="back.png" alt="back"></div>
-        <div id="chatName" onclick="document.getElementById('infoMenu').classList.toggle('grid'); document.getElementById('chatName').classList.toggle('infoMenuMorph');">
+        <div id="chatName">
          <div id="contact">"Neue Gruppe"</div>
-        <div id="contactType">Group chat</div>
+        <div id="contactType">Gruppenchat</div>
         </div>
 
         <!--message-->
@@ -216,10 +216,10 @@ message
 
     <div id="chatNameManage">
       <div id="contactManage"><div id="previewChatName"></div></div>
-     <div id="contactTypeManage">unset</div>
+     <div id="contactTypeManage">n.v.</div>
      </div>
 
-    <h1>Manage Chats</h1>
+    <h1>Chats verwalten</h1>
 
   <section id="addGroup">
 
@@ -230,59 +230,61 @@ message
     </section>
 
     <section id="userListSection">
-      <label for="userList">Members</label>
+      <label for="userList">Mitglieder</label>
       <input id="userList" oninput="
       const c = (this.value.match(/:/g) || []).length;
       document.getElementById('contactTypeManage').textContent =
-        c === 0 ? 'Invalid' : (c === 1 ? 'Contact' : 'Group chat');
-    " placeholder="user:user:user">
+        c === 0 ? 'ungültig' : (c === 1 ? 'Kontakt' : 'Gruppenchat');
+    " placeholder="name1:name2:name3">
     </section>
     <section>
-      <div id="importantNoteAddGroup">Include yourself if needed.</div>
+      <div id="importantNoteAddGroup">Falls nötig, füge dich selber hinzu.</div>
     </section>
 
     <section id="cancelCreate">
-      <button id="cancelBtn" onclick="document.getElementById('addMenu').style.display = 'none';" class="secondary">Cancel</button>
-      <button id="createBtn" class="primary">Create</button>
+      <button id="cancelBtn" onclick="document.getElementById('addMenu').style.display = 'none';" class="secondary">Abbrechen</button>
+      <button id="createBtn" class="primary">Erstellen</button>
     </section>
 
   </section>
   </div>
 </aside>
 
-<div id="infoMenu">
-  <div></div>
-  <h3>Info</h3>
-  <div></div>
-  <div>Joni</div>
-  <div>David</div>
-  <div>Felix</div>
-  <div>Michi</div>
-  <div>Flo</div>
-</div>
-
-<script>
+<!--<script>
   document.getElementById('backToList').addEventListener('click', function () {
-    const one = document.getElementById('one');
-    const three = document.getElementById('three');
-    const txtInputCon = document.getElementById('text-input-con');
+  const one = document.getElementById('one');
+  const nav = document.getElementById('nav');
+  const three = document.getElementById('three');
+  const chatCon = document.getElementById('chat-con');
+  const textInputCon = document.querySelector('.text-input-con');
 
-    three.style.display = 'none';
-    one.style.display = 'grid';
-    txtInputCon.style.display = 'none';
-  });
+  one.classList.add('listActive');
+  nav.classList.add('listActive');
+  three.classList.add('chatInactive');
+  chatCon.classList.add('chatInactive');
 
+  setTimeout(() => {
+    one.classList.remove('listActive');  // Korrektur hier
+    one.classList.add('listNowActive');   // Korrektur hier
+    nav.classList.remove('listActive');
+    nav.classList.add('listNowActive');
 
-  document.getElementById('loadDefault').addEventListener('click', function () {
-    const one = document.getElementById('one');
-    const three = document.getElementById('three');
-    const txtInputCon = document.getElementById('text-input-con');
+    three.classList.remove('chatInactive');
+    three.classList.add('chatNowInactive');
+    chatCon.classList.remove('chatInactive');
+    chatCon.classList.add('chatNowInactive');
+  }, 8000);
 
-    three.style.display = 'grid';
-    one.style.display = 'none';
-    txtInputCon.style.display = 'flex';
-  });
+  textInputCon.classList.add('removeMsgCon');
+
+  setTimeout(() => {
+    textInputCon.classList.remove('removeMsgCon');
+    textInputCon.classList.add('removedMsgCon');
+  }, 5000);
+});
+
 </script>
+-->
 
 
   <script>
