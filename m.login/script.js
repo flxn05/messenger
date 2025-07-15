@@ -2,21 +2,7 @@ const gigachat = "https://gigachat.ddns.net/gigachat";
 
 
 const fail_msgs = [
-    "are you sure you remember your password?",
-    "did you forget how to type?",
-    "nice try, but wrong password or username!",
-    "you shall not pass!",
-    "invalid credentials detected!",
-    "access denied. Try again!",
-    "error 404: user/password not found!",
-    "you're not authorized to login!",
-    "invalid username or password.",
-    "incorrect login details. Try again!",
-    "access denied. invalid credentials!",
-    "invalid login; try again!",
-    "do you even know how 'typing' is spelled?",
-    "sure ur not a ghost? you're not in our database...",
-    "with great power comes great responsibility, but with a wrong username or password youl'll get neither of them"
+    "error"
 ];
 
 //15 entries 

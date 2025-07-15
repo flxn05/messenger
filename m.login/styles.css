@@ -1,93 +1,196 @@
-* {
-  box-sizing: border-box;
-  color: white;
-  font-family: Arial, Helvetica, sans-serif;
-  text-align: center;
-  font-size: 1rem;
-}
 :root {
   --main: hsl(0, 0%, 10%);
   --pop: hsl(0, 0%, 25%);
-  --primary: hsl(162, 82%, 40%);
-  --secondary: hsl(162, 82%, 25%);
+  --primary: hsl(162, 82%, 45%);
+  --secondary: hsl(162, 82%, 20%);
   --font: hsl(0, 0%, 95%);
   --light: hsl(0, 0%, 65%);
 }
+
+* {
+  font-family: 'Inter', sans-serif;
+}
+
 *:focus {
   outline: none;
 }
-.active {
-  display: block;
-}
 body {
+  background-color: var(--main);
+  overflow-y: scroll;
+  overflow-x: hidden;
+  padding-top: 15vh;
+  color: var(--font);
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
-  background-color: var(--main);
-}
-.app {
-  background-color: var(--main);
-  display: grid;
-  grid-template-columns: 1fr;
-  justify-content: center;
-  align-content: center;
-  height: 100vh;
-  width: calc(100vw - 88px);
-  max-width: 1920px;
-}
-a {
-  text-decoration: none;
-  color: white;
+  height: 70vh;
 }
 h1 {
+  z-index: 4;
   font-weight: 600;
   font-size: 1.8rem;
   color: var(--light);
   padding-left: 12px;
-}
-header {
   position: fixed;
   top: 0;
   left: 0;
-  right: 0;
-  display: block;
-  text-align: left;
+  width: 100%;
+  height: calc(1.8rem + 12px);
+  backdrop-filter: blur(10vw) saturate(180%);
+  margin-top: 0;
+  padding-top: .67em;
+}
+a {
+  color: var(--light);
+  text-decoration: none;
+}
+.hidden {
+  display: none;
 }
 
-header p,
-header a {
-  display: none;
+h2, h3 {
+  text-align: center;
+}
+h2 {
+  font-size: 2.25rem;
+}
+h3 {
+  font-size: 2rem;
+}
 
+.gradient-text {
+  background: linear-gradient(120deg, var(--primary), var(--secondary)); /* Adjust colors as desired */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bold;
 }
-main {
-  display: none;
-  padding: 1rem;
-  border-radius: 1rem;
+.gradient-text2 {
+  background: linear-gradient(to top, var(--font),  var(--main)); /* Adjust colors as desired */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bold;
 }
-nav {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.gradient-text3 {
+  background: linear-gradient(to bottom, var(--font), var(--main)); /* Adjust colors as desired */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bold;
 }
-nav div {
+.rotate1 {
+  transform: rotateX(45deg);
+}
+
+.rotate2 {
+  transform: rotateX(315deg);
+}
+button {
+  border-radius: 12px;
+  padding-block: 8px;
+  width: 25vw;
+  font-size: 1.1rem;
+  color: var(--font);
   cursor: pointer;
-  padding-inline: 12%;
-  padding-block: 1rem;
-  border-radius: 1rem;
-  transition: .15s ease all;
-  width: 50%;
+  background-image: linear-gradient(45deg, var(--primary), var(--secondary));
+  border: none;
+  color: var(--font);
+  margin-top: 2rem;
 }
-nav div:hover {
-  background-color: var(--primary);
+
+.mainButton {
+  border-radius: 20px;
+  padding-block: 12px;
+  width: 45vw;
+  color: var(--font);
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+  font-weight: bold;
+  cursor: pointer;
+  background-image: linear-gradient(45deg, var(--primary), var(--secondary));
+  border: none;
+  color: var(--font);
+  margin-top: 5vh;
+  animation: cycle 3s infinite;
 }
-article {
+@keyframes cycle {
+  0%, 100% {color: transparent;}
+  33%, 66% {color: var(--font);}
+}
+
+.moveUp {
+  animation: moveUp1 .66s ease-in-out forwards;
+}
+.moveUp2 {
+  animation: moveUp2 .75s ease-in-out forwards;
+}
+@keyframes moveUp1 {
+  0% {translate: 0 0;}
+  100% {translate: 0 -100vh;}
+}
+@keyframes moveUp2 {
+  0% {translate: 0 -100vh;}
+  100% {translate: 0 -200vh;}
+}
+.moveR {
+  animation: moveR1 .66s ease-in-out forwards;
+}
+.moveR2 {
+  animation: moveR2 .75s ease-in-out forwards;
+}
+@keyframes moveR1 {
+  0% {translate: 0 0;}
+  100% {translate: -100vw 0;}
+}
+@keyframes moveR2 {
+  0% {translate: -100vw 0;}
+  100% {translate: -200vw 0;}
+}
+
+
+.breaker {
+  width: 66vw;
+  height: 1px;
+  background-image: linear-gradient(90deg, var(--main), var(--light), var(--main));
+  border: none;
+  margin: 1.5rem;
+  opacity: 0.5;
+}
+.newHere {
+  color: var(--light);
+}
+.newHere:hover {
+  color: var(--font);
+  text-decoration: underline;
+}
+#mainLog1 {
+  position: fixed;
+  top: 100vh;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  background-image: linear-gradient(var(--main), var(--pop));
+}
+#mainLog2 {
+  position: fixed;
+  top: 200vh;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  background-color: var(--pop);
+}
+#mainLog2 input {
+  background-color: var(--main);
+}
+
+.login_form, .signupPopup {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  margin-top: 3rem;
-  margin-bottom: 1rem;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
 }
-article * {
+input {
   width: calc(100% - (1rem + 18px) - 44px);
   padding-block: 4px;
   padding-inline: 8px;
@@ -96,33 +199,54 @@ article * {
   border: 1px solid rgba(255, 255, 255, 0.1);
   filter: brightness(1.1);
   width: 50vw;
-  margin-block: 4px;
+  color: var(--font);
 }
-::placeholder {
-  color: white;
+
+#namePreview {
+  margin-bottom: 15vh;
 }
-button {
-  background-image: linear-gradient(45deg, var(--primary), var(--secondary));
-  padding-block: 8px;
-  margin-top: 1.5rem;
-  cursor: crosshair;
-}
-footer {
+
+
+
+
+#mainReg1 {
   position: fixed;
-  bottom: .5rem;
-  left: 0;
-  right: 0;
-  display: flex;
-  justify-content: center;
+  top: 0;
+  left: 100vw;
+  right: 200vw;
+  height: 100vh;
+  z-index: 3;
+  background-color: red;
 }
-footer * {
-  font-size: .75rem;
-  color: rgb(86, 86, 86);
-  display: none;
+.signupPopup {
+  background-image: linear-gradient(90deg, var(--main), var(--pop));
 }
-footer a {
-  display: block;
-  border-radius: 1rem;
-  padding-inline: 1rem;
-  padding-block: .1rem;
+
+.signupPopup .gradient-text {
+  background: linear-gradient(120deg, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: left !important;
+  padding-left: 12px;
+}
+.signupPopup h2 {
+  padding-left: 12.5vw !important;
+  font-size: 2rem;
+  margin-block: 4px;
+  filter: brightness(.6);
+}
+.signupPopup h3 {
+  font-size: 1.25rem;
+  width: 100%;
+  padding-left: 25vw !important;
+  margin-bottom: 2rem;
+  margin-top: 4px;
+  filter: brightness(1.1);
+}
+#mainReg1 input {
+  margin-block: 2px;
+}
+.signupPopup button {
+  width: unset;
+  padding-inline: 12px;
 }

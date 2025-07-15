@@ -28,10 +28,25 @@
   </nav>
 
   <div id="popupMenu" class="hidden">
-    <button id="changeTheme" class="primary">Switch Theme</button>
+    <button id="changeTheme" class="primary" onclick="
+    (() => {
+      const id = 'blue-theme';
+      const existing = document.getElementById(id);
+      if (existing) {
+        existing.remove();
+      } else {
+        const link = document.createElement('link');
+        link.id = id;
+        link.rel = 'stylesheet';
+        link.href = 'blue.css';
+        document.head.appendChild(link);
+      }
+    })();
+  ">Switch Theme</button>
     <a href="espanol.html"><button id="changeLanguage" class="primary">Español</button></a>
     <a href="deutsch.html"><button id="changeLanguage" class="primary">Deutsch</button></a>
     <button>Set as default (English)</button>
+    <button onclick="document.getElementById('howTo').style.display = 'block'">How To Install the App</button>
     <button id="logout" class="secondary" onclick="logout()" style="color: red;">Logout</button>
   </div>
 
@@ -249,6 +264,25 @@ message
 
   </section>
   </div>
+
+  <div id="howTo">
+    <h1>How To Install the gigaChat App</h1>
+    <h2>On iOS</h2>
+    <h3>Only works in Safari.</h3>
+    <p>Go to the share menu, scroll down, then click "Add to Home Screen". This will place gigaDrive on your Homescreen and install it.</p>
+    <h2>On Android</h2>
+    <h3>Only works in Google Chrome.</h3>
+    <p>Go to the three dots, look for "Add to Homescreen".
+      It will ask you whether to add gigaChat to the Homescreen or to install it as an PWA.<br>
+      Confirm installation.<br>You will have to wait a bit to have the necessary cache files downloaded.<br>
+      Once finished, you can choose to add it to the Homescreen manually, if not happened automatically.</p>
+      <button id="cancelBtn" onclick="document.getElementById('howTo').style.display = 'none';" class="secondary">Cancel</button>
+  </div>
+
+
+
+
+
 </aside>
 
 <div id="infoMenu">
@@ -287,16 +321,7 @@ message
 
 
   <script>
-    document.getElementById("changeTheme").addEventListener("click", function () {
-        const stylesheet = document.getElementById("themeStylesheet");
-
-
-        if (stylesheet.getAttribute("href") === "m.whatsapp.css") {
-            stylesheet.setAttribute("href", "m.signal.css");
-        } else {
-            stylesheet.setAttribute("href", "m.whatsapp.css");
-        }
-    });
+    
 
     function reloadPage() {
     window.location.reload();
@@ -359,7 +384,6 @@ function closeFocus() {
   imgFocusBg.style.display = 'none';
   closeGallery.style.display = 'none';
 }
-
 
 </script>
 </body>

@@ -1,80 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login | gigaChat</title>
-    <script src="https://cdn.jsdelivr.net/npm/appwrite@16.0.2"></script>
-    <script type="text/javascript" src="script.js"></script>
-    <link rel="icon" type="image/x-icon" href="thumbnail.png">
-    <link rel="stylesheet" href="styles.css">
-    </head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login | gigaChat</title>
+  <script src="https://cdn.jsdelivr.net/npm/appwrite@16.0.2"></script>
+  <script type="text/javascript" src="script.js"></script>
+  <link rel="icon" type="image/x-icon" href="thumbnail.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
 
 
-  </head>
-  <body>
-  <div class="app">
-    <header>
-      <h1>gigaChat</h1>
-    </header>
-  
-    <main class="active" id="signIn">
-      <nav>
-        <div onclick="tSIA()" style="background-color: var(--secondary);">Log In</div>
-        <div onclick="tSUA()">Sign Up</div>
-      </nav>
-      <article id="login_form">
-        <input type="text" name="username" id="username" placeholder="username">
-        <input type="password" name="password" id="password" placeholder="password">
-        <button type="button" id ="login_button" onclick="login()">Login</button>
-      </article>
-    </main>
-  
-  <main id="signUp">
-    <nav>
-      <div onclick="tSIA()">Log In</div>
-      <div onclick="tSUA()" style="background-color: var(--secondary);">Sign Up</div>
-    </nav>
-    <article id="signupPopup">
-      <input placeholder="account username" id="1">
-      <input placeholder="account password" id="2" type="password">
-      <button onclick="signup()">Create</button>
+</head>
+
+<body>
+  <h1 id="gigaChat">gigaChat</h1>
+
+  <div id="headlineCon">
+    <h3 class="gradient-text2 rotate1">¡Bienvenido!</h3>
+    <h2 class="gradient-text">Welcome!</h2>
+    <h3 class="gradient-text3 rotate2">Willkomen!</h3>
+  </div>
+
+  <button class="mainButton" id="login1" onclick="
+document.getElementById('headlineCon').classList.toggle('moveUp');
+document.getElementById('login1').classList.toggle('moveUp');
+document.getElementById('breaker').classList.toggle('moveUp');
+document.getElementById('newHere').classList.toggle('moveUp');
+document.getElementById('mainLog1').classList.toggle('moveUp');
+
+">Login</button>
+
+  <div class="breaker" id="breaker"></div>
+
+  <div class="newHere" id="newHere" onclick="
+  document.getElementById('headlineCon').classList.toggle('moveR');
+document.getElementById('login1').classList.toggle('moveR');
+document.getElementById('breaker').classList.toggle('moveR');
+document.getElementById('newHere').classList.toggle('moveR');
+document.getElementById('mainReg1').classList.toggle('moveR');
+">I'm new here.</div>
+
+
+
+
+  <main id="mainLog1">
+    <article class="login_form">
+      <div>
+        <label for="username">Username:</label>
+        <input type="text" name="username" id="username">
+      </div>
+      <button onclick="
+      document.getElementById('mainLog1').classList.toggle('moveUp2');
+      document.getElementById('mainLog2').classList.toggle('moveUp2');
+      ">next</button>
     </article>
   </main>
-  <footer>
-    <p class="mobileonly">Free Online Drive Storage</p>
-    <a class="mobileonly" href="https://github.com/MultimeterManiac/gigaDrive" target="_blank">Source Code</a>
-    <a href="https://icons8.com" target="_blank">Icons by Icons8</a></footer>
-  </div>
-  
-  
+
+  <main id="mainLog2">
+    <article class="login_form">
+      <h2 class="gradient-text" id="namePreview">error</h2>
+      <div>
+        <label for="password">Password:</label>
+        <input type="password" name="password" id="password">
+      </div>
+      <button type="button" id="login_button" onclick="login()">Login</button>
+    </article>
+  </main>
+
+  <main id="mainReg1">
+    <article class="signupPopup">
+      <h2 class="gradient-text">Let's create an account.</h2>
+      <h3 class="gradient-text">It's just one step:</h3>
+      <div>
+        <label for="1:">Username:</label>
+        <input id="1" name="1">
+      </div>
+      <div>
+        <label for="2">Password:</label>
+      <input id="2" type="password" placeholder="strong password" name="2">
+      </div>
+      <button onclick="signup()" id="create">Let's go</button>
+    </article>
+  </main>
+
+
+  <footer class="hidden">
+    <a href="https://github.com/MultimeterManiac/gigaDrive" target="_blank">Source Code</a>
+    <a href="https://icons8.com" target="_blank">Icons by Icons8</a>
+  </footer>
   <script>
-    let signIn = document.getElementById("signIn");
-    let signUp = document.getElementById("signUp");
-      function tSIA() { // when user clicks on sign in, its class will be toggled.
-        signIn.classList.add("active");
-        signUp.classList.remove("active");
-      }
-  
-      function tSUA() { // when user clicks on sign up, its class will be toggled.
-        signIn.classList.remove("active");
-        signUp.classList.add("active");
-      }
+    const loginButton = document.getElementById('login1');
+    const buttonTexts = ["Login", "Iniciar", "Einloggen"];
+    let currentIndex = 0;
+
+    setInterval(() => {
+      currentIndex = (currentIndex + 1) % buttonTexts.length;
+      loginButton.textContent = buttonTexts[currentIndex];
+    }, 3000);
   </script>
-  </body>
-  </html>
+
+  <script>
+    const usernameInput = document.getElementById('username');
+    const namePreview = document.getElementById('namePreview');
+
+    usernameInput.addEventListener('input', function () {
+      const name = usernameInput.value.trim();
+      namePreview.textContent = name ? `Hi, ${name}!` : '';
+    });
+  </script>
 
 
+</body>
 
-
-
-
-
-
-
-
-
-
-
-
-
+</html>

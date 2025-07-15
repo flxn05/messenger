@@ -1,0 +1,12 @@
+:root {
+  --main: hsl(0, 0%, 5%);
+  --pop: hsl(0, 0%, 10%);
+  --primary: hsl(212, 67%, 42%);
+  --secondary: hsl(212, 67%, 25%);
+  --font: hsl(0, 0%, 95%);
+  --light: hsl(0, 0%, 65%);
+}
+
+.msg-content-tx {
+box-shadow: 12px 12px 44px rgba(25, 79, 110, 0.5);
+}
