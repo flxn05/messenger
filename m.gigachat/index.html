@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,22 +12,26 @@
   <script src="client.js"></script>
   <link rel="manifest" href="manifest.json">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
   <!--//usually width= 420px
   //usually height= 800px-->
 </head>
+
 <body>
+  <div id="dynamicIsland"></div>
   <nav id="nav">
     <section id="headsection">
-    <h1
-    onclick="document.getElementById('popupMenu').style.display = 'grid'" id="gigaChat">
-    gigaChat</h1>
-    <button id="addNewBtn" onclick="document.getElementById('addMenu').style.display = 'flex'"><img src="close.svg" alt="new"></button>
+      <h1 onclick="document.getElementById('popupMenu').style.display = 'grid'" id="gigaChat">
+        gigaChat</h1>
+      <button id="addNewBtn" onclick="document.getElementById('addMenu').style.display = 'flex'"><img src="close.svg"
+          alt="new"></button>
     </section>
     <section id="searchSection">
-    <input type="text" class="text-input" id="search-box" placeholder="Search">
-    </section> 
+      <input type="text" class="text-input" id="search-box" placeholder="Search">
+    </section>
   </nav>
 
   <div id="popupMenu" class="hidden">
@@ -76,21 +81,22 @@
       <div class="chat-box" style="color: var(--light); font-weight: normal;">loading ....</div>
     </div>
 
-      <div class="text-input-con" id="text-input-con">
+    <div class="text-input-con" id="text-input-con">
       <input type="text" class="text-input" id="text_input" placeholder="Message">
       <button type="button" id="send-msg" onclick="send_msg()">
         <img src="send.png" alt="send" id="sendIcon"></button>
-      </div>
+    </div>
     </div>
     <div class="three" id="three">
-<!--/bottom-->
-<div class="bottomBlur"></div>
+      <!--/bottom-->
+      <div class="bottomBlur"></div>
 
       <div class="chat-con" id="chat-con">
         <div id="backToList"><img src="back.png" alt="back"></div>
-        <div id="chatName" onclick="document.getElementById('infoMenu').classList.toggle('grid'); document.getElementById('chatName').classList.toggle('infoMenuMorph');">
-         <div id="contact">"Neue Gruppe"</div>
-        <div id="contactType">Group chat</div>
+        <div id="chatName"
+          onclick="document.getElementById('infoMenu').classList.toggle('grid'); document.getElementById('chatName').classList.toggle('infoMenuMorph');">
+          <div id="contact">"Neue Gruppe"</div>
+          <div id="contactType">Group chat</div>
         </div>
 
         <!--message-->
@@ -104,31 +110,41 @@
 
         <!--message-->
         <div class="msg-tx">
-          <div class="msg-content-tx">HI HOW ARE YOU ESTAS BIEN? Lorem, ipsum dolor sit elit. Assumenda consectetur deleniti sint animi aspernatur eaque similique blanditiis voluptas, eius nihil repellendus!</div>
+          <div class="msg-content-tx">HI HOW ARE YOU ESTAS BIEN? Lorem, ipsum dolor sit elit. Assumenda consectetur
+            deleniti sint animi aspernatur eaque similique blanditiis voluptas, eius nihil repellendus!</div>
         </div>
-      <!--message-->
-      <div class="msg-rx">
-        <div class="msg-content-rx">Hi!</div>
-      </div>
-      <!--message-->
-      <div class="msg-tx">
-        <div class="msg-content-tx">HI HOW ARE YOU ESTAS BIEN?</div>
-      </div>
+        <!--message-->
+        <div class="msg-rx">
+          <div class="msg-content-rx">Hi!</div>
+        </div>
+        <!--message-->
+        <div class="msg-tx">
+          <div class="msg-content-tx">HI HOW ARE YOU ESTAS BIEN?</div>
+        </div>
 
-      <!--message-->
-      <div class="msg-tx">
-        <div class="msg-content-tx animate">HI HOW ARE YOU ESTAS BIEN? Lorem, ipsum dolor sit elit. Assumenda consectetur deleniti sint animi aspernatur eaque similique blanditiis voluptas, eius nihil repellendus!</div>
-      </div>
+        <!--message-->
+        <div class="msg-tx">
+          <div class="msg-content-tx animate">HI HOW ARE YOU ESTAS BIEN? Lorem, ipsum dolor sit elit. Assumenda
+            consectetur deleniti sint animi aspernatur eaque similique blanditiis voluptas, eius nihil repellendus!
+          </div>
+        </div>
 
 
         <!--message-->
         <div class="msg-rx">
           <div class="msg-content-rx" style="max-width: 100%; line-height: 1.5rem;">
-            Our developers:
-            Sigma Boii
+            Oui
             /fire
           </div>
         </div>
+
+        <!--message-->
+        <div class="msg-rx">
+          <div class="msg-content-rx" style="max-width: 100%; line-height: 1.5rem;">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores repudiandae velit quod modi assumenda nam facilis voluptates, ducimus vel ad odio fugiat amet tempora iste minima? Fuga accusamus officiis tempore!
+          </div>
+        </div>
+
         <!--message-->
         <div class="msg-rx">
           <div class="msg-content-rx">Hasta Luego!</div>
@@ -136,31 +152,49 @@
 
         <!--message-->
         <div class="msg-rx">
-          <div class="msg-content-rx">HHI HOW ARE YOU ESTAS BIEN? Lorem, ipsum dolor sit elit. Assumenda consectetur deleniti sint animi aspernatur eaque similique blanditiis voluptas, eius nihil repellendusgo!</div>
+          <div class="msg-content-rx">HHI HOW ARE YOU ESTAS BIEN? Lorem, ipsum dolor sit elit. Assumenda consectetur
+            deleniti sint animi aspernatur eaque similique blanditiis voluptas, eius nihil repellendusgo!</div>
         </div>
+<!--message-->
+<div class="msg-rx">
+  <div class="msg-content-rx">HHI HOW ARE YOU ESTAS BIEN? Lorem, ipsum dolor sit elit. Assumenda consectetur
+    deleniti sint animi aspernatur eaque similique blanditiis voluptas, eius nihil repellendusgo!</div>
+</div>
 
+<!--message-->
+<div class="msg-rx">
+  <div class="msg-content-rx">HHI HOW ARE YOU ESTAS BIEN? Lorem, ipsum dolor sit elit. Assumenda consectetur
+    deleniti sint animi aspernatur eaque similique blanditiis voluptas, eius nihil repellendusgo!</div>
+</div>
+
+<!--message-->
+<div class="msg-rx">
+  <div class="msg-content-rx">HHI HOW ARE YOU ESTAS BIEN? Lorem, ipsum dolor sit elit. Assumenda consectetur
+    deleniti sint animi aspernatur eaque similique blanditiis voluptas, eius nihil repellendusgo!</div>
+</div>
 
         <!--message-->
         <div class="msg-tx">
           <div class="msg-content-tx">?</div>
-       </div>
+        </div>
 
 
 
 
-         <!--message-->
+        <!--message-->
         <div class="msg-rx">
           <div class="msg-content-rx">Hasta Luego!</div>
         </div>
 
-              <!--message-->
-      <div class="msg-tx">
-        <div class="msg-content-tx">HI HOW ARE YOU ESTAS BIEN? Lorem, ipsum dolor sit elit. Assumenda consectetur deleniti sint animi aspernatur eaque similique blanditiis voluptas, eius nihil repellendus!</div>
-      </div>
+        <!--message-->
+        <div class="msg-tx">
+          <div class="msg-content-tx">HI HOW ARE YOU ESTAS BIEN? Lorem, ipsum dolor sit elit. Assumenda consectetur
+            deleniti sint animi aspernatur eaque similique blanditiis voluptas, eius nihil repellendus!</div>
+        </div>
 
 
 
-<!--message
+        <!--message
 <div class="msg-rx">
   <div class="voice-content-rx">
     <div class="voice-content-name">Name:</div>
@@ -204,19 +238,19 @@ message
 </div>
 
       </div> chat con-->
-    </div> <!--three-->
+      </div> <!--three-->
 
 
- <div id="mediaAreaFocus">
-<!--#media-img-focus for fullscreen viewing. display none is default-->
-<!-- MEDIA AREA FOR FOCUS -->
+      <div id="mediaAreaFocus">
+        <!--#media-img-focus for fullscreen viewing. display none is default-->
+        <!-- MEDIA AREA FOR FOCUS -->
 
-<img id="closeGallery" src="close.svg" alt="close" onclick="closeFocus()">
+        <img id="closeGallery" src="close.svg" alt="close" onclick="closeFocus()">
 
 
-<img src="910205.png" id="media-img-focus-bg" alt="Error displaying media. Contact gigaChat developers.">
-<img src="910205.png" id="media-img-focus" alt="Error displaying media. Contact gigaChat developers.">
-<!--new img--><!--this is an example.
+        <img src="910205.png" id="media-img-focus-bg" alt="Error displaying media. Contact gigaChat developers.">
+        <img src="910205.png" id="media-img-focus" alt="Error displaying media. Contact gigaChat developers.">
+        <!--new img--><!--this is an example.
 
 [ERROR: THE CODE OPENS THE OTHER IMAGE (MAYBE BACUASE IT IS THE FIRST???)]
 
@@ -225,168 +259,175 @@ message
 <img src="microphone.png" id="media-img-focus" alt="nogger shock">
  -->
 
- </div>
+      </div>
 
   </main>
 
-<aside>
-  <div id="addMenu">
+  <aside>
+    <div id="addMenu">
 
-    <div id="chatNameManage">
-      <div id="contactManage"><div id="previewChatName"></div></div>
-     <div id="contactTypeManage">unset</div>
-     </div>
+      <div id="chatNameManage">
+        <div id="contactManage">
+          <div id="previewChatName"></div>
+        </div>
+        <div id="contactTypeManage">unset</div>
+      </div>
 
-    <h1>Manage Chats</h1>
+      <h1>Manage Chats</h1>
 
-  <section id="addGroup">
+      <section id="addGroup">
 
-    <section id="groupNameSection">
-      <label for="groupName">Name</label>
-      <input id="groupName" oninput="document.getElementById('previewChatName').textContent = this.value;" autofocus>
+        <section id="groupNameSection">
+          <label for="groupName">Name</label>
+          <input id="groupName" oninput="document.getElementById('previewChatName').textContent = this.value;"
+            autofocus>
 
-    </section>
+        </section>
 
-    <section id="userListSection">
-      <label for="userList">Members</label>
-      <input id="userList" oninput="
+        <section id="userListSection">
+          <label for="userList">Members</label>
+          <input id="userList" oninput="
       const c = (this.value.match(/:/g) || []).length;
       document.getElementById('contactTypeManage').textContent =
         c === 0 ? 'Invalid' : (c === 1 ? 'Contact' : 'Group chat');
     " placeholder="user:user:user">
-    </section>
-    <section>
-      <div id="importantNoteAddGroup">Include yourself if needed.</div>
-    </section>
+        </section>
+        <section>
+          <div id="importantNoteAddGroup">Include yourself if needed.</div>
+        </section>
 
-    <section id="cancelCreate">
-      <button id="cancelBtn" onclick="document.getElementById('addMenu').style.display = 'none';" class="secondary">Cancel</button>
-      <button id="createBtn" class="primary">Create</button>
-    </section>
+        <section id="cancelCreate">
+          <button id="cancelBtn" onclick="document.getElementById('addMenu').style.display = 'none';"
+            class="secondary">Cancel</button>
+          <button id="createBtn" class="primary">Create</button>
+        </section>
 
-  </section>
+      </section>
+    </div>
+
+    <div id="howTo">
+      <h1>How To Install the gigaChat App</h1>
+      <h2>On iOS</h2>
+      <h3>Only works in Safari.</h3>
+      <p>Go to the share menu, scroll down, then click "Add to Home Screen". This will place gigaDrive on your
+        Homescreen and install it.</p>
+      <h2>On Android</h2>
+      <h3>Only works in Google Chrome.</h3>
+      <p>Go to the three dots, look for "Add to Homescreen".
+        It will ask you whether to add gigaChat to the Homescreen or to install it as an PWA.<br>
+        Confirm installation.<br>You will have to wait a bit to have the necessary cache files downloaded.<br>
+        Once finished, you can choose to add it to the Homescreen manually, if not happened automatically.</p>
+      <button id="cancelBtn" onclick="document.getElementById('howTo').style.display = 'none';"
+        class="secondary">Cancel</button>
+    </div>
+
+
+
+
+
+  </aside>
+
+  <div id="infoMenu">
+    <div></div>
+    <h3>Info</h3>
+    <div></div>
+    <div>Joni</div>
+    <div>David</div>
+    <div>Felix</div>
+    <div>Michi</div>
+    <div>Flo</div>
   </div>
 
-  <div id="howTo">
-    <h1>How To Install the gigaChat App</h1>
-    <h2>On iOS</h2>
-    <h3>Only works in Safari.</h3>
-    <p>Go to the share menu, scroll down, then click "Add to Home Screen". This will place gigaDrive on your Homescreen and install it.</p>
-    <h2>On Android</h2>
-    <h3>Only works in Google Chrome.</h3>
-    <p>Go to the three dots, look for "Add to Homescreen".
-      It will ask you whether to add gigaChat to the Homescreen or to install it as an PWA.<br>
-      Confirm installation.<br>You will have to wait a bit to have the necessary cache files downloaded.<br>
-      Once finished, you can choose to add it to the Homescreen manually, if not happened automatically.</p>
-      <button id="cancelBtn" onclick="document.getElementById('howTo').style.display = 'none';" class="secondary">Cancel</button>
-  </div>
+  <script>
+    document.getElementById('backToList').addEventListener('click', function () {
+      const one = document.getElementById('one');
+      const three = document.getElementById('three');
+      const txtInputCon = document.getElementById('text-input-con');
+
+      three.style.display = 'none';
+      one.style.display = 'grid';
+      txtInputCon.style.display = 'none';
+    });
 
 
+    document.getElementById('loadDefault').addEventListener('click', function () {
+      const one = document.getElementById('one');
+      const three = document.getElementById('three');
+      const txtInputCon = document.getElementById('text-input-con');
 
-
-
-</aside>
-
-<div id="infoMenu">
-  <div></div>
-  <h3>Info</h3>
-  <div></div>
-  <div>Joni</div>
-  <div>David</div>
-  <div>Felix</div>
-  <div>Michi</div>
-  <div>Flo</div>
-</div>
-
-<script>
-  document.getElementById('backToList').addEventListener('click', function () {
-    const one = document.getElementById('one');
-    const three = document.getElementById('three');
-    const txtInputCon = document.getElementById('text-input-con');
-
-    three.style.display = 'none';
-    one.style.display = 'grid';
-    txtInputCon.style.display = 'none';
-  });
-
-
-  document.getElementById('loadDefault').addEventListener('click', function () {
-    const one = document.getElementById('one');
-    const three = document.getElementById('three');
-    const txtInputCon = document.getElementById('text-input-con');
-
-    three.style.display = 'grid';
-    one.style.display = 'none';
-    txtInputCon.style.display = 'flex';
-  });
-</script>
+      three.style.display = 'grid';
+      one.style.display = 'none';
+      txtInputCon.style.display = 'flex';
+    });
+  </script>
 
 
   <script>
-    
+
 
     function reloadPage() {
-    window.location.reload();
-}
+      window.location.reload();
+    }
 
 
 
-searchBar.addEventListener('input', function() {
-    const query = this.value.toLowerCase();
-    const items = document.querySelectorAll('#one .chat-box');
+    searchBar.addEventListener('input', function () {
+      const query = this.value.toLowerCase();
+      const items = document.querySelectorAll('#one .chat-box');
 
-    items.forEach(item => {
+      items.forEach(item => {
         const itemText = item.textContent.toLowerCase();
         if (itemText.includes(query)) {
-            item.style.display = '';
+          item.style.display = '';
         } else {
-            item.style.display = 'none';
+          item.style.display = 'none';
         }
+      });
     });
-});
 
 
 
-let playVoiceMsg = document.getElementById('playVoiceMsg');
-let pauseVoiceMsg = document.getElementById('pauseVoiceMsg');
-let soundWaves = document.getElementById('voice-content-waves');
+    let playVoiceMsg = document.getElementById('playVoiceMsg');
+    let pauseVoiceMsg = document.getElementById('pauseVoiceMsg');
+    let soundWaves = document.getElementById('voice-content-waves');
 
-function playClicked() {
-  playVoiceMsg.style.display = 'none';
-  pauseVoiceMsg.style.display = 'flex';
-  soundWaves.style.opacity = '1';
-  //add btn function :: playMedia
-}
+    function playClicked() {
+      playVoiceMsg.style.display = 'none';
+      pauseVoiceMsg.style.display = 'flex';
+      soundWaves.style.opacity = '1';
+      //add btn function :: playMedia
+    }
 
-function pauseClicked() {
-  pauseVoiceMsg.style.display = 'none';
-  playVoiceMsg.style.display = 'flex';
-  soundWaves.style.opacity = '0';
-  //add btn function :: pauseMedia
-}
+    function pauseClicked() {
+      pauseVoiceMsg.style.display = 'none';
+      playVoiceMsg.style.display = 'flex';
+      soundWaves.style.opacity = '0';
+      //add btn function :: pauseMedia
+    }
 
-let galleryView = document.getElementById('mediaAreaFocus');
-let imgFocusBg = document.getElementById('media-img-focus-bg');
-let imgFocus = document.getElementById('media-img-focus');
-let closeGallery = document.getElementById('closeGallery');
+    let galleryView = document.getElementById('mediaAreaFocus');
+    let imgFocusBg = document.getElementById('media-img-focus-bg');
+    let imgFocus = document.getElementById('media-img-focus');
+    let closeGallery = document.getElementById('closeGallery');
 
 
-function enterFocus() {
-  console.log('Entering Gallery view ....');
-  galleryView.style.display = 'block';
-  imgFocus.style.display = 'block';
-  imgFocusBg.style.display = 'block';
-  closeGallery.style.display = 'block';
-}
+    function enterFocus() {
+      console.log('Entering Gallery view ....');
+      galleryView.style.display = 'block';
+      imgFocus.style.display = 'block';
+      imgFocusBg.style.display = 'block';
+      closeGallery.style.display = 'block';
+    }
 
-function closeFocus() {
-  console.log('Closing Gallery view ....');
-  galleryView.style.display = 'none';
-  imgFocus.style.display = 'none';
-  imgFocusBg.style.display = 'none';
-  closeGallery.style.display = 'none';
-}
+    function closeFocus() {
+      console.log('Closing Gallery view ....');
+      galleryView.style.display = 'none';
+      imgFocus.style.display = 'none';
+      imgFocusBg.style.display = 'none';
+      closeGallery.style.display = 'none';
+    }
 
-</script>
+  </script>
 </body>
+
 </html>
